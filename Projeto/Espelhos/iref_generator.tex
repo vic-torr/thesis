@@ -1,0 +1,113 @@
+\renewcommand{\NomeBloco}{\textit{iref\_generator}}
+\renewcommand{\NomeBlocoNoUnderline}{irefgenerator}
+\renewcommand{\NomePTab}{tab_\NomeBlocoNoUnderline}
+\renewcommand{\NomeSTab}{tab_\NomeBlocoNoUnderline2}
+\renewcommand{\NomePFig}{fig_\NomeBlocoNoUnderline}
+\renewcommand{\NomeSFig}{fig_\NomeBlocoNoUnderline2}
+\renewcommand{\NomeTTab}{tab_\NomeBlocoNoUnderline3}
+\renewcommand{\NomeQTab}{tab_\NomeBlocoNoUnderline4}
+
+\subsection{iref\_generator}
+
+O bloco \NomeBloco{}\footnote{Circuito desenvolvido por \textit{Dalton Martini Colombo}, orientador do trabalho aqui apresentado} \'e um espelho de corrente que apresenta algumas sa\'idas como fonte e outras em dreno de corrente. O bloco apresenta as definições de sa\'ida referidos na \autoref{\NomeSTab}.
+
+\begin{table}[!h]
+\caption{Sinais do bloco \NomeBloco}
+\label{\NomeSTab}
+\centering
+\begin{tabular}{ccl}
+
+    \toprule
+    Sinal & Tipo    & Descrição        \\
+    \midrule \midrule
+    iref1\_src   & Saída   & Fonte de Corrente de 0.5 $\mu$A \\
+    \midrule
+    iref2\_src   & Saída   & Fonte de Corrente de 0.5 $\mu$A \\
+    \midrule
+    iout\_test   & Saída   & Fonte de Corrente de 1.5 $\mu$A \\
+    \midrule
+    iref1\_sink   & Saída   & Dreno de Corrente de 0.5 $\mu$A \\
+    \midrule
+    iref2\_sink   & Saída   & Dreno de Corrente de 0.5 $\mu$A \\
+    \bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+O circuito projetado para o bloco \'e demonstrado na \autoref{\NomePFig}.
+
+\begin{figure}[htb]
+ \centering
+    \centering
+    \caption{Circuito CMOS projetado para o bloco \NomeBloco} 
+    \includegraphics[scale=0.3]{Circuitos/iref_generator.png}
+    \legend{Fonte: Produzido pelo autor}
+    \nota{Nem todos transistores são representados na imagem. \emph{Q17}, \emph{Q18}, \emph{Q19} e \emph{Q20} são transistores replicados para cada sa\'ida \emph{IrefX\_src} e \emph{IrefY\_sink}, onde \emph{X} e \emph{Y} são os identificadores de cada sa\'ida}
+    \label{\NomePFig}
+\end{figure}
+
+\begin{figure}[htb]
+ \centering
+    \centering
+    \caption{\label{\NomeSFig}Representação em bloco do \NomeBloco}
+    \includegraphics[scale=0.3]{Circuitos/iref_generator_block.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+Os transistores utilizados no bloco apresentam os par\^ametros mostrados na \autoref{\NomeTTab}.
+
+\begin{table}[!h]
+\caption{Transistores do Bloco \NomeBloco}
+\label{\NomeTTab}
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Transistor & W ($\mu$m)  & L ($\mu$m)  & M (n° dispositivos) & S (n° dispositivos)\\
+\midrule \midrule
+
+\midrule
+Q1                                   & 0,3    & 19,995 & 1                   & 3                   \\
+\midrule
+Q2                                   & 35     & 0,18   & 2                   & 1                   \\
+\midrule
+Q3 e Q4                              & 15     & 0,18   & 1                   & 1                   \\
+\midrule
+Q5                                   & 10     & 15     & 1                   & 6                   \\
+\midrule
+\begin{tabular}[c]{@{}c@{}}Q6, Q9, Q10,\\ Q13, Q19 e Q20\end{tabular}          & 4      & 19,995 & 1                   & 2                   \\
+\midrule
+\begin{tabular}[c]{@{}c@{}}Q7, Q8, Q11, Q12,\\ Q15, Q17a¹ e Q18a¹\end{tabular} & 10     & 15   & 2                   & 1                   \\
+\midrule
+Q14                                  & 4      & 19,995 & 10                  & 1                   \\
+\midrule
+Q16                                  & 4      & 19,995 & 1                   & 6 \\
+\midrule
+Q17b² e Q18b²                                                                  & 10     & 15     & 6                   & 1                  \\
+\bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\legend{¹ Q17a e Q18a são os transistores referentes \`as sa\'idas iref1\_src e iref2\_src\\
+² Q17b e Q18b são os transistores referentes \`a sa\'ida iout\_test}
+\end{table}
+
+O resistor \emph{R} utilizado no bloco apresenta os par\^ametros mostrado na \autoref{\NomeQTab}.
+
+\begin{table}[!h]
+\caption{Resistor do bloco \NomeBloco}
+\label{\NomeQTab}
+\centering
+\begin{tabular}{cccc}
+\toprule
+Resistor & W ($\mu$m)  & L ($\mu$m) & Resist\^encia (k$\Omega$)\\
+\midrule \midrule
+R & 3 & 404,4 & 141,996\\
+\bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+Os transistores \emph{Q6} e \emph{Q9}, juntos ao resistor R, t\^em a finalidade de funcionarem como um dreno de corrente referenciados pelo resistor. Os transistores \emph{Q4} e \emph{Q7} t\^em a finalidade de funcionarem como uma fonte de corrente, referenciados pelo dreno de corrente j\'a mencionado. O transistor \emph{Q10} \'e o braço do espelho de corrente do qual fornece a corrente de sa\'ida.
+
+Os transistores \emph{Q5}, \emph{Q8} e \emph{Q11} se apresentam na configuração \emph{Cascode}, que tem o intuito de tornar o espelho de corrente de resposta mais linear, aumentar sua banda e ainda aumentar as suas resist\^encias de entrada e sa\'ida.
+
+Os transistores \emph{Q1}, \emph{Q2} e \emph{Q3} t\^em a função de inicializarem o circuito no ponto de operação adequado, j\'a que o circuito tamb\'em apresenta estabilidade quando fornecendo 0 A, sendo necess\'ario evitar essa situação.

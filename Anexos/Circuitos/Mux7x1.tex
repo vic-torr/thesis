@@ -1,0 +1,83 @@
+\renewcommand{\NomeBloco}{\emph{Multiplexador 7x1}}
+\renewcommand{\NomeBlocoNoIt}{Multiplexador 7x1}
+\renewcommand{\NomePTab}{tab_\NomeBlocoNoIt}
+\renewcommand{\NomeSTab}{tab_\NomeBlocoNoIt2}
+\renewcommand{\NomePFig}{fig_\NomeBlocoNoIt}
+\renewcommand{\NomeSFig}{fig_\NomeBlocoNoIt2}
+\renewcommand{\NomeTTab}{tab_\NomeBlocoNoIt3}
+
+\section{Multiplexador 7x1}
+
+O bloco \NomeBloco{}\footnote{Circuito disponibilizado por Dalton Martini Colombo, orientador do trabalho aqui apresentado} tem a função de colocar na sa\'ida o valor correspondente \'a entrada selecionada. Nesse bloco, 7 entradas distintas podem ser selecionadas. A \autoref{\NomePTab} indica a Tabela Verdade do bloco. Embora tenha uma l\'ogica digital, o circuito permite entradas e sa\'idas anal\'ogicas.
+
+\begin{table}[htbp]
+
+\caption{Tabela Verdade do bloco \NomeBloco}%
+\label{\NomePTab}
+\centering
+\begin{tabular}{ccccc}
+    \toprule
+    D0 & D1 & D2 & D3 & Out \\
+    \midrule \midrule
+    0 & 0 & 0 & 0 & In0 \\
+    \midrule
+    0 & 1 & 0 & 0 & In1 \\
+    \midrule
+    1 & 0 & 0 & 0 & In2 \\
+    \midrule
+    1 & 1 & 0 & 0 & In3 \\
+    \midrule
+    X & X & 0 & 1 & In4 \\
+    \midrule
+    X & X & 1 & 0 & In5 \\
+    \midrule
+    X & X & 1 & 1 & In6 \\
+\bottomrule
+
+\end{tabular}
+\fonte{Produzido pelo autor.}
+\end{table}
+
+O bloco apresenta as definições de sinais de entrada e sa\'ida referidos na \autoref{\NomeSTab}.
+
+\begin{table}[htbp]
+\caption{Sinais do bloco \NomeBloco}
+\label{\NomeSTab}
+\centering
+\begin{tabular}{ccl}
+
+    \toprule
+    Sinal & Tipo    & Descrição        \\
+    \midrule \midrule
+    D0    & Entrada & Primeira entrada de seleção de sa\'ida \\
+    \midrule
+    D1    & Entrada & Segunda entrada de seleção de sa\'ida \\
+    \midrule
+    D2    & Entrada & Segunda entrada de seleção de sa\'ida \\
+    \midrule
+    D3    & Entrada & Segunda entrada de seleção de sa\'ida \\
+    \midrule
+    Vout & Sa\'ida & Sa\'ida do Multiplexador\\
+    \midrule
+    \bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+O circuito projetado para o bloco \'e demonstrado na \autoref{\NomePFig}.
+
+\begin{figure}[htbp]
+ \centering
+    \centering
+    \caption{\label{\NomePFig}Circuito CMOS projetado para o bloco \NomeBloco}
+    \includegraphics[scale=0.3]{Circuitos/mux7x1.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+    \centering
+    \caption{\label{\NomeSFig}Representação em bloco do \NomeBloco} 
+    \includegraphics[scale=0.3]{Circuitos/mux7x1_block.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}

@@ -1,0 +1,87 @@
+\renewcommand{\NomeBloco}{\textit{vref\_block\_with\_mux}}
+\renewcommand{\NomeBlocoA}{vrefblockwithmux}
+\renewcommand{\NomePTab}{tab_\NomeBlocoA}
+\renewcommand{\NomeSTab}{tab_\NomeBlocoA2}
+\renewcommand{\NomePFig}{fig_\NomeBlocoA}
+\renewcommand{\NomeSFig}{fig_\NomeBlocoA2}
+\renewcommand{\NomeTTab}{tab_\NomeBlocoA3}
+
+\section{vref\_block\_with\_mux}
+
+O bloco \NomeBloco{} tem a finalidade de selecionar a tensão de refer\^encia a ser utilizada nos blocos de comparação do circuito, al\'em de retornar a tensão de refer\^encia utilizada pelo bloco \textit{TIA}. A \autoref{\NomePTab} indica a Tabela Verdade do bloco. Embora tenha uma l\'ogica digital, o circuito permite sa\'idas anal\'ogicas.
+
+\begin{table}[!h]
+
+\caption{Tabela Verdade do bloco \NomeBloco}%
+\label{\NomePTab}
+\centering
+\begin{tabular}{ccccc}
+    \toprule
+    D0 & D1 & D2 & D3 & Out \\
+    \midrule \midrule
+    0 & 0 & 0 & 0 & Vref\_plus\\
+    \midrule
+    0 & 1 & 0 & 0 & Vref\\
+    \midrule
+    1 & 0 & 0 & 0 & Vref\_minus2\\
+    \midrule
+    1 & 1 & 0 & 0 & Vref\_minus3\\
+    \midrule
+    X & X & 0 & 1 & Vref\_minus4\\
+    \midrule
+    X & X & 1 & 0 & Vref\_minus5\\
+    \midrule
+    X & X & 1 & 1 & Vref\_minus6\\
+\bottomrule
+
+\end{tabular}
+\fonte{Produzido pelo autor.}
+\end{table}
+
+O bloco apresenta as definições de sinais de entrada e sa\'ida referidos na \autoref{\NomeSTab}.
+
+\begin{table}[!h]
+\caption{Sinais do bloco \NomeBloco}
+\label{\NomeSTab}
+\centering
+\begin{tabular}{ccl}
+
+    \toprule
+    Sinal & Tipo    & Descrição      \\
+    \midrule \midrule
+    D0   & Entrada   & Entrada de seleção 1 \\
+    \midrule
+    D1   & Entrada   & Entrada de seleção 2 \\
+    \midrule
+    D2   & Entrada   & Entrada de seleção 3 \\
+    \midrule
+    D3   & Entrada   & Entrada de seleção 4 \\
+    \midrule
+    Vref\_pixel   & Sa\'ida   & Tensão de refer\^encia selecionada \\
+    \midrule
+    Vref\_clk¹  & Sa\'ida   & Tensão de refer\^encia do Clock \\
+    \midrule
+    Vref\_comp²  & Sa\'ida   & Tensão de refer\^encia do Clock do bloco teste \\
+    \bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\legend{¹ Essa tensão \'e igual \'a sa\'ida Vref\_minus do bloco \textit{vref\_block}\\² Essa tensão \'e igual \'a sa\'ida Vref\_extra do bloco \textit{vref\_block}}
+\end{table}
+
+O circuito projetado para o bloco \'e demonstrado na \autoref{\NomePFig}.
+
+\begin{figure}[htb]
+ \centering
+    \centering
+    \caption{\label{\NomePFig}Circuito CMOS projetado para o bloco \NomeBloco}
+    \includegraphics[scale=0.28]{Circuitos/vref_block.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+\begin{figure}[htb]
+ \centering
+    \centering
+    \caption{\label{\NomeSFig}Representação em bloco do \NomeBloco}
+    \includegraphics[scale=0.3]{Circuitos/vref_block_block.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}

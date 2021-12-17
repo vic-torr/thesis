@@ -1,0 +1,111 @@
+\renewcommand{\NomeBloco}{\textit{APS\_pixel\_clk}}
+\renewcommand{\NomeBlocoNoUnderline}{apspixelclk}
+\renewcommand{\NomePTab}{tab_\NomeBlocoNoUnderline}
+\renewcommand{\NomeSTab}{tab_\NomeBlocoNoUnderline2}
+\renewcommand{\NomePFig}{fig_\NomeBlocoNoUnderline}
+\renewcommand{\NomeSFig}{fig_\NomeBlocoNoUnderline2}
+\renewcommand{\NomeTTab}{tab_\NomeBlocoNoUnderline3}
+\renewcommand{\NomeQTab}{tab_\NomeBlocoNoUnderline4}
+
+\section{APS\_pixel\_clk}
+
+O \NomeBloco{}\footnote{Circuito esquemático desenvolvido por \textit{Dalton Martini Colombo}} \'e o bloco respons\'avel por processar e digitalizar o sinal gerado pelo \textit{TIA}. A intenção de uso do \textit{TIA} \'e que ele seja o respons\'avel por captar um sinal luminoso com frequ\^encia bem definida, e o sinal el\'etrico gerado, em forma de pulsos quadrados, sirva de refer\^encia de rel\'ogio para todos os circuitos APS utilizados para detecção de cor. O bloco portanto tem como responsabilidade gerar um sinal digital de frequ\^encia igual a do sinal luminoso captado. O bloco apresenta as definições de sinais de entrada e sa\'ida referidos na \autoref{\NomeSTab}.
+
+\begin{table}[!h]
+\caption{Sinais do bloco \NomeBloco}
+\label{\NomeSTab}
+\centering
+\begin{tabular}{cclc}
+
+    \toprule
+    Sinal & Tipo    & Descrição  & Observação\\
+    \midrule \midrule
+    Vref\_comp   & Entrada   & Tensão de refer\^encia utilizada pelo comparador &  1,15 V\\
+    \midrule
+    Vref\_amp   & Entrada   & Tensão de refer\^encia utilizada para o TIA &  0,77 V\\
+    \midrule
+    Ibias   & Entrada   & Corrente de polarização do comparador & 500 nA \\
+    \midrule
+    Vout   & Saída   & Sinal digital produzido pelo Comparador\\
+    \bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+A \autoref{TIAsimplifC} mostra o circuito projetado de maneira simplificada. O circuito completo projetado para o bloco \'e demonstrado na \autoref{\NomePFig}.
+
+\begin{figure}[!h]
+ \centering
+    \centering
+    \caption{Circuito CMOS simplificado projetado para o bloco \NomeBloco} 
+    \includegraphics[scale=0.6]{Circuitos/TIA_ref.png}
+    \label{TIAsimplifC}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering
+    \centering
+    \caption{Circuito CMOS projetado para o bloco \NomeBloco} 
+    \includegraphics[scale=0.3]{Circuitos/APS_clk.png}
+    \label{\NomePFig}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering
+    \centering
+    \caption{\label{\NomeSFig}Representação em bloco do \NomeBloco}
+    \includegraphics[scale=0.3]{Circuitos/APS_clk_block.png}
+    \legend{Fonte: Produzido pelo autor}
+\end{figure}
+
+O circuito tem funcionamento similar ao do apresentado no bloco \textit{APS\_digitalized}, por\'em com apenas a sa\'ida digital sendo considerada e sendo utilizado um $TIA$ ao inv\'es de um \textit{APS}. A corrente de polarização do par diferencial \'e gerada pelo bloco \textit{Ibias\_generator}, contido no bloco.
+
+Uma resist\^encia $R$ de ganho \'e utilizada, com valor apresentado na \autoref{\NomeQTab}. $W$ é a largura do resistor. $L$ é o comprimento do resistor.
+
+\begin{table}[!h]
+\caption{Resistor do bloco \NomeBloco}
+\label{\NomeQTab}
+\centering
+\begin{tabular}{cccc}
+\toprule
+Resistor & W ($\mu$m)  & L ($\mu$m) & Resist\^encia (M$\Omega$)\\
+\midrule \midrule
+R & 1,68 & 39486,3 & 25\\
+\bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+O fotodiodo utilizado no bloco apresenta os par\^ametros mostrados na \autoref{\NomeTTab}. $W$ é a largura do fotodiodo. $L$ é o comprimento do fotodiodo.
+
+\begin{table}[!h]
+\caption{Fotodiodo do bloco \NomeBloco}
+\label{\NomeTTab}
+\centering
+\begin{tabular}{cccc}
+\toprule
+Nome & W ($\mu$m)  & L ($\mu$m) & Área ($\mu$m²)\\
+\midrule \midrule
+Fotodiodo & 25 & 25 & 625\\
+\bottomrule
+\end{tabular}
+\legend{Fonte: Produzido pelo autor}
+\end{table}
+
+Com base na \autoref{eqCTIA2}, a \autoref{eq_TIAblock} descreve $V_{p}$, que \'e comparada com \textit{Vref\_comp} e então utilizada para gerar o sinal de sa\'ida.
+
+\begin{equation}
+    \label{eq_TIAblock}
+    V_{p} = RI_{PH}
+\end{equation}
+
+Onde:
+
+\begin{itemize}
+
+    \item \textit{$V_{P}$} \'e a tensão no ramo positivo do comparador [$V$]
+    \item \textit{$I_{PH}$} \'e a corrente fotogerada [$A$]
+    
+\end{itemize}
