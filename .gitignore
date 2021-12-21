@@ -1,0 +1,13 @@
+main.pdf
+*.aux
+*.brf
+*.ilg
+*.gz
+main.log
+main.lof
+main.ind
+main.idx
+main.fls
+main.fdb_latexmk
+main.blg
+main.bbl
