@@ -1,3 +1,23 @@
+
+VANT ou veiculos autonomos aéreos não tripulados possuem crescente potencial e  aplicação nas indústrias agricolas,
+militares e serviços. E para que sua navegação seja realizável, é imprescindível a implementação de um sistema de
+localização robusto [citar business report]. As formas de localização mais amplamente utilizadas são a partir de GPS
+podendo ser combinados ou não com fusão sensorial à uma IMU \-- Unidade de medição inercial. O GPS embora tenha
+acurácia da ordem de poucos metros, possui o compromisso de ter baixa taixa de amostragem. Isso pode ser mitigado com a
+fusão sensorial com medições da IMU, assim obtendo melhores estimativas de posição. A estimação de posição utilizando somente a IMU também pode não ser adequada pelo fato da estimativa ser calculada integrando as medições de aceleração e assim possuindo alto drift. Dessa forma, essa estimação clássica de posição é mais adequada pelo conjunto de ambos.
+Este conjunto, contudo, deixa de ser preciso quando não há a disponibilidade de GPS. Essas condição pode ocorrer por
+eventuais indisponibilidades, também por interferencias destrutivasm comuns em um ambiente urbando ou por signal jamming
+deliberadamente. Ambientes urbanos possuem superfícies metálicas que refletem o sinal transmitido pelos satélite. Tal
+sinal refletido ao chegar no receptor GPS pode gerar interferências destrutivas com o sinal original desejado. Signal jamming é uma vulnerabilidade comum para drones, seja de aplicações civis ou militares, já que um agente maliciosoo pode desabilitar a localização ou comunicação do drone por meio de um sinal de interferência. 
+
+
+Para que a localização seja realizada, é necessário que o drone possua um sistema de localização robusto. E neste
+trabalho será proposto e implementado um sistema de localização via pattern matching complementar as localizações
+anteriormente citadas. O patern matching será feito a partir da comparação das imagens de georeferendiadas de satélite com as imagens captturadas instantaneamente. Além disso, terá como escopo portar o modelo de reconhecimento de padrões para o hardware limitado do drone e metodologias de reduzir o custo computacional de avaliação de padrões.
+
+
+Todo trabalho será desenvolvido com apoio do laboratório MINDS (Machine Intelligence and Data Science) da Universidade Federal de Minas Gerais interno a Escola de Engenharia, que possui o ferramental e orientação.
+
 A necessidade de atribuir a dispositivos tarefas que fazemos no dia a dia se tornou algo comum na atualidade. Isso se deve a uma evolução que se mostrou evidente tanto em termos de hardware quanto de software, aparecendo produtos no mercado que atendem tanto a demanda industrial quanto a comercial. E, na medida em que certa tecnologia cresce e tem o aumento da comunidade desenvolvedora trabalhando em conjunto, ela acaba se tornando cada vez mais acessível, possibilitando uma maior interação interdisciplinar.
 
 Dentro deste contexto, pode-se observar a crescente aplicação de manipuladores robóticos em setores diversificados. O uso mais evidente é dentro do contexto industrial, uma vez que os manipuladores robóticos podem automatizar processos antes feitos manualmente pelos funcionários, podendo assim oferecer agilidade, segurança, dentre outros benefícios às empresas. Porém, pode-se observar também que estes estão sendo utilizados cada vez mais comercialmente, como é o caso de \textit{gimbals}, \textit{hoverboards} e \textit{drones}.
