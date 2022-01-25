@@ -1,34 +1,55 @@
 
-VANT ou veiculos autonomos aéreos não tripulados possuem crescente potencial e  aplicação nas indústrias agricolas,
-militares e serviços. E para que sua navegação seja realizável, é imprescindível a implementação de um sistema de
-localização robusto [citar business report]. As formas de localização mais amplamente utilizadas são a partir de GPS
-podendo ser combinados ou não com fusão sensorial à uma IMU \-- Unidade de medição inercial. O GPS embora tenha
-acurácia da ordem de poucos metros, possui o compromisso de ter baixa taixa de amostragem. Isso pode ser mitigado com a
-fusão sensorial com medições da IMU, assim obtendo melhores estimativas de posição. A estimação de posição utilizando somente a IMU também pode não ser adequada pelo fato da estimativa ser calculada integrando as medições de aceleração e assim possuindo alto drift. Dessa forma, essa estimação clássica de posição é mais adequada pelo conjunto de ambos.
-Este conjunto, contudo, deixa de ser preciso quando não há a disponibilidade de GPS. Essas condição pode ocorrer por
-eventuais indisponibilidades, também por interferencias destrutivasm comuns em um ambiente urbando ou por signal jamming
-deliberadamente. Ambientes urbanos possuem superfícies metálicas que refletem o sinal transmitido pelos satélite. Tal
-sinal refletido ao chegar no receptor GPS pode gerar interferências destrutivas com o sinal original desejado. Signal jamming é uma vulnerabilidade comum para drones, seja de aplicações civis ou militares, já que um agente maliciosoo pode desabilitar a localização ou comunicação do drone por meio de um sinal de interferência. 
 
 
-Para que a localização seja realizada, é necessário que o drone possua um sistema de localização robusto. E neste
-trabalho será proposto e implementado um sistema de localização via pattern matching complementar as localizações
-anteriormente citadas. O patern matching será feito a partir da comparação das imagens de georeferendiadas de satélite com as imagens captturadas instantaneamente. Além disso, terá como escopo portar o modelo de reconhecimento de padrões para o hardware limitado do drone e metodologias de reduzir o custo computacional de avaliação de padrões.
 
 
-Todo trabalho será desenvolvido com apoio do laboratório MINDS (Machine Intelligence and Data Science) da Universidade Federal de Minas Gerais interno a Escola de Engenharia, que possui o ferramental e orientação.
 
-A necessidade de atribuir a dispositivos tarefas que fazemos no dia a dia se tornou algo comum na atualidade. Isso se deve a uma evolução que se mostrou evidente tanto em termos de hardware quanto de software, aparecendo produtos no mercado que atendem tanto a demanda industrial quanto a comercial. E, na medida em que certa tecnologia cresce e tem o aumento da comunidade desenvolvedora trabalhando em conjunto, ela acaba se tornando cada vez mais acessível, possibilitando uma maior interação interdisciplinar.
 
-Dentro deste contexto, pode-se observar a crescente aplicação de manipuladores robóticos em setores diversificados. O uso mais evidente é dentro do contexto industrial, uma vez que os manipuladores robóticos podem automatizar processos antes feitos manualmente pelos funcionários, podendo assim oferecer agilidade, segurança, dentre outros benefícios às empresas. Porém, pode-se observar também que estes estão sendo utilizados cada vez mais comercialmente, como é o caso de \textit{gimbals}, \textit{hoverboards} e \textit{drones}.
 
-Ainda na vertente do crescimento tecnológico, os equipamentos atualmente possuem hardware potentes a preços acessíveis, capazes de rodar aplicações complexas que vão de encontro a popularização de ideias, como a Internet das Coisas. Os dispositivos permitem cada vez mais essa integração, tanto com aplicações industriais quanto domésticas. Essa popularização permitiu que várias bibliotecas fossem criadas e publicadas para a comunidade desenvolvedora a fim de instigar mais o desenvolvimento de possiblidades criativas para o mercado.
 
-Graças a performance dos dispositivos atuais, houve um aumento de aplicações que exigem uma maior complexidade no processamento de dados. Um exemplo que vem crescendo nos últimos anos é o uso de reconhecimento de padrões, a qual vem sendo utilizado em meios de produção e até mesmo como meio de entretenimento em redes sociais com o uso de filtros digitais. A finalidade do presente trabalho é desenvolver um software que utilize de ferramentas de reconhecimento de padrões a fim de entregar parâmetros para controlar um manipulador robótico.
 
-Como a maior parte da tecnologia é lançada com o objetivo de entregar mais conforto aos usuários, muitas fabricantes têm apostado em dispositivos que utilizam da tecnologia \textit{hands-free}. Ela possibilita que os usuários desfrutem de seus produtos sem a necessidade de tocá-los, sendo a maior aposta nos comandos de voz.
 
-Com o maior acesso a tecnologia, houve um crescente uso de aplicações com câmera. Isso foi acentuado durante a pandemia de COVID-19, elevando o número de chamadas de vídeo realizadas ao redor do mundo devido às restrições sanitárias. Com intuito de integrar a tecnologia \textit{hands-free} na utilização de câmeras em dispositivos móveis, o software desenvolvido neste projeto tem o objetivo de enquadrar as pessoas na tela, permitindo que se movimentem e realizem outras tarefas durante a captura de imagem. Para isso, o dispositivo será instalado no manipulador robótico que, a partir do uso de reconhecimento facial, recebe comandos de controle para posicionar a câmera de forma adequada.
+
+
+
+
+
+Sistemas aviônicos são altamente dependentes de localização baseada em GPS. Especialmente
+veiculos aéreos não tripulados (VANTs), que são pilotados ou autonomos e carregam 
+sensores, equipamentos. Possuem crescente mercado e aplicações nas indústrias agrícolas,
+militares e serviços, onde agregam o propósito de inteligência e reconhecimento 
+de terreno . E para que sua navegação seja automatizada e
+realizável, como é no caso dos VANT \-- veículos autônomos aéreos não tripulados
+\-- é imprescindível a implementação de um sistema de localização robusto.
+
+As formas de localização mais amplamente utilizadas são a partir de GPS podendo
+ser combinados ou não com fusão sensorial por meio de um filtro Gaussiano, que
+combina com as medições de uma IMU \-- Unidade de medição inercial, para
+medições mais precisas e rápidas. O GPS embora tenha acurácia da ordem de poucos
+metros, possui o compromisso de ter baixa taxa de amostragem. alguns
+compromissos consideráveis. Isso pode ser mitigado com a fusão sensorial com
+medições da IMU, assim obtendo melhores estimativas de posição. A estimação de
+posição utilizando somente a IMU também pode não ser adequada pelo fato da
+estimativa ser calculada integrando as medições de aceleração e assim possuindo
+alto drift. Dessa forma, essa estimação clássica de posição é mais adequada pelo
+conjunto de ambos. Este conjunto, contudo, deixa de ser preciso quando não há a
+disponibilidade de GPS. Essa condição pode ocorrer por eventuais
+indisponibilidades, também por interferências destrutivas comuns em um ambiente
+urbano ou geradas intencionalmente. Ambientes urbanos possuem superfícies
+metálicas que refletem o sinal transmitido pelos satélite. Tal sinal refletido
+ao chegar no receptor GPS pode gerar interferências destrutivas com o sinal
+original e o refletido. Signal spoofing é uma vulnerabilidade existe para VANTs,
+seja de aplicações civis ou militares, já que um agente malicioso pode
+desabilitar a localização ou comunicação do VANT por meio de um sinal de
+interferência.
+
+Outro aspecto característico de VANT é que são sistemas computacionais embarcados com limitações de capacidade de hardware e energia. O que significa que o modelo deve ser otimizado para não consumir recursos computacionais ilimitados.
+
+Para que a localização seja realizada, é necessário que o VANT possua um sistema de localização robusto. E neste trabalho serão comparadas técnicas de otimização a fim de implementar modelos de trabalhos prévios.  proposto e implementado um sistema de localização via pattern matching complementar às localizações anteriormente citadas. O reconhecimento de padrões será feito a partir da comparação das imagens de georreferenciadas de satélite com as imagens capturadas instantaneamente. Além disso, terá como escopo portar o modelo de reconhecimento de padrões para o hardware limitado do VANT e metodologias de reduzir o custo computacional de avaliação de padrões.
+
+
+Todo trabalho será desenvolvido com apoio do laboratório MINDS (Machine Intelligence and Data Science lab) da Universidade Federal de Minas Gerais interno a Escola de Engenharia, que possui o ferramental e orientação necessários.
+
 
 Este trabalho abrange quatro capítulos além deste. O segundo capítulo contém a revisão bibliográfica para o estudo de caso proposto. O terceiro capítulo aborda a metodologia adotada para a realização da proposta e o desenvolvimento do software. Adiante, o quarto capítulo, contém a análise dos resultados esperados. Por fim, o capítulo cinco conclui este trabalho e aponta direções futuras para esta área de pesquisa.
 
