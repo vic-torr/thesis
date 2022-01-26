@@ -1,4 +1,24 @@
 
+O termo redes neurais profundas, ou deep learning, se refere a redes neurais artificiais com múltiplas camadas ocultas.Foram uma das principais tecnologias de aprendizado de máquina desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior performance em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data. Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de pooling, não lineares e camadas completamente conectadas \cite{8308186}. Uma dos pressupostos das CNNs é que os filtros são indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+
+
+Pilotagem tripulada consiste, além da leitura dos instrumentos, em referências visuais, como ponto de referencias, terrenos, e marcações. Apesar dos instrumentos de leitura, a pilotagem tripulada é mais eficiente quando se utiliza de referências visuais, por se tratar de uma alternativa às falhas dos instrumentos. A navegação visual é uma tarefa complexa de ser implementada autonomamente, pois requer identificação de características do terreno em diversas condições e contextos. Em \cite{COUTURIER2021103666} é apresentado duas formas abordagens de navegação visual. A primeira citada é a localização visual relativa (RLV), que tem como objetivo estimar a posição baseado no deslocamento de um frame para o outro. A segunda abordagem é a localização visual absoluta, que busca comparar as imagens do VANT ou aeronave com imagens georeferenciadas. A segunda alternativa é interessante por se tratar de imagens rotuladas com as referencias geográficas e por serem referencias absolutas, que não sofrem de drift em relação a um referencial relativo. Para implementar a AVL, uma das possíveis abordagens é utilizando CNNs. Mesmo que os custos computacionais para treinar uma rede sejam altos, a utilização do modelo em um VANT pode ter custos reduzidos, que é um aspecto vantajoso, já que estes possuem recursos computacionais reduzidos.
+
+modelos bons de dnn pra localização 
+
+
+problema de labeling, aprendizado semi supervisionado
+
+topologias de dnn 
+
+hardware e factivel disponivel para micro aeronaves 
+
+trabalhos relacionados 
+
+
+
+\cite{rs13194017}
+
 Principais tipos de localização
 odometria visual, feature points, deep learning, template matching, encoder
 semantic segmentation, representation space
@@ -6,72 +26,13 @@ semantic segmentation, representation space
 Problemas: 
   rotulação
    solução: transfer learning, segmentação semantica 
-  limitação de hardware
-    hardware disponivel: trabalhos com raspi e nvidia jetson 
-  soluções: otimizações de deep, tree pruning ok 
-
-Contribuições de trabalhos relacionados
 
 
-
-Redes neurais profundas estão no estado da arte em aplicações de visão computacional, à nivel de capacidade humana, contudo ao custo da faixa de dezenas a centenas de milhões de parâmetros e complexidade computacional. Também são depeendem muito tempo e energia para treinar, e vasto conjunto de dados de treino. Essas grandes DNNs são difíceis de serem implementadsa em ambientes embarcados, devido a fatores limitantes como banda, instruções por segundo e memória. 
-
-Para lidar com problema de limitações de recursos, uma abordagem possivel é a técnica de podagem de redes neurais profundas, que remove as neurônios que não são relevantes para a rede. Como é citado em [Pruning Deep Networks using Partial Least Squares], foi possível reduzir até 67\% das operações de ponto flutuante (FLOPs), sem perda na acurácia e também foi possível reduzir 90\% do custo com uma perda negligente. Neste trabalho foi possível melhorar a acuracia comparado ao original, devido a regularização da rede. Consiste em estimar a importancia do neuronio baseado em sua relação com a classe em um espaço dimensional reduzido. A relação é computada utilizando minimos quadrados parciais e importancia de variável em projeção. Em \cite{jordao2019pruning} também são mencionadas outras importante técnicas de compressão de DNNs, como quantização de float, que consiste da redução de float de 32 bits pata 8 bits, nos pesos e funções de ativação, reduzindo a precisão, acelerando as operações atomicas, contudo sem impacto relevante na acuracia do modelo. Aceleração de hardware também possibilita operações atomicas de multiplicações matriciais e altamente paralelizadas. \cite{liang2021pruning}
+\section{\textit{Compressão de DNNs}}\label{sec:Cap2_MR}
 
 
+Redes neurais profundas estão no estado da arte em aplicações de visão computacional, à nivel de capacidade humana, contudo ao custo da faixa de dezenas a centenas de milhões de parâmetros e complexidade computacional. Também são dependem muito tempo e energia para treinar, e vasto conjunto de dados de treino. Essas grandes DNNs são difíceis de serem implementadas em ambientes embarcados, devido a fatores limitantes como banda, instruções por segundo e memória. 
 
-Muito se discute a respeito dos índices que definem o grau de desenvolvimento de um país. De acordo com \cite{paranhos2007gestao}, um país desenvolvido é um país industrializado, e quanto maior o nível de industrialização em que ele se encontra, maior a qualidade de vida que ele tem a oferecer a sua população. Com o advento da Quarta Revolução Industrial, a automatização de processos passou a integrar a rotina dentro do ambiente industrial. Isso gerou uma influência sobre demais setores na sociedade, que começou a consumir produtos e até serviços que contavam com algum grau de automação na comercialização ou uso. \cite{schwab2019quarta}.
-
-Com essa crescente demanda da automação em diversos setores, muitas tecnologias foram exploradas a fim de ampliar o seu uso e suas possibilidades. Nesse sentido, a aplicação da robótica serviu de ferramenta para que os processos deixassem de ser manuais. \cite{bastos2014aplicaccao}. A automação de processos robóticos se encontra em seu melhor momento, e os fornecedores preveem um crescimento anual bruto de 40\% a 60\% para o futuro próximo. \cite{saukkonen2020robotic}. Aliado a isso, várias técnicas de sensoriamento são desenvolvidas para auxiliar os atuadores a cumprirem sua função principal. Dentre estas técnicas, a visão computacional tem ganhado destaque nos últimos anos, tendo um aumento expressivo ao longo da última década – métrica que pode ser analisada por \cite{su2021affective} através do número de participantes e publicações na Conferência sobre Visão Computacional e Reconhecimento de Padrões (CVPR) de 2019. Assim, fica evidente o crescimento do uso de manipuladores robóticos aliado a visão computacional no mercado mundial.
-
-Este tema foi divivido em tópicos principais para que pudesse melhor ser explorada a literatura. A Seção \ref{sec:Cap2_MR} aborda conceitos e projetos relacionados aos detalhes técnicos para o controle de um manipulador robótico. Logo mais, a Seção \ref{sec:Cap2_RP} apresenta conceitos de Visão Computacional e a definição de um método para o desenvolvimento do projeto a partir de reconhecimento de padrões. Por fim, a Seção \ref{sec:Cap2_Contribuicoes} contém uma breve análise de projetos que já foram implementados com objetivos semelhantes, indicando os principais pontos em que este projeto se difere deles e como poderia contribuir com a comunidade científica.
+Para lidar com problema de limitações de recursos, uma abordagem possível é a técnica de podagem de redes neurais profundas, que remove as neurônios que não são relevantes para a rede. Como é citado em \cite{jordao2019pruning}, foi possível reduzir até 67\% das operações de ponto flutuante (FLOPs), sem perda na acurácia e também foi possível reduzir 90\% do custo com uma perda negligente. Neste trabalho foi possível melhorar a acurácia comparado ao original, devido a regularização da rede. Consiste em estimar a importância do neurônio baseado em sua relação com a classe em um espaço dimensional reduzido. A relação é computada utilizando mínimos quadrados parciais e importância de variável em projeção. Em \cite{jordao2019pruning} também são mencionadas outras importante técnicas de compressão de DNNs, como quantização de float, que consiste da redução de float de 32 bits pata 8 bits, nos pesos e funções de ativação, reduzindo a precisão, acelerando as operações atomicas, contudo sem impacto relevante na acurácia do modelo. Aceleração de hardware também possibilita operações atomicas de multiplicações matriciais e altamente paralelizadas. 
 
 
-%=======================================================
-\section{\textit{Manipuladores Robóticos}}\label{sec:Cap2_MR}
-
-De acordo com a Robot Institute of America \cite{baturone2005robotica}, um robô é um manipulador multifuncional projetado para múltiplas funções, como mover materiais. Os robôs são constituídos por quatro componentes diferentes: estrutura mecânica, atuadores, sensores e sistema de controle. A definição dada por \cite{siciliano2010robotics} para cada componente é:
-
-\begin{itemize}
-  \item A estrutura mecânica pode conter base fixa, sendo um robô manipulador, ou base móvel, sendo um robô móvel. Os manipuladores são constituídos por juntas mecâni-cas que podem fornecer graus de liberdade ao efetuador, sendo este a ferramenta de trabalho do robô em que se deseja controlar.
-  \item Os atuadores são responsáveis por exercer a ação de locomoção e controle do robô. Muitas vezes está ligada ao acionamento de servomotores e sistemas de transmissão.
-  \item Os sensores capturam dados internos e externos ao robô e são responsáveis pela percepção confiada ao seu atual estado e de seu ambiente.
-  \item Por fim, o sistema de controle tem a capacidade de receber os dados dos sensores e permite realizar um controle planejado do movimento do manipulador.
-\end{itemize}
-
-Os sensores podem utilizar da posição e velocidade dos servomotores para interpretar a posição final das juntas do manipulador, porém o que mais convém será a pose do efetuador. A pose satisfaz o conjunto de posição e rotação, neste caso, do efetuador. \cite{siciliano2010robotics}. Existem muitas técnicas abordadas para controle do efetuador já abordadas por muitos autores, utilizando principalmente controle cinemático e dinâmico. \cite{guimaraes_batista_modelo_2019}. Dado o contexto de que será utilizado uma câmera para obter a pose desejada para o efetuador, será necessário utilizar conceitos de cinemática inversa para utilizar a informação da pose desejada a fim de se obter o conjunto de poses das juntas necessário para isso.
-   
-Uma das principais questões relacionadas ao controle do efetuador é a sua liberdade de movimentação no espaço a fim de atender o seu propósito \cite{bretherton1999effective}. Para este projeto, foi escolhido um manipulador com seis graus de liberdade – três rotativos e três prismáticos – a fim de conseguir uma maior área de trabalho para o efetuador.
-
-
-%=======================================================
-\section{\textit{Reconhecimento de Padrões}}\label{sec:Cap2_RP}
-
-A Visão Computacional é uma área muito difundida atualmente, pois possibilita a interpretação de imagens por sistemas computadorizados e possui uma base forte de teorias e tecnologias construídas ao longo das últimas décadas. \cite{MAIA10}. O Reconhecimento de Padrões é uma área muito explorada para identificação de objetos quando se trata de processamento de imagens. (TREIBER, 2010). De acordo com \cite{SILVA12}, geralmente este processo é dividido em duas etapas: a primeira consiste em detectar pontos chaves; a segunda consiste em gerar valores, ou atributos, que sejam suficientes para descrever esses pontos chaves.
-
-Muitos projetos relacionados a Visão Computação têm sido divulgados nos últimos anos, ganhando um destaque para a utilização em aplicações que envolvem sistemas integrados. \cite{JESUS19}. De acordo com \cite{santos2020visao}, em um período de janeiro a junho de 2020, 36\% das publicações do periódico Computers and Electronics in Agriculture estavam associados a Visão Computacional, em comparação aos 29,1\% do ano de 2019. Um dos fatores atribuídos a este aumento vem pela acessibilidade atual de câmeras digitais no mercado que podem se integrar a sistemas maiores. Devido a melhoria das tecnologias e sua maior acessibilidade, muitos pesquisadores investiram na utilização das técnicas através do smartphone. \cite{canez2017proposta}.
-
-O problema do reconhecimento facial através da imagem de uma câmera já foi tratado por alguns autores, que utilizam diferentes métodos computacionais para otimizar este processo. \cite{okabe2015reconhecimento} e \cite{maia2016detecccao}. Dessa forma, foi escolhido, para o presente projeto, resolver o problema de reconhecimento facial utilizando conceitos de Visão Computacional ligado a técnicas de aprendizado de máquinas e utilizando ferramentas disponíveis gratuitamente.
-
-Os seres humanos são capazes de aprender a identificar objetos através da detecção de padrões, e as máquinas podem ser ensinadas a realizar o mesmo reconhecimento. Dado um tempo suficiente e um banco de dados necessário, é possível escrever um código que, ao deparar uma variedade de exemplos, consegue solucionar o problema. \cite{shukla18}.
-
-No atual momento, muitas ferramentas e métodos de aprendizado de máquinas são distribuídos de forma gratuita, porém uma tem ganhado destaque ao longo dos últimos anos, o TensorFlow. Por se tratar de uma ferramenta de código aberto desenvolvida pela Google, a comunidade programadora se uniu de forma cooperativa para criar bancos de dados e metodologias utilizando esta biblioteca para detectar objetos de diferentes classes. De acordo com \cite{shukla18}, o TensorFlow possui uma propriedade sofisticada capaz de realizar uma diferenciação automática, e pode ser instalada gratuitamente.
-
-A escolha da ferramenta também se baseou nas vantagens com relação a outros \textit{frameworks}\footnote{Framework: União de códigos e bibliotecas que têm como finalidade criar uma aplicação.} de aprendizado de máquinas disponíveis. Segundo \cite{lecun15}, o TensorFlow possui um desempenho melhor em tarefas complexas e melhor tempo de compilação. Como o processamento não precisa ocorrer no computador local, já que possuem servidores disponibilizados para este propósito, é possível tratar imagens de alta resolução com menor custo de processamento.
-
-
-%=======================================================
-\section{\textit{Contribuições}}\label{sec:Cap2_Contribuicoes}
-
-Já existem algumas solução para rastreamento de pessoas utilizando reconhecimento facial e manipuladores. No entanto, os trabalhos encontrados possuem abordagem diferente das técnicas desenvolvidas neste relatório. \cite{koide2017people} utiliza técnicas que permitem a identificação de indivíduos através de de imagens pré-definidas dos rostos das pessoas para identificar seu paradeiro, além de utilizar o Robot Operating System (ROS) para poder controlar um robô móvel. Já\cite{liu2005ibotguard} utiliza o reconhecimento facial a fim de aprimorar um sistema de segurança, porém utiliza um controle remoto manual para poder realizar a movimentação da câmera.
-
-\cite{suzuki2009human} e \cite{song2004face} apresentam projetos que tangem o presente trabalho, porém ficam limitados aos graus de liberdade entregues ao robô controlado. Por um outro lado, oferecem uma maior mobilidade em caso de grandes deslocamentos do objeto, tal qual o trabalho divulgado por \cite{shanthi2021smart}, a qual utiliza um drone para o processo. Apesar disso, \cite{hsu2015face} cita as limitações de utilizar tal tecnologia dado possíveis distâncias e angulações não adequadas.
-
-O presente trabalho irá propor o desenvolvimento de um software capaz de realizar o reconhecimento facial das pessoas e controlar um manipulador robótico para posicionar o melhor enquadramento das pessoas na câmera que está afixada em seu efetuador. A proposta inclui a utilização da biblioteca TensorFlow para que o objetivo se torne menos complexo em comparação a outros métodos citados.
-
-% O presente trabalho irá propor o desenvolvimento de um software para melhoria das diretrizes de linhas de transmissão utilizando a ferramenta de aprendizado de máquina e visão computacional para a detecção de construções civis em imagens providas por satélites. A  proposta é utilizar o TensorFlow para que esse objetivo seja realizado de forma mais simples do que os outros métodos citados. Além disso, por ser desenvolvido em um ambiente de código aberto, facilita aprimoramentos futuros na aplicação.
-
-% \nocite{ANEEL21}
-% \nocite{rodrigues14}
-% \nocite{zhou13}
-% \nocite{ghellere15}
