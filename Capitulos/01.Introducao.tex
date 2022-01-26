@@ -1,40 +1,13 @@
+O número de casos de usos de veículos aéreos não tripulados (VANTs), inicialmente predominante em aplicações militares, tem crescido rapidamente aplicações civis como: segurança, agricultura de precisão, inspeção de infraestrutura, sensoriamento remoto e entregas de bens. Possuindo grande vantagens às alternativas comerciais já estabelecidas em termos de redução de riscos e custos [1]. VANTs operando em maiores distancias, também classificados como operação out of sight, podem requirir operações autônomas ou semi-autônomas, em que o operador apenas intervem dando comandos de auto-nível ao sistema de navegação. Para uma operação autônoma adequada, o sistema de navegação, por sua vez, é crítico possuir um sistema robusto e confiável de auto-localização.[2]
 
-Sistemas aviônicos de navegação são altamente dependentes de localização baseada em GPS. Especialmente os
-veiculos aéreos não tripulados (VANTs), que são ou pilotados ou autonomos. Podem operar Possuem crescente mercado e aplicações nas indústrias agrícolas,
-militares e serviços, onde agregam o propósito de inteligência e reconhecimento 
-de terreno . E para que sua navegação seja automatizada e
-realizável, como é no caso dos VANT \-- veículos autônomos aéreos não tripulados
-\-- é imprescindível a implementação de um sistema de localização robusto.
+A localização consiste em estimar a pose do veículo, podendo ser a pose representada em em um vetor de 6 graus de liberdade (x,y,z,$\phi$, $\theta$, $\Phi$), bem como representações simplificada de 2 graus de liberdade (x,y).
+As implementações mais amplamente utilizadas envolvem o sistema de posicionamento global (GPS). Implementações mais robustas também combinam as medições do GPS com da unidade inercial (IMU) do veículo para estimar a pose com mais acurácia. Essa combinação é realizada a partir de fusão sensorial utilizando Filtros Gausianos, como o filtro de Kalman. Contudo, é relevante enfatizar que sozinhos cada uma das medições são limitadas: O GPS possui baixa acurácia e taxa de atualização, enquanto estimar pose pela IMU gera alto erro de drift[2].
 
-As formas de localização mais amplamente utilizadas são a partir de GPS podendo
-ser combinados ou não com fusão sensorial por meio de um filtro Gaussiano, que
-combina com as medições de uma IMU \-- Unidade de medição inercial, para
-medições mais precisas e rápidas. O GPS embora tenha acurácia da ordem de poucos
-metros, possui o compromisso de ter baixa taxa de amostragem. alguns
-compromissos consideráveis. Isso pode ser mitigado com a fusão sensorial com
-medições da IMU, assim obtendo melhores estimativas de posição. A estimação de
-posição utilizando somente a IMU também pode não ser adequada pelo fato da
-estimativa ser calculada integrando as medições de aceleração e assim possuindo
-alto drift. Dessa forma, essa estimação clássica de posição é mais adequada pelo
-conjunto de ambos. Este conjunto, contudo, deixa de ser preciso quando não há a
-disponibilidade de GPS. Essa condição pode ocorrer por eventuais
-indisponibilidades, também por interferências destrutivas comuns em um ambiente
-urbano ou geradas intencionalmente. Ambientes urbanos possuem superfícies
-metálicas que refletem o sinal transmitido pelos satélite. Tal sinal refletido
-ao chegar no receptor GPS pode gerar interferências destrutivas com o sinal
-original e o refletido. Signal spoofing é uma vulnerabilidade existe para VANTs,
-seja de aplicações civis ou militares, já que um agente malicioso pode
-desabilitar a localização ou comunicação do VANT por meio de um sinal de
-interferência.
+Dessa forma, temos que tais sistemas de localização são altamente dependentes de GPS. E isso é uma limitação, pois o GPS não é sempre disponível em todos ambientes, principalmente por eventos como interferência destrutivas for reflexão de sinal, interferência deliberada de sinal (signal jamming) e falsificação do sinal (signal spoofing).
+O primeiro acontece em ambientes onde existem superfícies metálicas que refletem o sinal sinal originado dos satélites, de forma que o receptor recebe oe mesmo sinal por múltiplos caminhos, frequente em ambientes urbanos e fechados. O segundo acontece quando o sinal é propositalmente bloqueado por meio de uma transmissão de mesma frequência. O terceiro, potencialmente mais perigoso, é a falsificação do sinal, de forma que o módulo GPS interpreta erroneamente a pose. Esses três eventos são exemplos de ambiente onde há a negação de GPS e que comprometem o sistema de navegação, impossibilitando a navegação autônoma.
 
-Outro aspecto característico de VANT é que são sistemas computacionais embarcados com limitações de capacidade de hardware e energia. O que significa que o modelo deve ser otimizado para não consumir recursos computacionais ilimitados.
+Diante dessa limitação, de ambientes com negação de GPS, surge um campo de pesquisa importante para alternativas de localização. Alternativas possíveis consistem em sistemas baseados em estimação de posição por localização visual, por radares. Neste trabalho, nos concerne estudar a primeira alternativa, onde é possível implementar técnicas como odometria visual (VO), localização e mapeamento simultâneo (SLAM), localização absoluta por imagens georreferenciadas por template matching e filtro de partículas.
 
-Para que a localização seja realizada, é necessário que o VANT possua um sistema de localização robusto. E neste trabalho serão comparadas técnicas de otimização a fim de implementar modelos de trabalhos prévios.  proposto e implementado um sistema de localização via pattern matching complementar às localizações anteriormente citadas. O reconhecimento de padrões será feito a partir da comparação das imagens de georreferenciadas de satélite com as imagens capturadas instantaneamente. Além disso, terá como escopo portar o modelo de reconhecimento de padrões para o hardware limitado do VANT e metodologias de reduzir o custo computacional de avaliação de padrões.
+No que tange a sistemas de visão computacional, é relevante mencionar o progresso nos últimos anos providos por redes neurais profundas e redes neurais convolucionais (CNNs). Jà são amplamente aplicadas em campos como robóticas e de visão computacional, porém ainda limitadas em aplicações de UAV, devido a restritiva limitação de hardware de sistemas embarcados e ao ao alto custo computacional de redes neurais profundas. Outro ponto relevante de mencionar é o custo alto de treinos supervisionados e a necessidade de uma elevanta quantidade de amostras de treino rotuladas, que podem dificultar a elaboração de um modelo co boa acurácia.
 
-
-Todo trabalho será desenvolvido com apoio do laboratório MINDS (Machine Intelligence and Data Science lab) da Universidade Federal de Minas Gerais interno a Escola de Engenharia, que possui o ferramental e orientação necessários.
-
-
-Este trabalho abrange quatro capítulos além deste. O segundo capítulo contém a revisão bibliográfica para o estudo de caso proposto. O terceiro capítulo aborda a metodologia adotada para a realização da proposta e o desenvolvimento do software. Adiante, o quarto capítulo, contém a análise dos resultados esperados. Por fim, o capítulo cinco conclui este trabalho e aponta direções futuras para esta área de pesquisa.
-
-
+Diante destes fatores, este trabalho busca estudar alternativas de localização visual sob todas as limitações citadas, tangendo limitações de hardware e modelos com poucos dados rotulados. Consiste de mais quatro capítulos, respectivamente: revisão bibliográfica, metodologia para implementação de solução, implementação, e validação e análise de resultados. Concluindo com contribuições e direções futuras para este problema estudado.
