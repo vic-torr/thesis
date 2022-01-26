@@ -1,4 +1,23 @@
 
+Principais tipos de localização
+odometria visual, feature points, deep learning, template matching, encoder
+semantic segmentation, representation space
+
+Problemas: 
+  rotulação
+   solução: transfer learning, segmentação semantica 
+  limitação de hardware
+    hardware disponivel: trabalhos com raspi e nvidia jetson 
+  soluções: otimizações de deep, tree pruning ok 
+
+Contribuições de trabalhos relacionados
+
+
+
+Redes neurais profundas estão no estado da arte em aplicações de visão computacional, à nivel de capacidade humana, contudo ao custo da faixa de dezenas a centenas de milhões de parâmetros e complexidade computacional. Também são depeendem muito tempo e energia para treinar, e vasto conjunto de dados de treino. Essas grandes DNNs são difíceis de serem implementadsa em ambientes embarcados, devido a fatores limitantes como banda, instruções por segundo e memória. 
+
+Para lidar com problema de limitações de recursos, uma abordagem possivel é a técnica de podagem de redes neurais profundas, que remove as neurônios que não são relevantes para a rede. Como é citado em [Pruning Deep Networks using Partial Least Squares], foi possível reduzir até 67\% das operações de ponto flutuante (FLOPs), sem perda na acurácia e também foi possível reduzir 90\% do custo com uma perda negligente. Neste trabalho foi possível melhorar a acuracia comparado ao original, devido a regularização da rede. Consiste em estimar a importancia do neuronio baseado em sua relação com a classe em um espaço dimensional reduzido. A relação é computada utilizando minimos quadrados parciais e importancia de variável em projeção. Em \cite{jordao2019pruning} também são mencionadas outras importante técnicas de compressão de DNNs, como quantização de float, que consiste da redução de float de 32 bits pata 8 bits, nos pesos e funções de ativação, reduzindo a precisão, acelerando as operações atomicas, contudo sem impacto relevante na acuracia do modelo. Aceleração de hardware também possibilita operações atomicas de multiplicações matriciais e altamente paralelizadas. \cite{liang2021pruning}
+
 
 
 Muito se discute a respeito dos índices que definem o grau de desenvolvimento de um país. De acordo com \cite{paranhos2007gestao}, um país desenvolvido é um país industrializado, e quanto maior o nível de industrialização em que ele se encontra, maior a qualidade de vida que ele tem a oferecer a sua população. Com o advento da Quarta Revolução Industrial, a automatização de processos passou a integrar a rotina dentro do ambiente industrial. Isso gerou uma influência sobre demais setores na sociedade, que começou a consumir produtos e até serviços que contavam com algum grau de automação na comercialização ou uso. \cite{schwab2019quarta}.
