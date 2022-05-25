@@ -1,56 +1,166 @@
-Neste capítulo, será apresentado um inicial apanhado teorico envolvendo aprendizao estatístico, redes neurais, redes neurais profundas e convolucionais. Em seguida uma revisão do atual estado da arte no que tange o problema de localização.
+Neste capítulo, será apresentado inicialmente definições do domínio do problema de classificação e identificação de cenas em sensoriamento remoto na seção \ref{sec:Cap2_dominio}, bem como suas características e contexto. Seguindo por um apanhado teórico da seção envolvendo aprendizado de máquina, redes neurais, redes neurais profundas, convolucionais e transformers, no que tange interseções com possiveis soluções para o problema. E por fim, na seção \ref{sec:Cap2_revisao_literatura} uma revisão da literatura e do atual estado da arte no que tange o problema de classificação visual no que tange a sensoriamento remoto. Apresentando trabalhos que envolveram soluções tanto para sensoriamento remoto, quanto para implementações de redes neurais profundas.
+
+trabalhos: transformer pra label da amazonia, unet pra detecção de garimpo, attention is all you need, a image worth 16x16, paper principal da cnn, solução dessse problema via cnn.
 
 \section{\textit{Domínio do problema}}\label{sec:Cap2_dominio}
 
-Pilotagem tripulada consiste, além da leitura dos instrumentos, em referências visuais, como ponto de referências, terrenos, e marcações. Apesar de altamente dependente dos instrumentos, a pilotagem tripulada é mais eficiente quando se utiliza de referências visuais, por se tratar de uma alternativa às falhas dos instrumentos. A navegação visual é uma tarefa complexa de ser implementada autonomamente, pois requer identificação de características do terreno em diversas condições e contextos~\cite{rs13194017}. Na revisão literária de~\cite{COUTURIER2021103666} é apresentado duas abordagens de localização visual. A primeira citada é a localização visual relativa (\textit{RLV}\footnote{Relative visual location}), cujo objetivo é estimar a posição baseado no deslocamento de um quadro para o outro. A segunda abordagem é a localização visual absoluta (\textit{AVL}\footnote{Absolute visual location}), que compara as imagens do VANT ou aeronave com imagens georreferenciadas. A segunda alternativa é interessante por se tratar de imagens rotuladas com as referências geográficas e por serem referencias absolutas, que não sofrem de \textit{drift} em relação a um referencial relativo, porém com menor precisão.
 
- \section{Aprendizado estatístico}\label{sec:aprendizado_estatistico}
+TODO: fonte definição sensoriamento remoto
 
-\section{\textit{Breve definição de redes neurais e convolucionais}}\label{sec:Cap2_definicoes}
+Sensoriamento remoto
 
-O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. Uma etapa importante dos ajustes dos pesos é a retropropagação de erro \footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}.
 
-O termo redes neurais profundas, ou \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas.Foram uma das principais tecnologias de aprendizado de máquina desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data. Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+
+
+\section{Revisão Teórica}\label{sec:Cap2_revisao_teorica}
+
+\subsection{Aprendizado de máquina}\label{sec:aprendizado_maquina}
+
+\subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
+
+O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro \footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}.
+
+\subsection{Redes Neurais Artificiais Profundas}\label{sec:Cap2_redes_neurais_profundas}
+O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data. 
 
 Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Sobre-ajuste}. Se trata de quando o modelo é treinado e de forma a gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de DNNs, podemos citar o Dropout, Dropconnect e pruning, que são respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.
 
-\section{\textit{O problema de rotulagem e variabilidade de amostras de treino}}\label{sec:Cap2_rotulagem}
+
+\subsection{Redes Neurais Convolucionais}\label{sec:Cap2_redes_neurais_convolucionais}
+Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
 
 
-Um dos principais desafios envolvido o treino de \textit{CNNs} é representar um estado de características que cubram as variações fotográficas, tanto em características do sensor, como variações da imagem no dia, clima, estação e plataforma da câmera o que se torna uma tarefa difícil. Para uma localização efetiva, o modelo deve ser robusto a todas essas variações, que requer um grande conjunto de treino que cobre boa parte das diversas condições possíveis. Tal conjunto de dados não é disponível e nem viável de obter, pois se trata um volume muito grande de amostras~\cite{rs13194017}. Também não é viável o aprendizado contínuo em tempo real, dado o alto custo de poder computacional e tempo. Tais limitações levam a necessitar o desenvolvimento de algorítimos que aprendem seletivamente para que o poder computacional seja utilizado eficientemente, bem como reutilizar conhecimento prévio e evitar treinamento redundante~\cite{rostami2019learning}.  Dentre as técnicas utilizadas para implementar esses modelos mais eficientes, temos como exemplo o aprendizado supervisionado fraco, e a transferência de aprendizado.
 
-\section{\textit{Aprendizado semi-supervisionado}}\label{sec:Cap2_semisup}
+\subsection{\textit{ResNet}}\label{sec:Cap2_ResNet}
+TODO Resnet
 
-As técnicas de aprendizado semi-supervisionado consistem em treinar um modelo com apenas um conjunto reduzido de amostras rotuladas de treino, e as demais amostras serem não supervisionadas. As demais amostras de treino podem ser utilizadas, por exemplo, agrupando-as com as amostras rotuladas e classificando-as como a amostra mais próxima, como apresenta o trabalho de~\cite{Sanches2003}. Outras propostas envolvem data augumentation, que consistem em gerar um conjunto de treino maior, dados as amostras de treino disponíveis.
 
-\section{\textit{Transferência de aprendizado}}\label{sec:Cap2_transfer}
+\subsection{\textit{O problema de rotulagem e variabilidade de amostras de treino}}\label{sec:Cap2_rotulagem}
+
+
+Um dos principais desafios envolvido o treino de \textit{CNNs} aplicado a sensoriamento remoto é representar um estado de características que cubram as variações fotográficas, tanto em características do sensor, como variações da imagem no dia, clima, estação e plataforma da câmera o que se torna uma tarefa difícil. Para uma localização efetiva, o modelo deve ser robusto a todas essas variações, que requer um grande conjunto de treino que cobre boa parte das diversas condições possíveis. Tal conjunto de dados não é disponível e nem viável de obter, pois se trata um volume muito grande de amostras~\cite{rs13194017}. Tais limitações levam a necessitar o desenvolvimento de algorítimos que aprendem seletivamente para que o poder computacional seja utilizado eficientemente, bem como reutilizar conhecimento prévio e evitar treinamento redundante~\cite{rostami2019learning}.  Dentre as técnicas utilizadas para implementar esses modelos mais eficientes, temos como exemplo o aprendizado supervisionado fraco, e a transferência de aprendizado.
+
+\subsection{\textit{Aprendizado semi-supervisionado}}\label{sec:Cap2_semisup}
+
+As técnicas de aprendizado semi-supervisionado consistem em treinar um modelo com apenas um conjunto reduzido de amostras rotuladas de treino, e as demais amostras serem não supervisionadas. As demais amostras de treino podem ser utilizadas, por exemplo, agrupando-as com as amostras rotuladas e classificando-as como a amostra mais próxima, como apresenta o trabalho de~\cite{Sanches2003}. Outras propostas envolvem data augmentation, que consistem em gerar um conjunto de treino maior, dados as amostras de treino disponíveis.
+
+\subsection{\textit{Transferência de aprendizado}}\label{sec:Cap2_transfer}
 
 Já técnicas de transferência de aprendizado\footnote{Comumente citado como Transfer Learning}, ou \textit{few shots learning}, consistem em redes treinadas para um conjunto limitado de testes~\cite{rostami2019learning}
-e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agentes. Consistem primariamente de um problema origem e um problema objetivo e como podemos suceder em transferir conhecimento dado o problema origem. A abordagem de transferência de conhecimento se inspira em replicar a habilidade dos humanos em que é possível transferir conhecimento de experiências passadas para lidar com tarefas com poucas amostras rotuladas. Este fato inspirou em representar dados de diferentes problemas de aprendizado de máquina em um espaço embutido onde as representações utilizam de diversas relações entre diferentes domínios de conhecimentos e tarefas. Uma implementação encontrada na literatura, proposta em~\cite{DBLP:journals/corr/abs-1811-04863}, consistiu de transplantar a camada de características de uma CNN derivada do domínio de origem para inicializar outra rede, do domínio objetivo, composta por uma camada final fortemente conectada. Assim foi aproveitada as primeiras camadas e a rede foi trenada para o domínio objetivo com uma quantidade menor de amostras.
-
-\section{\textit{Soluções em outros trabalhos}}\label{sec:Cap2_propostas}
+e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agentes. Consistem primariamente de um problema origem e um problema objetivo e como podemos suceder em transferir conhecimento dado o problema origem. A abordagem de transferência de conhecimento se inspira em replicar a habilidade dos humanos em que é possível transferir conhecimento de experiências passadas para lidar com tarefas com poucas amostras rotuladas. Este fato inspirou em representar dados de diferentes problemas de aprendizado de máquina em um espaço embutido onde as representações utilizam de diversas relações entre diferentes domínios de conhecimentos e tarefas. Uma implementação encontrada na literatura, proposta em~\cite{DBLP:journals/corr/abs-1811-04863}, consistiu de transplantar a camada de características de uma CNN derivada do domínio de origem para inicializar outra rede, do domínio objetivo, composta por uma camada final fortemente conectada. Assim foi aproveitada as primeiras camadas e a rede foi trenada para o domínio objetivo com uma quantidade menor de amostras. 
 
 
-Em~\cite{COUTURIER2021103666} são citadas soluções que envolvem a técnica \textit{template matching}. Contudo, essa solução envolve um alto custo para se realizar uma busca em uma área grande, portanto sendo necessário a implementação de técnicas como janelas deslizantes.
 
-Em~\cite{9552597} é implementado um modelo não supervisionado de segmentação semântica de terreno por imagens aéreas, com a vantagem de não depender de rotulagem, em comparação com outras técnicas de redes profundas.
+\section{Revisão da Literatura}\label{sec:Cap2_revisao_literatura}
 
-Para implementar a \textit{AVL}, uma das possíveis abordagens é utilizando \textit{CNNs}, como é explorado em \cite{rs13194017}, que realizou um \textit{benchmark} de modelos. Uma conclusão relevante foi que os custos computacionais para treinar uma rede sejam altos, a utilização do modelo em um VANT pode ter custos reduzidos, sendo um aspecto vantajoso, já que estes possuem recursos computacionais reduzidos. O modelo obtido consumia 1-2GB de memória e com passadas de 10ms. Contudo, o melhor modelo ainda não apresentou acurácia competitiva a trabalhos prévios.
+
+\subsection{\textit{Problema de detecção de desmatamento em outros trabalhos}}\label{sec:Cap2_outros_trabalhos}
+
+
+
 
 
 TODO: citar CoordConv
 
-\section{\textit{Otimizações de redes neurais}}\label{sec:Cap2_compressao}
 
+TODO: citar o paper de pre-treino
+Para a aplicação de sensoriamento remoto temos trabalhos \cite{DBLP:journals/corr/abs-1811-04863} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas. Utilizou-se o dataset MillionAID, que é o maior dataset datado até agora, contendo mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo Google earth, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixels até 900 mega pixels.
 
-Redes neurais profundas estão no estado da arte em aplicações de visão computacional, ao nível de capacidade humana, contudo ao custo da faixa de dezenas a centenas de milhões de parâmetros e complexidade computacional. Também são dependem muito tempo e energia para treinar, e vasto conjunto de dados de treino. Essas grandes DNNs são difíceis de serem implementadas em ambientes embarcados, devido a fatores limitantes como banda, instruções por segundo e memória.
-
-Para lidar com problema de limitações de recursos, uma abordagem possível é a técnica de podagem de redes neurais profundas, que remove as neurônios que não são relevantes para a rede. Como é citado em~\cite{jordao2019pruning}, foi possível reduzir até 67\% das operações de ponto flutuante (\textit{FLOPS}\footnote{Floating point operations per second }), sem perda na acurácia e também foi possível reduzir 90\% do custo com uma perda negligente. Neste trabalho foi possível melhorar a acurácia comparado ao original, devido à regularização da rede. Consiste em estimar a importância do neurônio baseado em sua relação com a classe em um espaço dimensional reduzido. A relação é computada utilizando mínimos quadrados parciais e importância de variável em projeção. Em~\cite{liang2021pruning} também são mencionadas outras importantes técnicas de compressão de DNNs, como quantização de ponto flutuante, que consiste da redução de 32 bits pata 8 bits, nos pesos e funções de ativação, reduzindo a precisão, acelerando as operações atômicas, contudo sem impacto relevante na acurácia do modelo. Aceleração de \textit{hardware} também possibilita operações atômicas de multiplicações matriciais e altamente paralelizadas.
-
-\section{\textit{ Considerações de implementações quanto a recursos computacionais}}\label{sec:Cap2_trabalhos}
-
-
-Em \cite{jeon2021run} foram realizados \textit{benchmarks} de possíveis \textit{hardwares} para implementações de odometria visual utilizando câmeras \textit{stereo} e fusões sensoriais. Neste trabalho é possível concluir a alto ganho de desempenho devido à aceleração de \textit{hardware} dos módulos Nvidia Jetson, que utilizam unidades gráficas para acelerar o treino das \textit{CNNs}. Atendendo os requisitos de potência, consumindo apenas 7.5W e de tamanho, podendo ser portada em micro aeronaves.  Em \cite{Shiguemori2016Embedded} foi realizada a implementação uma AVL por rede neural, um Raspberry pi, que é um computador embarcado e possui mais recursos de processamento na \textit{CPU}\footnote{CPU - Central Process unit: unidade central de processamento} do que \textit{GPU}\footnote{GPU - Graphical Process unit: unidade gráfica de processamento}. Contudo  o que não garantiu desempenho suficiente para uma boa acurácia na localização visual. Portanto, para se portar um modelo em uma micro aeronave, dado as limitações de peso, potência e acurácia mínima é interessante utilizar sistemas embarcados que possuem aceleração de \textit{hardware}, especializada em computação gráfica, como os módulos Jetson da NVIDIA.
+\subsection{\textit{Otimizações de redes neurais}}\label{sec:Cap2_compressao}
 
 
 
+\subsection{\textit{Limitações de recursos computacionais}}\label{sec:Cap2_trabalhos}
+
+
+
+\subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
+Pytorch é um framework código aberto de Python para aprendizado de maquinas. É implementado em C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
+Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a deeplearning e visão computacional. Tem ampla adoção devido a intenção de ser um framework de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
+
+
+
+INPE 
+
+
+- DETER B INPE Este documento apresenta a metodologia para o sistema DETER- B como parte
+do plano de desenvolvimento do Sistema DETER (Detecção de Desmatamento em
+Tempo Quase Real). Atualmente, o DETER utiliza imagens do sensor MODIS/TERRA,
+com alta frequência temporal, mas limitada resolução espacial (250 m), para
+mapeamento diário das áreas desflorestadas em formações florestais na Amazônia.
+Para organizar o processo de aprimoramento dos sistemas de alerta do INPE o DETER
+baseado no MODIS, que tem como área mínima de mapeamento de 0,25 km2 (25 ha)
+passa a ser denominado DETER - A. A exatidão dos alertas do Sistema DETER-A é maior
+que 90\%, sendo que aproximadamente 65% correspondem a desmatamento por corte
+raso e 30\% a evidências de degradação florestal (INPE, 2008).
+Deste modo, dentro da família de sistemas de alerta, pretende-se desenvolver e
+operacionalizar dois novos sistemas, o DETER-B que utilizará sensores com resolução
+de 60m e o DETER-C com dados de sensores da classe LANDSAT, de 20 a 30 m.
+
+
+plataforma mapbiomas
+
+
+
+
+---
+Segundo o MapBiomas (https://plataforma.brasil.mapbiomas.org/):
+-
+A Amazônia concentra 94% (mais de 100 mil hectares) da área
+garimpada brasileira, sendo mais de 50% potencialmente ilegais, por
+ocorrerem dentro em Terra Indígenas e Unidades de Conservação.
+A área de garimpo no bioma cresceu 10x nas últimas três décadas,
+com 301% de expansão em UCs e 495% em TIs.
+-
+A área de garimpos terrestres na bacia do rio Madeira saltaram de
+3753 ha em 2007 para 9660 ha em 2020, uma expansão de 5907
+hectares (que equivale a mais 8200 campos de futebol).
+-
+A área de garimpos detectados para o ano de 2020 é o recorde
+histórico da série de dados, que conta com 36 anos de imagens de
+satélite.
+
+
+O Brasil pertence a um seleto grupo de países capazes de
+desenvolver, operar e utilizar satélites e seus dados. Nessa área o
+país pode se orgulhar da posição que ocupa. Somos um dos países
+que melhor monitora seu território, em diferentes recortes do
+tempo e do espaço, atendendo a diferentes necessidades da
+sociedade civil, da academia ou do mercado financeiro.
+Para tal, fazemos uso de satélites nacionais, como o CBERS-4A e o
+AMAZÔNIA-1 (ambos desenvolvidos pelo INPE), e internacionais,
+sejam públicos (casos do Landsat, da NASA, e do Sentinel, da ESA)
+ou privados (como os nanossatélites da empresa Planet), isso para
+manter curta a lista de exemplos. Somos capazes, portanto, de
+observar e monitorar balsas garimpeiras ao longo de um rio.
+
+
+O garimpos ilegal na Amazônia deve ser monitorado, combatido e eliminado.
+-
+O uso de imagens de satélite de alta resolução espacial (como a do CBERS-4A desenvolvido pelo
+INPE) pode ser utilizado para monitorar a dinâmica de balsas garimpeiras na Amazônia e
+auxiliar na fiscalização, combate e controle dos ilícitos ambientais.
+-
+Combinações de múltiplos satélites, de média e alta resolução, do espectro óptico e radar,
+devem ser exploradas para aumentar a frequência de observação e a capacidade de
+monitoramento de balsas garimpeiras, mesmo em condições de intensa nebulosidade.
+-
+Outras inovações tecnológicas, como classificadores de aprendizado profundo (Deep Learning),
+devem ser exploradas para facilitar e automatizar a detecção das balsas garimpeiras e de seus
+impactos associados.
+
+
+
+
+3. Método
+Fusão de dados óticos e interpretação visual
+Foi utilizado uma imagem única de 25 de Outubro de 2021, do satélite CBERS-4A, do sensor WPM, com 2 metros
+de resolução após fusão das bandas pan + RGB, para identificar visualmente as balsas garimpeiras no rio Madeira,
+no trecho ao norte de Borba, no Amazonas.
+O CBERS-4A é um satélite nacional, desenvolvido pelo INPE, gratuito e com imagens de todo o território brasileiro
+disponíveis na internet. Trata-se do satélite público de maior resolução espacial do planeta.
+
+--- 
+
+
+asdadasdasdasdasdasdadasdasdasdasdasdasdasdasdasdasdadasasasdasdasdasdasdasdasdadasdasdasdasdadasdasdasdasd

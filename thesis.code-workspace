@@ -4,5 +4,21 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.enableFiletypes": [
+			"latex"
+		],
+		"cSpell.words": [
+			"MapBiomas"
+		],
+		"editor.fontSize": 14,
+		"editor.rulers": [
+			80,
+			120
+		],
+		"editor.renderLineHighlight": "line",
+		"workbench.colorCustomizations": {
+			"editorRuler.foreground": "#ff408036"
+		}
+	}
 }

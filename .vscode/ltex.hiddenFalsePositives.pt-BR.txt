@@ -1,0 +1,2 @@
+{"rule":"PT_WEASELWORD_REPLACE","sentence":"^\\QA Amazônia concentra 94% (mais de 100 mil hectares) da área garimpada brasileira, sendo mais de 50% potencialmente ilegais, por ocorrerem dentro em Terra Indígenas e Unidades de Conservação.\\E$"}
+{"rule":"HUNSPELL_RULE","sentence":"^\\QAtualmente podem ser detectadas remotamente pelo MapBiomas, um sistema de monitoramento de tempo real do Instituto Nacional de Pesquisa Espacial, o INPE, onde realiza múltiplas varreduras em amplo espectro, desde o micro-ondas, infravermelho ao espectro visível.\\E$"}
