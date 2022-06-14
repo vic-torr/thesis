@@ -11,14 +11,12 @@
 		"cSpell.words": [
 			"MapBiomas"
 		],
-		"editor.fontSize": 14,
-		"editor.rulers": [
-			80,
-			120
-		],
+		"editor.fontSize": 20,
+		"editor.rulers": {},
 		"editor.renderLineHighlight": "line",
 		"workbench.colorCustomizations": {
-			"editorRuler.foreground": "#ff408036"
-		}
+			"editor.lineHighlightBorder": "#fff"
+		},
+		"gitlens.currentLine.enabled": false
 	}
 }

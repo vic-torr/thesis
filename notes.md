@@ -5,9 +5,6 @@
  Y. Xu, Q. Zhang, J. Zhang, and D. Tao, “Vitae: Vision transformer
 advanced by exploring intrinsic inductive bias,” NeurIPS, vol. 34, 2021.
 
-asdasdasdasdzxcvzxasdf
-asdasdasdasdasdasdasdasd
-
 ## Datasets:
 Understanding the Amazon from Space [20] — multilabel dataset to track the human footprint in the Amazon rainforest; we’ll mostly refer to this as the Amazon dataset.
 WiDS Datathon 2019 [21] — binary dataset for oil palm plantation detection in Borneo; we’ll mostly refer to this as the oil palm dataset.
@@ -133,11 +130,11 @@ x - Done
    - [x] Contextualization
    - [x] Problem introduction
    - [x] Objective
- - [x] Illustrations
- - [ ] Review to remove specialists def
+ - [ ] Illustrations
+ - [x] Review to remove specialists def
 ## Theoretical revision + Literature review
 
-- [ ] Intro to chapter
+- [x] Intro to chapter
 - [ ] Problem domain
   - [ ] Localization
   - [ ] Remote sensing
@@ -544,3 +541,44 @@ Getting Started
     Review the data page, which includes detailed information about the labels and the labeling process.
     Download a subsample of the data to get familiar with how it looks.
     Explore the subsample on Kernels. We’ve created a notebook for you to get started.
+    
+    
+    
+
+
+ojlha cara vou escrever toda merda que eu pensar sem o menor pudor pq eu sei que embora não estruturado sai algum pensamento utuil dessa merda
+
+o que eu quero dizer caralho é que
+
+a porra da amazonia esta sendo destruida cabulosamentee e vai chegar em um ponto de não retorno onde o bioma estará fodido e entratra num feedback positivo de destuiição sem precedentes, que alem de perder muitas especies de plantas e animais, vai foder com a porra do clima global, são cdapturadas uma quantidade absurda de co2 nessa caralha porraaaaaaa
+
+
+
+as causas raizes da ddesmatamento são o descurso anti ambientalista e ocupações e desmatamento irregular por parte d agropecuarios, e garimpeiros
+
+
+no que tyange a agropecuaria, inpe e mapabioma possuem sistemas de tempo real de captura de incendios e desmatamento, utilizando satelites de resolução 250 por 250 por banda hiper espectral.
+
+contudo, existem ainda detalhes padrões dificeis de serem capturados com essa resolução ruim.
+
+como por exemplo clareiras de garimpo e garimpo de de balsas.
+
+podem ser detectados por satelites com sensoriamento hiper espectral e com fusão sensorial, contudo ainda demandam técnicas de detecção automatizadas destas balsas.
+
+diante disso, este trabalho propoe desenvolver um modelo capaz de classificar imagens de satelite de maior resolução como sendo de regiões de degradação.
+
+Uma das possiveisformas para tal é o emprego de deep learning realizando reconhecimento de padões para detectar tais regiões degradadas. 
+
+In summary, we have revealed empirical evidence that the
+Amazon rainforest has been losing resilience since the early 2000s,
+risking dieback with profound implications for biodiversity, carbon
+storage and climate change at a global scale. We further provided
+empirical evidence suggesting that overall drier conditions, culmi-
+nating in three severe drought events, combined with pronounced
+increases in human land-use activity in the Amazon, probably played a crucial role in the observed resilience loss. The amplified
+loss of Amazon resilience in areas closer to human land use suggests
+that reducing deforestation will not just protect the parts of the for-
+est that are directly threatened but also benefit Amazon rainforest
+resilience over much larger spatial scales
+
+

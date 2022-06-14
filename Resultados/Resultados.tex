@@ -29,14 +29,14 @@
 
 % É avaliado qual a resposta do APS com a presença de uma fotocorrente. Para a simulação, foi considerado o modelo apresentado na \autoref{fig_APS_cap}, do qual há uma fonte de corrente em paralelo a um diodo representando a fotogeração. A corrente \textit{Iref} considerada foi de $500$ nA, fornecida pelo bloco \textit{current\_mirror\_nmos}. A tensão de referência de comparação utilizada nas simulações foi de 400 mV.
 
-% O Período de Reset nas simulações é definido para ter uma duração de $1$ us. Dois cenários de simulação são descritos nas subseções \ref{sub_sec121} e \ref{sub_sec247} são apresentados, sendo suficientes para comprovação da operação do circuito. O primeiro cenário modela o sinal de fotocorrente gerada com uma onda quadrada de 8 kHz (período de 125 $\mu$s) e valor de amplitude de 5 nA. O segundo cenário modela o sinal de fotocorrente gerada com uma onda quadrada de 4 kHz (período de 250 $\mu$s) e valor de amplitude de 2,5 nA. Esses e outros valores de corrente fotogeradas sugeridos pelo trabalho \cite{LidianeCampos} foram testados na topologia implementada.
+% O Período de Reset nas simulações é definido para ter uma duração de $1$ us. Dois cenários de simulação são descritos nas subseções~\ref{sub_sec121} e~\ref{sub_sec247} são apresentados, sendo suficientes para comprovação da operação do circuito. O primeiro cenário modela o sinal de fotocorrente gerada com uma onda quadrada de 8 kHz (período de 125 $\mu$s) e valor de amplitude de 5 nA. O segundo cenário modela o sinal de fotocorrente gerada com uma onda quadrada de 4 kHz (período de 250 $\mu$s) e valor de amplitude de 2,5 nA. Esses e outros valores de corrente fotogeradas sugeridos pelo trabalho \cite{LidianeCampos} foram testados na topologia implementada.
 
 % \subsection{Período de Integração igual a 121 $\mu$s}
 % \label{sub_sec121}
 
 % Nessa situação, foi considerado uma fotocorrente de 5 nA, que está dentro da faixa proposta pelo autor na \autoref{tab_estcur}. Os resultados obtidos são observados nos gráficos abaixo.
 
-% As figuras \ref{graf125}, \ref{graf125z} e \ref{graf1252} apresentam o comportamento esperado entre os Estágios 1 e 2 descritos na \autoref{estagiosAPS}. Assim que RESET é desabilitado (vai para nível lógico '1'), Vout\_analogico passa a decair linearmente, como mostra \autoref{eq_modEletFotIl}. Quando Vout\_analogico atinge o valor de Vref, Vout\_digital vai do nível lógico '0' para '1', como descrito na \autoref{sec_apsdigitalized}.
+% As figuras~\ref{graf125},~\ref{graf125z} e~\ref{graf1252} apresentam o comportamento esperado entre os Estágios 1 e 2 descritos na \autoref{estagiosAPS}. Assim que RESET é desabilitado (vai para nível lógico '1'), Vout\_analogico passa a decair linearmente, como mostra \autoref{eq_modEletFotIl}. Quando Vout\_analogico atinge o valor de Vref, Vout\_digital vai do nível lógico '0' para '1', como descrito na \autoref{sec_apsdigitalized}.
 
 % Note que o RESET habilitado apresenta uma resposta de 'Vout\_analog' com um Overshoot, ou seja, o valor de saída passa por um valor máximo que decai até estabilizar. Isso deve ser levado em conta na medição do circuito real, de forma que o medidor deve limitar o valor máximo de medida a pelo menos o pico no Overshoot para apresentar uma resposta coerente.
 
@@ -74,7 +74,7 @@
 
 % Nessa situação, foi considerado uma fotocorrente de 2.5 nA, que está dentro da faixa proposta pelo autor na \autoref{tab_estcur}. Os resultados obtidos são observados nos gráficos abaixo.
 
-% As figuras \ref{graf247} e \ref{graf2472} apresentam mesmo comportamento daqueles apresentados na \autoref{sub_sec121}, como esperado.
+% As figuras~\ref{graf247} e~\ref{graf2472} apresentam mesmo comportamento daqueles apresentados na \autoref{sub_sec121}, como esperado.
 
 % \begin{figure}[!h]
 %  \centering
@@ -161,4 +161,4 @@
 %     \label{graf_tiasinal3}
 % \end{figure}
 
-% Nota-se das figuras \ref{graf_tiasinal2} e \ref{graf_tiasinal3} que a partir do momento que a tensão analógica cruza o valor da tensão de referência, o valor de tensão digital muda instantes após de forma a apresentar nível lógico '1' quando a tensão analógica estiver subindo, e nível lógico '0' quando estiver caindo.
+% Nota-se das figuras~\ref{graf_tiasinal2} e~\ref{graf_tiasinal3} que a partir do momento que a tensão analógica cruza o valor da tensão de referência, o valor de tensão digital muda instantes após de forma a apresentar nível lógico '1' quando a tensão analógica estiver subindo, e nível lógico '0' quando estiver caindo.

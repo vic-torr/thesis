@@ -3,5 +3,6 @@
         "abntex",
         "CBERS",
         "INDICE"
-    ]
+    ],
+    "editor.renderLineHighlight": "none"
 }

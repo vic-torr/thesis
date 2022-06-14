@@ -800,3 +800,8 @@ VerbClear = "|"
 # All for now - have fun.
 #
 #####################################################################
+
+
+% chktex-file 19
+% chktex-file 46
+% chktex-file 13
