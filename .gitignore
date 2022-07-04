@@ -11,3 +11,7 @@ main.fls
 main.fdb_latexmk
 main.blg
 main.bbl
+.undodir/*
+.undodir
+main.synctex(busy)
+Session.vim

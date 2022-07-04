@@ -1,4 +1,4 @@
-Neste capítulo, será apresentado inicialmente definições do domínio do problema de classificação e identificação de cenas em sensoriamento remoto na seção~\ref{sec:Cap2_dominio}, bem como suas características e contexto. Seguindo por um apanhado teórico da seção envolvendo aprendizado de máquina, redes neurais, redes neurais profundas, convolucionais e \textit{transformers}, no que tange interseções com possiveis soluções para o problema. E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatura e do atual estado da arte no que tange o problema de classificação visual no que tange a sensoriamento remoto. Apresentando trabalhos que envolveram soluções tanto para sensoriamento remoto, quanto para implementações de redes neurais profundas.
+Neste capítulo, será apresentado inicialmente definições do domínio do problema de classificação e identificação de cenas em sensoriamento remoto na seção~\ref{sec:Cap2_dominio}, bem como suas características e contexto. Seguindo por um apanhado teórico da seção envolvendo aprendizado de máquina, redes neurais, redes neurais profundas, convolucionais e \textit{transformers}, no que tange interseções com possíveis soluções para o problema. E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatura e do atual estado da arte no que tange o problema de classificação visual no que tange a sensoriamento remoto. Apresentando trabalhos que envolveram soluções tanto para sensoriamento remoto, quanto para implementações de redes neurais profundas.
 
 
 % trabalhos:
@@ -10,15 +10,13 @@ Neste capítulo, será apresentado inicialmente definições do domínio do prob
 % - solução dessse problema via cnn.
 
 \section{\textit{Domínio do problema}}\label{sec:Cap2_dominio}
-
-
 % TODO: fonte definição sensoriamento remoto
 
 
+O problema em questão, de identificação de regiões com garimpo em imagens de satélite, é pertencem ao campo de sensoriamento remoto. O sensoriamento remoto consiste em aquistar ou analisar medições de uma região geográfica terrestre ou atmosférica. Podem ser realizadas por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro eletromagnético.
+Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter caracteristicas ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}. O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
 
-O problema em questão, de identificação de regiões com garimpo via imagens de satélite, é contido no campo de sensoriamento remoto. O sensoriamento remoto consiste em aquisitar ou analisar medições de uma região geografica terrestre ou atmosférica. Podem ser realizadas por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro eletromagnético. Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter caracteristicas ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
-
-Ainda mais especificamente, o problema indroduzido também faz parte do campo de reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos que automatizem a detecção ou classificação do objeto a ser encontrado.
+Ainda mais especificamente, o problema introduzido também faz parte do campo de reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos que automatizem a detecção ou classificação do objeto a ser encontrado.
 O campo de reconhecimento de padrões possui algorítimos tradicionais para identificar e localizar objetos de interesse, porém podem ser muito caras computacionalmente e pouco efetivas, dependendo das características do problema. Por isso, recentemente tem sido frequentemente empregadas técnicas baseadas em aprendizado de máquina e aprendizado profundo, que atualmente são o estado da arte em muitos problemas de reconhecimento de padrões.
 
 
@@ -28,7 +26,7 @@ O campo de reconhecimento de padrões possui algorítimos tradicionais para iden
 
 Aprendizado de máquina é um campo que estuda algorítimos capazes de aprender e realizar inferências a partir de dados. O termo foi cunhado em 1959, por Artur Samuel, como “Campo de estudos que visa a dar computadores a habilidade de aprender sem serem explicitamente programados para determinada tarefa.”~\cite{Samuel1959SomeSI}.
 
-Já em~\cite{Mitchell97} definie um algorítimo de aprendizdo como “Um algorítmo que é dito ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a partir da experiência E.”
+Já em~\cite{Mitchell97} define um algorítimo de aprendizado como “Um algoritmo que é dito ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a partir da experiência E.”
 
 Para melhor entender cada constituinte dessa definição, podemos enumerar exemplos. A
 tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo
