@@ -50,7 +50,7 @@ https://towardsdatascience.com/detecting-deforestation-from-satellite-images-7aa
 https://github.com/google-research/vision_transformer
 
 
-
+>>
 
 Artificial Intelligence
 
@@ -136,52 +136,49 @@ x - Done
 
 - [x] Intro to chapter
 - [ ] Problem domain
-  - [ ] Localization
-  - [ ] Remote sensing
-  - [ ] Intersection ML
+  - [ ] Amazon issue
+  - [X] Remote sensing
+  - [X] Intersection ML
 - [ ] Theoretical revision & definitions
   - [ ] Machine Learning:
-    - [ ] Definition
-    - [ ] regression
-      - Given input samples and outputs, estimate function f, predict x
-    - [ ] classification
-      - Given input samples and Labels, estimate function f, predict x
-      - Given input samples, estimate function f, predict x
-    - [ ] prediction
-    - [ ] Metrics
-      - [ ] NMAE
-      - [ ] RSME
-      - [ ] NEgLOG
-      - [ ] EuclidDis
+    - [X] Definition
+    - [X] classification
+    - [X] Metrics
+      - [X] Accuracy, f1 pr
     - [ ] training supervised
     - [ ] Unupervised
-    - [ ] Semi supervised
-    - [ ] PreProcess
-    - [ ] Feature extractor
-    - [ ] Regularization
-    - [ ] overfit,
-    - [ ] underfit
-    - [ ] generalization
+    - [X] Semi supervised
+    - [X] PreProcess
+    - [X] Feature extractor
+    - [X] Regularization
+    - [X] overfit,
+    - [X] underfit
+    - [X] generalization
     - Model selection
-  - [ ] ANN:
+  - [X] ANN:
     - perceptron,
-  - [ ] Deep Learning
-  - [ ] CNN:
+  - [X] Deep Learning
+  - [X] CNN:
     - Convolutional
     - Pooling
     - Fully connected
     - sigmoid
-  - [ ] Transfer Learning/ pre trainning
-  - [ ] Feature extractor
-  - [ ] AVL RVL template matching
-  - [ ] Resnet SOTA models
+    - Image
+  - [X] Transfer Learning/ pre trainning
+  - [X] Feature extractor
+  - [ ] CNN SOTA models
   - [ ] Transformers
+    - [ ] patches
+    - [ ] embeddings
+    - [ ] encoder-decoder
+    - [ ] mlp heads
+
 - [90%] Literature SOTA review about the problem
   - [ ] Previous papers
-    - [ ] Paper 1 semantic segmentation + template matching
-    - [ ] Paper 2 CNN + Regression
-    - [ ] Paper 3: pre-trained CNN
-  - [ ] Tools: pytorch
+    - [X] Paper 1 Pre train Vitae2
+    - [ ] Paper 2 Dam detection
+    - [ ] Paper 3: Deforestation Monitoring
+  - [X] Tools: pytorch
 
 
 # Methodology
@@ -541,9 +538,9 @@ Getting Started
     Review the data page, which includes detailed information about the labels and the labeling process.
     Download a subsample of the data to get familiar with how it looks.
     Explore the subsample on Kernels. We’ve created a notebook for you to get started.
-    
-    
-    
+
+
+
 
 
 ojlha cara vou escrever toda merda que eu pensar sem o menor pudor pq eu sei que embora não estruturado sai algum pensamento utuil dessa merda
@@ -567,7 +564,7 @@ podem ser detectados por satelites com sensoriamento hiper espectral e com fusã
 
 diante disso, este trabalho propoe desenvolver um modelo capaz de classificar imagens de satelite de maior resolução como sendo de regiões de degradação.
 
-Uma das possiveisformas para tal é o emprego de deep learning realizando reconhecimento de padões para detectar tais regiões degradadas. 
+Uma das possiveisformas para tal é o emprego de deep learning realizando reconhecimento de padões para detectar tais regiões degradadas.
 
 In summary, we have revealed empirical evidence that the
 Amazon rainforest has been losing resilience since the early 2000s,

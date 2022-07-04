@@ -146,7 +146,6 @@
 #                 in the checking.
 #
 
-
 #####################################################################
 #
 # Enter which type of  quote-style you are using here.  Currently, we
@@ -175,7 +174,10 @@ TabSize = 8
 
 CmdLine
 {
-
+--nowarn 19
+--nowarn 13
+--nowarn 46
+--nowarn 1
 }
 
 #####################################################################
@@ -796,12 +798,8 @@ NoCharNext
 
 VerbClear = "|"
 
+
 #
 # All for now - have fun.
 #
 #####################################################################
-
-
-% chktex-file 19
-% chktex-file 46
-% chktex-file 13
