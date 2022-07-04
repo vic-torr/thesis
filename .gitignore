@@ -15,3 +15,5 @@ main.bbl
 .undodir
 main.synctex(busy)
 Session.vim
+notes.md
+.gitignore

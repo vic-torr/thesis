@@ -147,15 +147,16 @@ x - Done
 7. [0%] Conclusion
 
 ## Introduction
- - [x] Text
-   - [x] Contextualization
-   - [x] Problem introduction
-   - [x] Objective
+ - [X] Text
+   - [X] Contextualization
+   - [X] Problem introduction
+   - [X] Objective
  - [ ] Illustrations
- - [x] Review to remove specialists def
+ - [X] Review to remove specialists def
+
 ## Theoretical revision + Literature review
 
-- [x] Intro to chapter
+- [X] Intro to chapter
 - [ ] Problem domain
   - [ ] Amazon issue
   - [X] Remote sensing
@@ -166,8 +167,6 @@ x - Done
     - [X] classification
     - [X] Metrics
       - [X] Accuracy, f1 pr
-    - [ ] training supervised
-    - [ ] Unupervised
     - [X] Semi supervised
     - [X] PreProcess
     - [X] Feature extractor
@@ -176,9 +175,9 @@ x - Done
     - [X] underfit
     - [X] generalization
     - Model selection
+- [X] Deep Learning
   - [X] ANN:
-    - perceptron,
-  - [X] Deep Learning
+    - perceptron/logistic regression,
   - [X] CNN:
     - Convolutional
     - Pooling
@@ -187,7 +186,6 @@ x - Done
     - Image
   - [X] Transfer Learning/ pre trainning
   - [X] Feature extractor
-  - [ ] CNN SOTA models
   - [ ] Transformers
     - [ ] patches
     - [ ] embeddings
