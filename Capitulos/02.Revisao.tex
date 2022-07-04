@@ -1,41 +1,98 @@
-Neste capítulo, será apresentado inicialmente definições do domínio do problema de classificação e identificação de cenas em sensoriamento remoto na seção~\ref{sec:Cap2_dominio}, bem como suas características e contexto. Seguindo por um apanhado teórico da seção envolvendo aprendizado de máquina, redes neurais, redes neurais profundas, convolucionais e \textit{transformers}, no que tange interseções com possíveis soluções para o problema. E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatura e do atual estado da arte no que tange o problema de classificação visual no que tange a sensoriamento remoto. Apresentando trabalhos que envolveram soluções tanto para sensoriamento remoto, quanto para implementações de redes neurais profundas.
+Neste capítulo, será apresentado inicialmente definições do domínio do problema de
+classificação e identificação de cenas em sensoriamento remoto na
+seção~\ref{sec:Cap2_dominio}, bem como suas características e contexto. Seguindo por um
+apanhado teórico da seção envolvendo aprendizado de máquina, redes neurais, redes neurais
+profundas, convolucionais e~\textit{transformers}, no que tange interseções com possíveis
+soluções para o problema.
+E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatura e do atual
+estado da arte no que tange o problema de classificação visual no que tange a
+sensoriamento remoto. Apresentando trabalhos que envolveram soluções tanto para
+sensoriamento remoto, quanto para implementações de redes neurais profundas.
 
 
 % trabalhos:
 % - transformer pra label da amazonia
-% - unet pra detecção de garimpo,
+% - Unet pra detecção de garimpo,
 % - attention is all you need,
 % - a image worth 16x16,
-% - paper principal da cnn alexnet,
-% - solução dessse problema via cnn.
+% - paper principal da cnn Alexnet,
+% - solução desse problema via cnn.
 
 \section{\textit{Domínio do problema}}\label{sec:Cap2_dominio}
 % TODO: fonte definição sensoriamento remoto
 
 
-O problema em questão, de identificação de regiões com garimpo em imagens de satélite, é pertencem ao campo de sensoriamento remoto. O sensoriamento remoto consiste em aquistar ou analisar medições de uma região geográfica terrestre ou atmosférica. Podem ser realizadas por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro eletromagnético.
-Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter caracteristicas ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}. O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
+O problema em questão, de identificação de regiões com garimpo em imagens de satélite, é
+pertencem ao campo de sensoriamento remoto. O sensoriamento remoto consiste em aquistar ou
+analisar medições de uma região geográfica terrestre ou atmosférica. Podem ser realizadas
+por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro
+eletromagnético.
+Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens,
+para obter características ou reconhecer padrões em tais
+localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições
+realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores
+no ambiente medido~\cite{emery2017introduction}. O termo foi cunhado fazendo referencia a
+medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com
+sensores no ambiente medido~\cite{emery2017introduction}.
 
-Ainda mais especificamente, o problema introduzido também faz parte do campo de reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos que automatizem a detecção ou classificação do objeto a ser encontrado.
-O campo de reconhecimento de padrões possui algorítimos tradicionais para identificar e localizar objetos de interesse, porém podem ser muito caras computacionalmente e pouco efetivas, dependendo das características do problema. Por isso, recentemente tem sido frequentemente empregadas técnicas baseadas em aprendizado de máquina e aprendizado profundo, que atualmente são o estado da arte em muitos problemas de reconhecimento de padrões.
+Ainda mais especificamente, o problema introduzido também faz parte do campo de
+reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é
+extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos
+que automatizem a detecção ou classificação do objeto a ser encontrado.
+O campo de reconhecimento de padrões possui algorítimos tradicionais para identificar e
+localizar objetos de interesse, porém podem ser muito caras computacionalmente e pouco
+efetivas, dependendo das características do problema. Por isso, recentemente tem sido
+frequentemente empregadas técnicas baseadas em aprendizado de máquina e aprendizado
+profundo, que atualmente são o estado da arte em muitos problemas de reconhecimento de
+padrões.
 
 
 \section{Revisão Teórica}\label{sec:Cap2_revisao_teorica}
 
 \subsection{Aprendizado de máquina}\label{sec:aprendizado_maquina}
 
-Aprendizado de máquina é um campo que estuda algorítimos capazes de aprender e realizar inferências a partir de dados. O termo foi cunhado em 1959, por Artur Samuel, como “Campo de estudos que visa a dar computadores a habilidade de aprender sem serem explicitamente programados para determinada tarefa.”~\cite{Samuel1959SomeSI}.
+Aprendizado de máquina é um campo que estuda algorítimos capazes de aprender e realizar
+inferências a partir de dados. O termo foi cunhado em 1959, por Artur Samuel, como “Campo
+de estudos que visa a dar computadores a habilidade de aprender sem serem explicitamente
+programados para determinada tarefa.”~\cite{Samuel1959SomeSI}.
 
-Já em~\cite{Mitchell97} define um algorítimo de aprendizado como “Um algoritmo que é dito ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a partir da experiência E.”
-
+Já em~\cite{Mitchell97} define um algorítimo de aprendizado como “Um algoritmo que é dito
+ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com
+medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a
+partir da experiência E.”
+\( \)
 Para melhor entender cada constituinte dessa definição, podemos enumerar exemplos. A
 tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo
-responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função $f:\Re^n\rightarrow \{1,\ldots,k\}$. Quando $y=f(x)$, o modelo atribui uma entrada descrita pelo por $x$, que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numerico $y$. Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes.\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo de tarefa sendo realizada pelo sistema. Para tarefas de clssificação, é comumente utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o modelo produz a saída correta. Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore f1 e curva precisão-revocação.
+responder quais das k categorias para o qual ele experimentou em E, certas amostras de
+entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir
+uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \(y=f(x)\), o modelo atribui uma
+entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma
+categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em
+vez de classificar qual classe, retornar a distribuição de probabilidade sobre as
+classes.\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as
+habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo
+de tarefa sendo realizada pelo sistema. Para tarefas de classificação, é comumente
+utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o
+modelo produz a saída correta. Outras métricas também podem ser interessantes em casos
+onde amostras das classes são muito desbalanceadas, como escore f1 e curva
+precisão-revocação.
 
 
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
 
-O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}.
+O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O
+modelo mais simples, também podendo ser chamado rede de camada oculta única de
+perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo
+matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é
+aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal
+operação por sua vez passa por uma função de ativação que resulta numa saída binária de
+classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a
+determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um
+classificador linear simples, caso seja um problema linearmente separável. Portanto o
+processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios.
+Uma etapa importante dos ajustes dos pesos é a retro-propagação de
+erro\footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada
+oculta~\cite{hastie01statisticallearning}.
 
 \subsection{Redes Neurais Artificiais Profundas}\label{sec:Cap2_redes_neurais_profundas}
 O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data.
@@ -79,89 +136,7 @@ Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empiric
 
 \subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
 Pytorch é um framework código aberto de Python para aprendizado de maquinas. É implementado em C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
-Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a deeplearning e visão computacional. Tem ampla adoção devido a intenção de ser um framework de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
+Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido a intenção de ser um framework de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
 
 
-
-% INPE
-
-
-% - DETER B INPE Este documento apresenta a metodologia para o sistema DETER- B como parte
-% do plano de desenvolvimento do Sistema DETER (Detecção de Desmatamento em
-% Tempo Quase Real). Atualmente, o DETER utiliza imagens do sensor MODIS/TERRA,
-% com alta frequência temporal, mas limitada resolução espacial (250 m), para
-% mapeamento diário das áreas desflorestadas em formações florestais na Amazônia.
-% Para organizar o processo de aprimoramento dos sistemas de alerta do INPE o DETER
-% baseado no MODIS, que tem como área mínima de mapeamento de 0,25 km2 (25 ha)
-% passa a ser denominado DETER-A. A exatidão dos alertas do Sistema DETER-A é maior
-% que 90\%, sendo que aproximadamente 65% correspondem a desmatamento por corte
-% raso e 30\% a evidências de degradação florestal (INPE, 2008).
-% Deste modo, dentro da família de sistemas de alerta, pretende-se desenvolver e
-% operacionalizar dois novos sistemas, o DETER-B que utilizará sensores com resolução
-% de 60m e o DETER-C com dados de sensores da classe LANDSAT, de 20 a 30 m.
-
-
-% plataforma mapbiomas
-
-
-
-
-% ---
-% Segundo o MapBiomas (https://plataforma.brasil.mapbiomas.org/):
-% -
-% A Amazônia concentra 94% (mais de 100 mil hectares) da área
-% garimpada brasileira, sendo mais de 50% potencialmente ilegais, por
-% ocorrerem dentro em Terra Indígenas e Unidades de Conservação.
-% A área de garimpo no bioma cresceu 10x nas últimas três décadas,
-% com 301% de expansão em UCs e 495% em TIs.                                    
-% -
-% A área de garimpos terrestres na bacia do rio Madeira saltaram de
-% 3753 ha em 2007 para 9660 ha em 2020, uma expansão de 5907
-% hectares (que equivale a mais 8200 campos de futebol).
-% -
-% A área de garimpos detectados para o ano de 2020 é o recorde
-% histórico da série de dados, que conta com 36 anos de imagens de
-% satélite.
-
-
-% O Brasil pertence a um seleto grupo de países capazes de
-% desenvolver, operar e utilizar satélites e seus dados. Nessa área o
-% país pode se orgulhar da posição que ocupa. Somos um dos países
-% que melhor monitora seu território, em diferentes recortes do
-% tempo e do espaço, atendendo a diferentes necessidades da
-% sociedade civil, da academia ou do mercado financeiro.
-% Para tal, fazemos uso de satélites nacionais, como o CBERS-4A e o
-% AMAZÔNIA-1 (ambos desenvolvidos pelo INPE), e internacionais,
-% sejam públicos (casos do Landsat, da NASA, e do Sentinel, da ESA)
-% ou privados (como os nanossatélites da empresa Planet), isso para
-% manter curta a lista de exemplos. Somos capazes, portanto, de
-% observar e monitorar balsas garimpeiras ao longo de um rio.
-
-
-% O garimpos ilegal na Amazônia deve ser monitorado, combatido e eliminado.
-% -
-% O uso de imagens de satélite de alta resolução espacial (como a do CBERS-4A desenvolvido pelo
-% INPE) pode ser utilizado para monitorar a dinâmica de balsas garimpeiras na Amazônia e
-% auxiliar na fiscalização, combate e controle dos ilícitos ambientais.
-% -
-% Combinações de múltiplos satélites, de média e alta resolução, do espectro óptico e radar,
-% devem ser exploradas para aumentar a frequência de observação e a capacidade de
-% monitoramento de balsas garimpeiras, mesmo em condições de intensa nebulosidade.
-% -
-% Outras inovações tecnológicas, como classificadores de aprendizado profundo (Deep Learning),
-% devem ser exploradas para facilitar e automatizar a detecção das balsas garimpeiras e de seus
-% impactos associados.
-
-
-
-
-% 3. Método
-% Fusão de dados óticos e interpretação visual
-% Foi utilizado uma imagem única de 25 de Outubro de 2021, do satélite CBERS-4A, do sensor WPM, com 2 metros
-% de resolução após fusão das bandas pan + RGB, para identificar visualmente as balsas garimpeiras no rio Madeira,
-% no trecho ao norte de Borba, no Amazonas.
-% O CBERS-4A é um satélite nacional, desenvolvido pelo INPE, gratuito e com imagens de todo o território brasileiro
-% disponíveis na internet. Trata-se do satélite público de maior resolução espacial do planeta.
-
-% ---
 

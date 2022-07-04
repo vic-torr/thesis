@@ -4,5 +4,5 @@
         "CBERS",
         "INDICE"
     ],
-    "editor.renderLineHighlight": "none"
+    "editor.renderLineHighlight": "none",
 }
