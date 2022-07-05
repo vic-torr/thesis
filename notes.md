@@ -51,14 +51,7 @@ http://terrabrasilis.dpi.inpe.br/app/map/deforestation?hl=pt-br
 
 What Do ViTs See
 
-Google’s Vision Transformers (ViT) can be likened to Transformers when it comes to the way
-its architecture processes natural language and to CNNs when it comes to vision tasks. In
-ViTs, images are represented as sequences, and class labels for the image are predicted,
-which allows models to learn image structure independently. Input images are treated as a
-sequence of patches where every patch is flattened into a single vector by concatenating
-the channels of all pixels in a patch and then linearly projecting it to the desired input
-dimension. Google even claimed that their ViT outperforms state-of-the-art CNN with four
-times fewer computational resources when trained on sufficient data.
+Google’s Vision Transformers (ViT) can be likened to Transformers when it comes to the way its architecture processes natural language and to CNNs when it comes to vision tasks. In ViTs, images are represented as sequences, and class labels for the image are predicted, which allows models to learn image structure independently. Input images are treated as a sequence of patches where every patch is flattened into a single vector by concatenating the channels of all pixels in a patch and then linearly projecting it to the desired input dimension. Google even claimed that their ViT outperforms state-of-the-art CNN with four times fewer computational resources when trained on sufficient data.
 https://analyticsindiamag.com/are-visual-transformers-better-than-convolutional-neural-networks/
 https://analyticsindiamag.com/openai-language-models-vision-gpt-neural-networks/
 https://towardsdatascience.com/detecting-deforestation-from-satellite-images-7aa6dfbd9f61?gi=31a843652acf
@@ -69,13 +62,11 @@ https://github.com/google-research/vision_transformer
 
 Artificial Intelligence
 
-Deforestation invariably leads to many plants and animals losing their natural habitat,
-resulting in ecological imbalance and threat to the environment.
+Deforestation invariably leads to many plants and animals losing their natural habitat, resulting in ecological imbalance and threat to the environment.
 
 Problem statement
 
-Create a solution to improve existing environment models or figure out new ways to
-anticipate deforestation rate of forests using images to see how the government is meeting
+Create a solution to improve existing environment models or figure out new ways to anticipate deforestation rate of forests using images to see how the government is meeting
 their commitment to the environment.
 
 Tech Stack
@@ -112,19 +103,6 @@ https://becominghuman.ai/can-we-predict-deforestation-in-amazon-forests-with-mac
 Star methodology
 
 
-Aqui, deixa eu te explorar um pouco?
-Rem como revisar o texto do meu pre-tcc?
-kkkkkkkkkkkkkkk
-
-Eu atrasei muuuito mesmo e me deram uma ultima chance pra entregar amanhã, mas tenho só
-essa chance mesmo. O orientador não vai conseguir revisar a tempo.
-
-E não precisa revisar se estiver sem tempo, pq pedi pra algumas pessoas em paralelo, é só
-se for possível meeesmo!
-Brigadão :D
-
-É só deixar destacado ou comentar no pdf o que não achou inteligível ou não deu pra
-entender. Ele é pra ser compreendido mesmo por quem não é da área.
 
 # Thesis
 0 - read papers
@@ -186,11 +164,14 @@ x - Done
     - Image
   - [X] Transfer Learning/ pre trainning
   - [X] Feature extractor
-  - [ ] Transformers
-    - [ ] patches
-    - [ ] embeddings
-    - [ ] encoder-decoder
-    - [ ] mlp heads
+  - [ ] Transformer
+    - [ ] Historical contex
+    - [ ] Architechture:
+      - [ ] patches
+      - [ ] embeddings
+      - [ ] encoder-decoder
+      - [ ] mlp heads
+    - [ ] Visual transformers
 
 - [90%] Literature SOTA review about the problem
   - [ ] Previous papers
@@ -352,61 +333,53 @@ and similarity outter set. Needs contextual information, then transformers may f
 
 # Apresentação Final (video pitch)
 
-Vídeo no formato "pitch" (i.e., onde você tenta "vender seu peixe"), com duração de 3 a 5
-minutos, onde você aborda os seguintes aspectos do seu trabalho:
+Vídeo no formato "pitch" (i.e., onde você tenta "vender seu peixe"), com duração de 3 a 5 minutos, onde você aborda os seguintes aspectos do seu trabalho:
 
 ##    A proposta do trabalho (What)
-A proposta deste trabalho é usar visão computacional e criar um modelo de localização
-visual, similar como pilotos se localizam.
+A proposta deste trabalho é usar visão computacional e criar um modelo de localização visual, similar como pilotos se localizam.
 ##    A motivação para o trabalho (Why)
-Localização visual é um potencial backup para sistemas de navegação de drones ou aeronaves
-em espaços onde não há a disponibilidade de GPS, seja por interferência de ilhas urbanas,
-sinais refletidos, por indisponibilidade de satélites, ou mesmo por guerra eletrônica, em
-que pode haver negação de sinal por jamming ou mesmo spoofing, que é um sinal falsificado.
+Localização visual é um potencial backup para sistemas de navegação de drones ou aeronaves em espaços onde não há a disponibilidade de GPS, seja por interferência de ilhas urbanas, sinais refletidos, por indisponibilidade de satélites, ou mesmo por guerra eletrônica, em que pode haver negação de sinal por jamming ou mesmo spoofing, que é um sinal falsificado.
 ##    O método usado (How)
 Este trabalho propôe uma solução por deep learning, utilizando uma rede neural pré
-treinada e treinada com imagens geoespaciais localizadas da região de interesse. Ela
-realiza uma regressão das coordenadas dada a imagem de entrada.
+treinada e treinada com imagens geoespaciais localizadas da região de interesse. Ela realiza uma regressão das coordenadas dada a imagem de entrada.
 ##    Resultados e discussão
 Nos resultados será avaliado o desempenho e comparado com outros modelos encontrados na
 literatura.
 ##     Conclusão
-Este trabalho colocará em prática conhecimentos de aprendizado de máquina, redes neurais e
-reconhecimentos de padrões.
+Este trabalho colocará em prática conhecimentos de aprendizado de máquina, redes neurais e reconhecimentos de padrões.
 
 
-Pontos importantes:
+________________
 
-Notem que fazer uma boa apresentação onde todos os tópicos acima são cobertos de forma
-clara num intervalo de tempo tão curto (até 5 minutos) é um desafio que requer um bom
-planejamento. Portanto, não se trata de simplesmente entrar na frente do celular e falar,
-por até 5 minutos, a primeira coisa que lhe vem à cabeça a respeito do que foi feito ao
-longo do semestre.
-A ideia é que você faça um vídeo onde você aparece fazendo a apresentação dos slides como
-se você estivesse apresentando para uma plateia. No entanto, caso você não queira fazer
-deste modo, você pode usar algum software de captura de tela (e.g.,
-https://obsproject.com/) para gravar um vídeo da apresentação dos slides na tela do
-computador, com a sua narração. No entanto, neste caso, você deve aparecer pelo menos no
-começo do vídeo apresentando o slide de título, para efeito de confirmação de sua
-identidade.
-Faça o upload do arquivo de vídeo para algum serviço de hospedagem de vídeos (e.g.,
-Youtube), coloque o link do vídeo num arquivo texto e faça a entrega apenas do arquivo
-texto. Caso você não queira que o vídeo fique disponível a todos na Internet, ao fazer o
-upload do arquivo de vídeo você pode fazê-lo no modo unlisted (não listado), de forma que
-apenas as pessoas com acesso ao link conseguirão visualizar o vídeo.
+# Rascunho desenvolvimento
+
+VOU FAZER ESSA POERRA O MAIS CAGADO POSSIVELLLLLLLLLLLLL@!@@!!!!
+o
+
+
+PA PUM PEI
+
+Arquitetura original do transformer
+
+A arquitetura transformer foi originalmente progetada para tradução. Durante o treinamenteo, o encoder recebe sentenças de entrada em certa linguagem, enquanto o decodificiador recebe a mesma sentença na linguagem a ser traduzida desejada. No encoder, as camadas de atenção podem usar todas as palavras na sentença, já que o significado de cada palavra depende de todas as outras da sentença, seja as seguidas ou anteriores. Enquanto que o decodificador 
 
 
 
-![](../2022-02-22-23-27-36.png)
+Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas graficas, que promoveram significativamente mais poder computacional para treino. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional.
+
+A maior vantagem dos modelos CNN em comparação com os metodos anteriores era de ser capaz de ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariancia translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
+
+Contudo, a arquitetura em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos muiltimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnosticos em quesito de domínios de aplicação. Nessa direção que em [ref] é criado o  Transformer Visual ( \textit{Vision Transformer (ViT)}), uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
+
+O ViT representa uma imagem de entrada como uma sequencia de retalhos de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem.
+Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
+
+Arquitetura do transformer visual
 
 
-![](NN.png)
+O transformer original recebe como entrada uma sequencia de palavras, que então usa para classificação, tradução ou outras tarefas de processamento natural de linguagem. Para o ViT, em [ref] foram aplicadas poucas modificações, de forma a mesma arquitetura ser aplicada a imagens em vez de palavras, e assim observar como o modelo aprende por si próprio.
 
-
-![](Imagens/2022-02-22-23-30-03.png)
-
-
-![](Imagens/NN.png)
+O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os píxeis, e progetando-os em uma dimensão de entrada desejada.
 
 
 
@@ -439,18 +412,9 @@ self-attention, vision transformers.
 
 
 
-
-
-
-
-
 __________
 
-Draft
-
-
-
-
+# Rascunho Introdução
 
 
 
@@ -485,47 +449,24 @@ observar e monitorar balsas garimpeiras ao longo de um rio.
 
 O garimpo ilegal na Amazônia deve ser monitorado, combatido e eliminado.
 -
-O uso de imagens de satélite de alta resolução espacial (como a do CBERS-4A desenvolvido
-pelo
-INPE) pode ser utilizado para monitorar a dinâmica de balsas garimpeiras na Amazônia e
-auxiliar na fiscalização, combate e controle dos ilícitos ambientais.
+O uso de imagens de satélite de alta resolução espacial (como a do CBERS-4A desenvolvido pelo INPE) pode ser utilizado para monitorar a dinâmica de balsas garimpeiras na Amazônia e auxiliar na fiscalização, combate e controle dos ilícitos ambientais.
 -
-Combinações de múltiplos satélites, de média e alta resolução, do espectro óptico e radar,
-devem ser exploradas para aumentar a frequência de observação e a capacidade de
+Combinações de múltiplos satélites, de média e alta resolução, do espectro óptico e radar, devem ser exploradas para aumentar a frequência de observação e a capacidade de
 monitoramento de balsas garimpeiras, mesmo em condições de intensa nebulosidade.
 -
-Outras inovações tecnológicas, como classificadores de aprendizado profundo (Deep
-Learning),
-devem ser exploradas para facilitar e automatizar a detecção das balsas garimpeiras e de
-seus
+Outras inovações tecnológicas, como classificadores de aprendizado profundo (Deep Learning), devem ser exploradas para facilitar e automatizar a detecção das balsas garimpeiras e de seus
 impactos associados.
 
 
 3. Método
-Fusão de dados óticos e interpretação visual
-Foi utilizado uma imagem única de 25 de Outubro de 2021, do satélite CBERS-4A, do sensor
-WPM, com 2 metros
-de resolução após fusão das bandas pan + RGB, para identificar visualmente as balsas
-garimpeiras no rio Madeira,
-no trecho ao norte de Borba, no Amazonas.
-O CBERS-4A é um satélite nacional, desenvolvido pelo INPE, gratuito e com imagens de todo
-o território brasileiro
+Fusão de dados óticos e interpretação visual Foi utilizado uma imagem única de 25 de Outubro de 2021, do satélite CBERS-4A, do sensor WPM, com 2 metros de resolução após fusão das bandas pan + RGB, para identificar visualmente as balsas garimpeiras no rio Madeira, no trecho ao norte de Borba, no Amazonas. O CBERS-4A é um satélite nacional, desenvolvido pelo INPE, gratuito e com imagens de todo o território brasileiro
 disponíveis na internet. Trata-se do satélite público de maior resolução espacial do
 planeta.
 
 ---
 
-The projected economic mitigation potential of AFOLU options between 2020 and 2050, at
-costs below USD100 tCO2-eq-1, is 8-14 GtCO2-eq yr-1 [FOOTNOTE 61] (high confidence).
-30-50\% of
-this potential is available at less than USD20/tCO2-eq and could be upscaled in the near
-term across
-most regions (high confidence). The largest share of this economic potential [4.2-7.4
-GtCO2-eq yr-1]
-comes from the conservation, improved management, and restoration of forests and other
-ecosystems
-(coastal wetlands, peatlands, savannas and grasslands), with reduced deforestation in
-tropical regions
+
+The projected economic mitigation potential of AFOLU options between 2020 and 2050, at costs below USD100 tCO2-eq-1, is 8-14 GtCO2-eq yr-1 [FOOTNOTE 61] (high confidence). 30-50\% of this potential is available at less than USD20/tCO2-eq and could be upscaled in the near term across most regions (high confidence). The largest share of this economic potential [4.2-7.4 GtCO2-eq yr-1] comes from the conservation, improved management, and restoration of forests and other ecosystems (coastal wetlands, peatlands, savannas and grasslands), with reduced deforestation in tropical regions
 having the highest total mitigation. IPCC 2022
 
 IPCC, 2022: Summary for Policymakers [H.-O. Pörtner, D.C. Roberts, E.S. Poloczanska, K.
@@ -536,6 +477,7 @@ Change [H.-O. Pörtner, D.C. Roberts, M. Tignor, E.S. Poloczanska, K. Mintenbeck
 Alegría, M. Craig, S. Langsdorf, S. Löschke, V. Möller, A. Okem, B. Rama (eds.)].
 Cambridge University Press. In Press.
 
+Rascunho introdução
 
 - contextualização do desmatamento da amazônia e pantanal
 - amazonia chegando perto do ponto de inflexão
@@ -565,88 +507,14 @@ evidencias que esse dano já está acontecendo
 - aplicaçoes de detecção de eventos na amazonia
 - reduzir pode ser a melhor medida de mitigação contra aquecimento global, citar IPCC2022
 
-A Floresta amazônica enfrenta uma degradação antrôpica sem precedentes. Desde a década de
-70, encolheu 15\% e da porção brasileira, que corresponde a metade, encolheu em 19\%. O
-desmatamento em 2020 atingiu o pico da década, correspondendo 10.000km², um aumento de
-30\% em relação ao ano anterior. Dentre os principais fatores se encontram o desmatamento
-para pasto de pecuária, para cultivo de soja, incêndios e garimpo.
-
-Diante dessa degradação do bioma, é previsto um ponto de inflexão onde a floresta deixa de
-ser auto sustentável, em aspectos climáticos, como a necessária alta evapo-traspiração da
-vegetação para manter a precipitação e monçoes. A partir de tal ponto de inflexão, o bioma
-enfrentará transições irreversiveis para a um clima mais árido como de cerrado/savana,
-trazendo consigo incêndios e secas. A transição do bioma é tida como uma realimentação
-positiva, onde são amplificadas as condições de degradação do bioma amazônico, acelerando
-mais ainda sua degradação.
-
-A importância do bioma para o clima global é imprescindível, sendo responsável por captura
-de gás carboônico.
 
 
 
 
-
-
-
-
-
-The deterioration of the natural world is unparalleled in human history and a key driver
-of the climate crisis. Since 2000, we have lost 361 million ha of forest cover (roughly
-the size of Europe) accounting for about a quarter of global anthropogenic emissions[1]
-(and this may be an underestimate[2]), largely driven by deforestation and forest
-degradation. Deforestation does not only release carbon (e.g., through slash-and-burn),
-but also destroys a multitude of other forest ecosystem services: preserving biodiversity,
-counteracting flooding and soil erosion, filtering water, and offering a livelihood for
-the local population. Major conservation and restoration efforts are underway to mitigate
-and safeguard against these losses, and to highlight the urgency of the issue, 2021-2030
-has been declared the “UN Decade on Ecosystem Restoration”. However, we cannot preserve
-what we cannot measure. There is an urgent need to understand the location, health and
-ecological value of nature and biodiversity, and ensure these metrics are reflected in
-policy, finance, and decision-making. Machine learning (ML) can play a significant role in
-responding to this critical call for action and can accelerate the conservation and
-sustainable use of forestry and other land use.
-% No que tange a sistemas de visão computacional, é relevante mencionar o progresso nos
-últimos anos providos por técnicas de aprendizado de máquina que envolvem redes neurais
-profundas e redes neurais convolucionais (\textit{CNNs}). Além de atingiram o estado da
-arte em numerosas tarefas~\cite{ABIODUN2018e00938}, já são amplamente aplicadas com
-sucesso nos campos da robótica e de visão computacional. Contudo ainda limitadas em
-aplicações de VANTs, devido a ausência de modelos robustos e portáveis para sistemas
-embarcados, dado suas restritivas limitações de recursos computacionais. Outro ponto
-relevante de mencionar é a necessidade de uma elevada quantidade de amostras de imagens
-aéreas de treino em uma mesma região, que podem dificultar a elaboração de um modelo de
-boa acurácia.
-
-% Dado todos esses fatores, este trabalho estudará alternativas de localização visual
-utilizando modelos de redes neurais sob todas as limitações citadas. Contemplará as
-limitações de quantidade reduzida de amostras de treino para os modelos e limitações de
-\textit{hardware} em sistemas embarcados. Assim como propor uma implementação factível.
-Consiste em mais quatro capítulos, respectivamente: revisão bibliográfica, metodologia
-para a implementação de solução, análise de resultados e a conclusão, incluindo
-contribuições e direções futuras para este problema estudado.
-
-
-
-
-Every minute, the world loses an area of forest the size of 48 football fields. And
-deforestation in the Amazon Basin accounts for the largest share, contributing to reduced
-biodiversity, habitat loss, climate change, and other devastating effects. But better data
-about the location of deforestation and human encroachment on forests can help governments
-and local stakeholders respond more quickly and effectively. Planet, designer and builder
-of the world’s largest constellation of Earth-imaging satellites, will soon be collecting
-daily imagery of the entire land surface of the earth at 3-5 meter resolution. While
-considerable research has been devoted to tracking changes in forests, it typically
-depends on coarse-resolution imagery from Landsat (30 meter pixels) or MODIS (250 meter
-pixels). This limits its effectiveness in areas where small-scale deforestation or forest
-degradation dominate. Furthermore, these existing methods generally cannot differentiate
-between human causes of forest loss and natural causes. Higher resolution imagery has
-already been shown to be exceptionally good at this, but robust methods have not yet been
+Every minute, the world loses an area of forest the size of 48 football fields. And deforestation in the Amazon Basin accounts for the largest share, contributing to reduced biodiversity, habitat loss, climate change, and other devastating effects. But better data about the location of deforestation and human encroachment on forests can help governments and local stakeholders respond more quickly and effectively. Planet, designer and builder of the world’s largest constellation of Earth-imaging satellites, will soon be collecting daily imagery of the entire land surface of the earth at 3-5 meter resolution. While considerable research has been devoted to tracking changes in forests, it typically depends on coarse-resolution imagery from Landsat (30 meter pixels) or MODIS (250 meter pixels). This limits its effectiveness in areas where small-scale deforestation or forest degradation dominate. Furthermore, these existing methods generally cannot differentiate between human causes of forest loss and natural causes. Higher resolution imagery has already been shown to be exceptionally good at this, but robust methods have not yet been
 developed for Planet imagery.
 
-In this competition, Planet and its Brazilian partner SCCON are challenging Kagglers to
-label satellite image chips with atmospheric conditions and various classes of land
-cover/land use. Resulting algorithms will help the global community better understand
-where, how, and why deforestation happens all over the world - and ultimately how to
-respond. To dig into/explore more Planet data, sign up for a free account. And if you're
+In this competition, Planet and its Brazilian partner SCCON are challenging Kagglers to label satellite image chips with atmospheric conditions and various classes of land cover/land use. Resulting algorithms will help the global community better understand where, how, and why deforestation happens all over the world - and ultimately how to respond. To dig into/explore more Planet data, sign up for a free account. And if you're
 interested in building applications on Planet data, check out our Application Developer
 Program.
 Getting Started
@@ -828,3 +696,17 @@ resilience over much larger spatial scales
 % ---
 
 
+
+Aqui, deixa eu te explorar um pouco?
+Rem como revisar o texto do meu pre-tcc?
+kkkkkkkkkkkkkkk
+
+Eu atrasei muuuito mesmo e me deram uma ultima chance pra entregar amanhã, mas tenho só
+essa chance mesmo. O orientador não vai conseguir revisar a tempo.
+
+E não precisa revisar se estiver sem tempo, pq pedi pra algumas pessoas em paralelo, é só
+se for possível meeesmo!
+Brigadão :D
+
+É só deixar destacado ou comentar no pdf o que não achou inteligível ou não deu pra
+entender. Ele é pra ser compreendido mesmo por quem não é da área.
