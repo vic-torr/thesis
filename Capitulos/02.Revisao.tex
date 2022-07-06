@@ -12,17 +12,18 @@ E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatu
 
 \section{\textit{Domínio do problema}}\label{sec:Cap2_dominio}
 % TODO: fonte definição sensoriamento remoto
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{
+        Imagens/instrutorgis\_sensoriamento\_remoto\_ilustracao.png
+    }
+    \caption{Sensoriamento remoto Foto:}
+   \label{fig:sensoriamento}
+\end{figure}
 
 O problema em questão, de identificação de regiões com garimpo em imagens de satélite, é pertencem ao campo de sensoriamento remoto. O sensoriamento remoto consiste em aquistar ou analisar medições de uma região geográfica terrestre ou atmosférica. Podem ser realizadas por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro eletromagnético.
 Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter características ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}. O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{Imagens/foto_satelite.png}
-    \caption{Sensoriamento remoto Foto:}
-    \label{fig:sensoriamento}
-\end{figure}
 
 Ainda mais especificamente, o problema introduzido também faz parte do campo de reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos que automatizem a detecção ou classificação do objeto a ser encontrado.
 O campo de reconhecimento de padrões possui algorítimos tradicionais para identificar e localizar objetos de interesse, porém podem ser muito caras computacionalmente e pouco efetivas, dependendo das características do problema. Por isso, recentemente tem sido frequentemente empregadas técnicas baseadas em aprendizado de máquina e aprendizado profundo, que atualmente são o estado da arte em muitos problemas de reconhecimento de padrões.
@@ -43,6 +44,27 @@ Para melhor entender cada constituinte dessa definição, podemos utilizar de um
 
 O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.45\columnwidth]{
+        Imagens/stochastic_gradient_descent.PNG
+    }
+    \includegraphics[width=0.45\columnwidth]{
+        Imagens/GELU.PNG
+    }
+    \caption{Exemplo de algorítimo de otiimzação à esquerda: gradiente descendente estocastico. Exemplo de função de ativação à direita: GELU, unidade de erro gaussiano linear.}
+    \label{fig:SGD_GELU}
+\end{figure}
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{
+        Imagens/RedeNeural.PNG
+    }
+    \caption{Exemplo de uma rede de perceptrons de multiplas camadas - MLP.}
+    \label{fig:ann}
+\end{figure}
 \subsection{Redes Neurais Artificiais Profundas}\label{sec:Cap2_redes_neurais_profundas}
 O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data.
 
@@ -56,8 +78,33 @@ Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza conv
 Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional.
 
 A maior vantagem dos modelos CNN em comparação com os métodos anteriores era de ser capaz de ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariância translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{
+        Imagens/CNN_mathworks.jpg
+    }
+    \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saida de cada imagem convoluída alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
+    \label{fig:cnn}
+\end{figure}
 
-\subsection{\textit{ResNet}}\label{sec:Cap2_ResNet}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{
+        Imagens/operacao_conv.png
+    }
+    \caption{
+ Filtro convolucional que aplica uma janela deslizante aplicando operação de convolução e pooling.  
+        % --- Source: https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2
+    }
+    \label{fig:conv}
+\end{figure}
+
+
+
+
+
+
+%\subsection{\textit{ResNet}}\label{sec:Cap2_ResNet}
 % TODO Resnet
 
 \subsection{\textit{O problema de rotulagem e variabilidade de amostras de treino}}\label{sec:Cap2_rotulagem}
@@ -74,21 +121,77 @@ Já técnicas de transferência de aprendizado\footnote{Comumente citado como Tr
 e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agentes. Consistem primariamente de um problema origem e um problema objetivo e como podemos suceder em transferir conhecimento dado o problema origem. A abordagem de transferência de conhecimento se inspira em replicar a habilidade dos humanos em que é possível transferir conhecimento de experiências passadas para lidar com tarefas com poucas amostras rotuladas. Este fato inspirou em representar dados de diferentes problemas de aprendizado de máquina em um espaço embutido onde as representações utilizam de diversas relações entre diferentes domínios de conhecimentos e tarefas. Uma implementação encontrada na literatura, proposta em~\cite{DBLP:journals/corr/abs-1811-04863}, consistiu de transplantar a camada de características de uma CNN derivada do domínio de origem para inicializar outra rede, do domínio objetivo, composta por uma camada final fortemente conectada. Assim foi aproveitada as primeiras camadas e a rede foi trenada para o domínio objetivo com uma quantidade menor de amostras.
 
 
+\section{Transformer Visual}\label{sec:Cap2_transformer_visual}
 
-\section{Transformer Visual}\label{sec:Cap2_transformer}
 
-
-Temos que a arquitetura de CNNs em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos multimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnósticos em quesito de domínios de aplicação. Nessa direção que em [ref] é criado o Transformer Visual ( \textit{Vision Transformer (ViT)}), uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
+Temos que a arquitetura de CNNs em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos multimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnósticos em quesito de domínios de aplicação. Nessa direção que em \cite{dosovitskiy2020image} é criado o Transformer Visual ( \textit{Vision Transformer (ViT)}), uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
 
 O ViT representa uma imagem de entrada como uma sequencia de retalhos de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem. Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
 
-Arquitetura do transformer visual
 
-\subsection{\textit{Arquitetura do transformer visual}}\label{sec:Cap2_transfer} 
+O transformer original recebe como entrada uma sequencia de palavras, que então usa para classificação, tradução ou outras tarefas de processamento natural de linguagem. Para o ViT, em \cite{dosovitskiy2020image} foram aplicadas poucas modificações, de forma a mesma arquitetura ser aplicada a imagens em vez de palavras, e assim observar como o modelo aprende por si próprio.
 
-O transformer original recebe como entrada uma sequencia de palavras, que então usa para classificação, tradução ou outras tarefas de processamento natural de linguagem. Para o ViT, em [ref] foram aplicadas poucas modificações, de forma a mesma arquitetura ser aplicada a imagens em vez de palavras, e assim observar como o modelo aprende por si próprio.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{
+        Imagens/vit.png
+    }
+    \caption{O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo.}
+    \label{fig:vit}
+\end{figure}
 
-O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada.
+
+\subsection{\textit{Arquitetura do transformer visual}}\label{sec:Cap2_vit}
+
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.3\columnwidth]{
+        Imagens/encoder.png
+    }
+    \caption{Exemplo de uma rede convolucional. Filtros são aplicados em diferentes resoluções. A saida de cada imagem convoluída alimenta a próxima camada.}
+    \label{fig:encoder}
+\end{figure}
+
+
+
+O encoder transformer é composto por:
+\begin{itemize}
+    \item Camada de múltipla cabeças de atenção (MSP): Esta camada concatena todas as saídas de atenção linearmente para a dimensão correta. As várias cabeças de atenção ajudam a treinar local e globalmente dependências em uma imagem.
+    \item Camada de múltiplas (MLP) camadas de perceptrons: Contem um MLP de duas camadas com função de ativação GELU (Unidade de erro linear Gaussiano)
+    \item Camada de normalização (LN): Adicionada antes de cada bloco e normaliza os pesos dentro de uma mesma camada.
+    \item Saltos de conexão: somam a saída de blocos a entrada. Desempenha papel de auxiliar a convergência da otimização do gradiente descendente e explosão de gradientes.
+\end{itemize}
+
+A MSP é o núcleo do encoder e implementa o mecanismo de auto atenção. Consiste em relacionar diferentes posições de uma unica sequência para se computar uma representação desta sequencia \cite{AttentionIsAllYouNeed}.
+
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width=0.4\columnwidth]{
+%        Imagens/Multi-Head Attention.png
+%    }
+%    \includegraphics[width=0.4\columnwidth]{
+%        Imagens/Scaled Dot-Product Attention.png
+%    }
+%    \caption{Exemplo de uma rede convolucional. Filtros são aplicados em diferentes resoluções. A saida de cada imagem convoluída alimenta a próxima camada.}
+%    \label{fig:attention}
+%\end{figure}
+
+% https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{
+        Imagens/ViTVisualization.png
+    }
+    \caption{
+        Esquerda: ViT aprende a estrutura de grade via representações de posição. Direita: Camadas inferiores do BiT contem ambas características locais e globais, o quão mais profundas as camadas, mais globais as características.
+        }
+    \label{fig:ViTVisualization}
+\end{figure}
+
+É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição - parâmetros do modelo que aprende a codificar a posição relativa dos retalhos -  encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
 
 \section{Revisão da Literatura}\label{sec:Cap2_revisao_literatura}
 
@@ -103,10 +206,6 @@ Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empiric
 
 
 
-
-\subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
-Pytorch é um framework código aberto de Python para aprendizado de maquinas. É implementado em C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
-Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido a intenção de ser um framework de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
 
 
 

@@ -1,5 +1,6 @@
 # Planning
-
+ss Function
+tochastic gradient descent
 ## Ideas
 
  Y. Xu, Q. Zhang, J. Zhang, and D. Tao, “Vitae: Vision transformer
@@ -152,10 +153,17 @@ x - Done
     - [X] overfit,
     - [X] underfit
     - [X] generalization
+    - [X] Cross validation
     - Model selection
 - [X] Deep Learning
   - [X] ANN:
     - perceptron/logistic regression,
+  - [X] Deep learning:
+    - [ ] Foward pass
+    - [ ] Loss Function
+    - [ ] Backward pass
+    - [ ] Weight update
+    - [ ] Stochastic gradient descent
   - [X] CNN:
     - Convolutional
     - Pooling
@@ -165,7 +173,7 @@ x - Done
   - [X] Transfer Learning/ pre trainning
   - [X] Feature extractor
   - [ ] Transformer
-    - [ ] Historical contex
+    - [X] Historical contex
     - [ ] Architechture:
       - [ ] patches
       - [ ] embeddings
@@ -382,7 +390,7 @@ O transformer original recebe como entrada uma sequencia de palavras, que então
 O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os píxeis, e progetando-os em uma dimensão de entrada desejada.
 
 
-
+É possivel observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição -- parametros do modelo que aprende a codificar a posição relativa dos retalhos -- e encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais simolar a outras da mesma coluna e linha, indicando que o modelo recuperou a estruutra de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas caracteristicas globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas caracteristicas locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genericos, como mistura de características globais e locais, dessa forma ajudando generalização.
 
 rev bib
 
