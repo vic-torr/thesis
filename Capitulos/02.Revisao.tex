@@ -22,7 +22,7 @@ E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatu
 \end{figure}
 
 O problema em questão, de identificação de regiões com garimpo em imagens de satélite, é pertencem ao campo de sensoriamento remoto. O sensoriamento remoto consiste em aquistar ou analisar medições de uma região geográfica terrestre ou atmosférica. Podem ser realizadas por imagens aéreas ou por satélites, podendo abranger diferentes partes do espectro eletromagnético.
-Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter características ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}. O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
+Frequentemente consistem em métodos de aquisição ou processamento de sinais e imagens, para obter características ou reconhecer padrões em tais localidades~\cite{emery2017introduction}.O termo foi cunhado fazendo referencia a medições realizada por algum meio indireto ou “remoto”, em vez de de um contato direto com sensores no ambiente medido~\cite{emery2017introduction}.
 
 
 Ainda mais especificamente, o problema introduzido também faz parte do campo de reconhecimento de padrões em imagens. Temos que a área varrida por sensoriamento remoto é extensiva para ser vasculhada manualmente. Portanto se faz necessário o uso de algorítimos que automatizem a detecção ou classificação do objeto a ser encontrado.
@@ -37,7 +37,7 @@ Aprendizado de máquina é um campo que estuda algorítimos capazes de aprender 
 
 Já em~\cite{Mitchell97} define um algorítimo de aprendizado como “Um algoritmo que é dito ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a partir da experiência E.”
 
-Para melhor entender cada constituinte dessa definição, podemos utilizar de um exemplo. A tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \), o modelo atribui uma entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes.\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo de tarefa sendo realizada pelo sistema. Para tarefas de classificação, é comumente utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o modelo produz a saída correta. Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore f1 e curva precisão-revocação.
+Para melhor entender cada constituinte dessa definição, podemos utilizar de um exemplo. A tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \), o modelo atribui uma entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes~\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo de tarefa sendo realizada pelo sistema. Para tarefas de classificação, é comumente utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o modelo produz a saída correta. Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore f1 e curva precisão-revocação.
 
 
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
@@ -46,20 +46,20 @@ O termo redes neurais embarca uma grande classe de modelos e métodos de aprendi
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.45\columnwidth]{
+    \includegraphics[width=0.47\columnwidth]{
         Imagens/stochastic_gradient_descent.PNG
     }
-    \includegraphics[width=0.45\columnwidth]{
+    \includegraphics[width=0.47\columnwidth]{
         Imagens/GELU.PNG
     }
-    \caption{Exemplo de algorítimo de otiimzação à esquerda: gradiente descendente estocastico. Exemplo de função de ativação à direita: GELU, unidade de erro gaussiano linear.}
+    \caption{Exemplo de algorítimo de otimização à esquerda: gradiente descendente estocástico. Exemplo de função de ativação à direita: GELU, unidade de erro gaussiano linear.}
     \label{fig:SGD_GELU}
 \end{figure}
 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\columnwidth]{
+    \includegraphics[width=0.6\columnwidth]{
         Imagens/RedeNeural.PNG
     }
     \caption{Exemplo de uma rede de perceptrons de multiplas camadas - MLP.}
@@ -75,7 +75,7 @@ Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema 
 Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
 
 
-Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional.
+Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.
 
 A maior vantagem dos modelos CNN em comparação com os métodos anteriores era de ser capaz de ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariância translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
 \begin{figure}[!ht]
@@ -109,22 +109,22 @@ A maior vantagem dos modelos CNN em comparação com os métodos anteriores era 
 
 \subsection{\textit{O problema de rotulagem e variabilidade de amostras de treino}}\label{sec:Cap2_rotulagem}
 
-Um dos principais desafios envolvido o treino de \textit{CNNs} aplicado a sensoriamento remoto é representar um estado de características que cubram as variações fotográficas, tanto em características do sensor, como variações da imagem no dia, clima, estação e plataforma da câmera o que se torna uma tarefa difícil. Para uma localização efetiva, o modelo deve ser robusto a todas essas variações, que requer um grande conjunto de treino que cobre boa parte das diversas condições possíveis. Tal conjunto de dados não é disponível e nem viável de obter, pois se trata um volume muito grande de amostras~\cite{rs13194017}. Tais limitações levam a necessitar o desenvolvimento de algorítimos que aprendem seletivamente para que o poder computacional seja utilizado eficientemente, bem como reutilizar conhecimento prévio e evitar treinamento redundante~\cite{rostami2019learning}.  Dentre as técnicas utilizadas para implementar esses modelos mais eficientes, temos como exemplo o aprendizado supervisionado fraco, e a transferência de aprendizado.
+Um dos principais desafios envolvido o treino de \textit{CNNs} aplicado a sensoriamento remoto é representar um estado de características que cubram as variações fotográficas, tanto em características do sensor, como variações da imagem no dia, clima, estação e plataforma da câmera o que se torna uma tarefa difícil. Para uma localização efetiva, o modelo deve ser robusto a todas essas variações, que requer um grande conjunto de treino que cobre boa parte das diversas condições possíveis. Tal conjunto de dados não é disponível e nem viável de obter, pois se trata um volume muito grande de amostras. Tais limitações levam a necessitar o desenvolvimento de algorítimos que aprendem seletivamente para que o poder computacional seja utilizado eficientemente, bem como reutilizar conhecimento prévio e evitar treinamento redundante~\cite{rostami2019learning}.  Dentre as técnicas utilizadas para implementar esses modelos mais eficientes, temos como exemplo o aprendizado supervisionado fraco, e a transferência de aprendizado.
 
 \subsection{\textit{Aprendizado semi-supervisionado}}\label{sec:Cap2_semisup}
 
-As técnicas de aprendizado semi-supervisionado consistem em treinar um modelo com apenas um conjunto reduzido de amostras rotuladas de treino, e as demais amostras serem não supervisionadas. As demais amostras de treino podem ser utilizadas, por exemplo, agrupando-as com as amostras rotuladas e classificando-as como a amostra mais próxima, como apresenta o trabalho de~\cite{Sanches2003}. Outras propostas envolvem data augmentation, que consistem em gerar um conjunto de treino maior, dados as amostras de treino disponíveis.
+As técnicas de aprendizado semi-supervisionado consistem em treinar um modelo com apenas um conjunto reduzido de amostras rotuladas de treino, e as demais amostras serem não supervisionadas. As demais amostras de treino podem ser utilizadas, por exemplo, agrupando-as com as amostras rotuladas e classificando-as como a amostra mais próxima, como apresenta o trabalho de~\cite{Sanches2003}. Outras propostas envolvem~\textit{data augmentation}\footnote{Aumento de dados}, que consistem em gerar um conjunto de treino maior, dados as amostras de treino disponíveis.
 
 \subsection{\textit{Transferência de aprendizado}}\label{sec:Cap2_transfer}
 
 Já técnicas de transferência de aprendizado\footnote{Comumente citado como Transfer Learning}, ou \textit{few shots learning}, consistem em redes treinadas para um conjunto limitado de testes~\cite{rostami2019learning}
-e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agentes. Consistem primariamente de um problema origem e um problema objetivo e como podemos suceder em transferir conhecimento dado o problema origem. A abordagem de transferência de conhecimento se inspira em replicar a habilidade dos humanos em que é possível transferir conhecimento de experiências passadas para lidar com tarefas com poucas amostras rotuladas. Este fato inspirou em representar dados de diferentes problemas de aprendizado de máquina em um espaço embutido onde as representações utilizam de diversas relações entre diferentes domínios de conhecimentos e tarefas. Uma implementação encontrada na literatura, proposta em~\cite{DBLP:journals/corr/abs-1811-04863}, consistiu de transplantar a camada de características de uma CNN derivada do domínio de origem para inicializar outra rede, do domínio objetivo, composta por uma camada final fortemente conectada. Assim foi aproveitada as primeiras camadas e a rede foi trenada para o domínio objetivo com uma quantidade menor de amostras.
+e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agentes. Consistem primariamente de um problema origem e um problema objetivo e como podemos suceder em transferir conhecimento dado o problema origem. A abordagem de transferência de conhecimento se inspira em replicar a habilidade dos humanos em que é possível transferir conhecimento de experiências passadas para lidar com tarefas com poucas amostras rotuladas. Este fato inspirou em representar dados de diferentes problemas de aprendizado de máquina em um espaço embutido onde as representações utilizam de diversas relações entre diferentes domínios de conhecimentos e tarefas. Uma implementação encontrada na literatura, proposta em~\cite{rostami2019learning}, consistiu de transplantar a camada de características de uma CNN derivada do domínio de origem para inicializar outra rede, do domínio objetivo, composta por uma camada final fortemente conectada. Assim foi aproveitada as primeiras camadas e a rede foi trenada para o domínio objetivo com uma quantidade menor de amostras.
 
 
 \section{Transformer Visual}\label{sec:Cap2_transformer_visual}
 
 
-Temos que a arquitetura de CNNs em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos multimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnósticos em quesito de domínios de aplicação. Nessa direção que em \cite{dosovitskiy2020image} é criado o Transformer Visual ( \textit{Vision Transformer (ViT)}), uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
+Temos que a arquitetura de CNNs em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos multimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnósticos em quesito de domínios de aplicação. Nessa direção que em \cite{dosovitskiy2020image} é criado o Transformer Visual ou ViT \footnote{\textit{Vision Transformer}}, uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
 
 O ViT representa uma imagem de entrada como uma sequencia de retalhos de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem. Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
 
@@ -133,8 +133,11 @@ O transformer original recebe como entrada uma sequencia de palavras, que então
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\columnwidth]{
+    \includegraphics[width=0.65\columnwidth]{
         Imagens/vit.png
+    }
+    \includegraphics[width=0.34\columnwidth]{
+        Imagens/encoder.png
     }
     \caption{O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo.}
     \label{fig:vit}
@@ -142,17 +145,6 @@ O transformer original recebe como entrada uma sequencia de palavras, que então
 
 
 \subsection{\textit{Arquitetura do transformer visual}}\label{sec:Cap2_vit}
-
-
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.3\columnwidth]{
-        Imagens/encoder.png
-    }
-    \caption{Exemplo de uma rede convolucional. Filtros são aplicados em diferentes resoluções. A saida de cada imagem convoluída alimenta a próxima camada.}
-    \label{fig:encoder}
-\end{figure}
 
 
 
@@ -180,31 +172,54 @@ A MSP é o núcleo do encoder e implementa o mecanismo de auto atenção. Consis
 
 % https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853
 
+
+
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{
         Imagens/ViTVisualization.png
     }
     \caption{
-        Esquerda: ViT aprende a estrutura de grade via representações de posição. Direita: Camadas inferiores do BiT contem ambas características locais e globais, o quão mais profundas as camadas, mais globais as características.
+        Esquerda: ViT aprende a estrutura de grade via representações de posição. Direita: Camadas inferiores do ViT contem ambas características locais e globais, o quão mais profundas as camadas, mais globais as características.
         }
     \label{fig:ViTVisualization}
 \end{figure}
 
-É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição - parâmetros do modelo que aprende a codificar a posição relativa dos retalhos -  encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
 
-\section{Revisão da Literatura}\label{sec:Cap2_revisao_literatura}
+É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos retalhos, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
+ 
 
-\subsection{\textit{Problema de detecção em sensoriamento remoto em outros trabalhos}}\label{sec:Cap2_outros_trabalhos}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{
+        Imagens/visualizing-attention-vit.jpg
+    }
+    \caption{
+O modelo lida com as regiões que são semanticamente relevantes para classificação. \cite{ViTvsResNets}
+        }
+    \label{fig:ViTVisualizationAttention}
+\end{figure}
 
 
-O problema de classificação para detecção em sensoriamento remoto, utilizando aprendizado profundo~\cite{s20236936}
 
+\section{Trabalhos anteriores}\label{sec:Cap2_revisao_literatura}
+
+\subsection{Problema de detecção de mudanças em minas de menor escala}\label{sec:Cap2_deteccao_mudanca}
+
+Em \cite{rs14071746} foi gerado um dataset para detecção de mudanças e de mineração de ouro em menor escala. Com os dados rotulados, foram testadas abordagens supervisionadas e semi-supervisionadas e extratores de características para encontrar um melhor modelo detector de mudanças. Obtiveram o melhor modelo baseado no método E-ReCNN, utilizando seis canais e treino supervisionado, com score f1 de $0.88\pm0.05$.
+
+\subsection{Classificação de minas e represas}\label{sec:Cap2_minas_represa_classificacao}
+
+O problema de classificação para detecção em sensoriamento remoto, utilizando aprendizado profundo foi explorado em ~\cite{s20236936}, utilizando imagens multiespectrais do satélite \textit{Sentinel-2}. Consistiu em treinar um modelo baseado em CNN para identificar em retalhos da imagem qual classe pertence.
+
+\subsection{Pré-treino de transformers visuais para sensoriamento remoto}\label{sec:Cap2_million}
 
 % TODO: citar o paper de pre-treino
 Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas. Utilizou-se o dataset MillionAID, que é o maior dataset datado até agora, contendo mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo Google earth, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixels até 900 mega pixels.
 
+\subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
 
+Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de transformer visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. Apresentou superioridade principalmente em classes minoritárias.
 
 
 
