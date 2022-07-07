@@ -1,10 +1,7 @@
 # Planning
-ss Function
-tochastic gradient descent
+
 ## Ideas
 
- Y. Xu, Q. Zhang, J. Zhang, and D. Tao, “Vitae: Vision transformer
-advanced by exploring intrinsic inductive bias,” NeurIPS, vol. 34, 2021.
 
 ## Datasets:
 Understanding the Amazon from Space [20] — multilabel dataset to track the human footprint
@@ -25,38 +22,12 @@ the Amazon rainforest; we’ll mostly refer to this as the coffee dataset.
 Mining drives extensive deforestation in the
 Brazilian Amazon
 
-Mining poses significant and potentially underestimated risks to tropical forests
-worldwide. In
-Brazil’s Amazon, mining drives deforestation far beyond operational lease boundaries, yet
-the
-full extent of these impacts is unknown and thus neglected in environmental licensing.
-Here we quantify mining-induced deforestation and investigate the aspects of mining
-operations, which most likely contribute. We find mining significantly increased Amazon
-forest loss up to 70 km beyond mining lease boundaries, causing 11,670 km2 of
-deforestation
-between 2005 and 2015. This extent represents 9% of all Amazon forest loss during this
-time and 12 times more deforestation than occurred within mining leases alone. Pathways
-leading to such impacts include mining infrastructure establishment, urban expansion
-to support a growing workforce, and development of mineral commodity supply chains.
-Mining-induced deforestation is not unique to Brazil; to mitigate adverse impacts ofk
-mining and conserve tropical forests globally, environmental assessments and licensing
-must
-considered both on- and off-lease sources of deforestation.
+Mining poses significant and potentially underestimated risks to tropical forests worldwide. In Brazil’s Amazon, mining drives deforestation far beyond operational lease boundaries, yet the full extent of these impacts is unknown and thus neglected in environmental licensing. Here we quantify mining-induced deforestation and investigate the aspects of mining operations, which most likely contribute. We find mining significantly increased Amazon forest loss up to 70 km beyond mining lease boundaries, causing 11,670 km2 of deforestation between 2005 and 2015. This extent represents 9% of all Amazon forest loss during this time and 12 times more deforestation than occurred within mining leases alone. Pathways leading to such impacts include mining infrastructure establishment, urban expansion to support a growing workforce, and development of mineral commodity supply chains. Mining-induced deforestation is not unique to Brazil; to mitigate adverse impacts ofk mining and conserve tropical forests globally, environmental assessments and licensing must considered both on- and off-lease sources of deforestation.
 
 
-The Brazilian Amazon deforestation rate in 2020
-is the greatest of the decade
 
 
 http://terrabrasilis.dpi.inpe.br/app/map/deforestation?hl=pt-br
-
-What Do ViTs See
-
-Google’s Vision Transformers (ViT) can be likened to Transformers when it comes to the way its architecture processes natural language and to CNNs when it comes to vision tasks. In ViTs, images are represented as sequences, and class labels for the image are predicted, which allows models to learn image structure independently. Input images are treated as a sequence of patches where every patch is flattened into a single vector by concatenating the channels of all pixels in a patch and then linearly projecting it to the desired input dimension. Google even claimed that their ViT outperforms state-of-the-art CNN with four times fewer computational resources when trained on sufficient data.
-https://analyticsindiamag.com/are-visual-transformers-better-than-convolutional-neural-networks/
-https://analyticsindiamag.com/openai-language-models-vision-gpt-neural-networks/
-https://towardsdatascience.com/detecting-deforestation-from-satellite-images-7aa6dfbd9f61?gi=31a843652acf
-https://github.com/google-research/vision_transformer
 
 
 >>
@@ -130,22 +101,23 @@ x - Done
    - [X] Contextualization
    - [X] Problem introduction
    - [X] Objective
- - [ ] Illustrations
+ - [X] Illustrations
  - [X] Review to remove specialists def
 
 ## Theoretical revision + Literature review
 
 - [X] Intro to chapter
-- [ ] Problem domain
+- [X] Problem domain
   - [ ] Amazon issue
   - [X] Remote sensing
   - [X] Intersection ML
 - [ ] Theoretical revision & definitions
-  - [ ] Machine Learning:
+  - [X] Machine Learning:
     - [X] Definition
     - [X] classification
     - [X] Metrics
       - [X] Accuracy, f1 pr
+      - [X] Equations
     - [X] Semi supervised
     - [X] PreProcess
     - [X] Feature extractor
@@ -164,6 +136,7 @@ x - Done
     - [ ] Backward pass
     - [ ] Weight update
     - [ ] Stochastic gradient descent
+    - [X] Equations
   - [X] CNN:
     - Convolutional
     - Pooling
@@ -175,17 +148,17 @@ x - Done
   - [ ] Transformer
     - [X] Historical contex
     - [ ] Architechture:
-      - [ ] patches
-      - [ ] embeddings
-      - [ ] encoder-decoder
+      - [X] patches
+      - [X] embeddings
+      - [X] encoder
       - [ ] mlp heads
-    - [ ] Visual transformers
+    - [X] Visual transformers
 
 - [90%] Literature SOTA review about the problem
-  - [ ] Previous papers
+  - [X] Previous papers
     - [X] Paper 1 Pre train Vitae2
-    - [ ] Paper 2 Dam detection
-    - [ ] Paper 3: Deforestation Monitoring
+    - [X] Paper 2 Dam detection
+    - [X] Paper 3: Deforestation Monitoring
   - [X] Tools: pytorch
 
 
@@ -361,58 +334,6 @@ ________________
 
 # Rascunho desenvolvimento
 
-VOU FAZER ESSA POERRA O MAIS CAGADO POSSIVELLLLLLLLLLLLL@!@@!!!!
-o
-
-
-PA PUM PEI
-
-Arquitetura original do transformer
-
-A arquitetura transformer foi originalmente progetada para tradução. Durante o treinamenteo, o encoder recebe sentenças de entrada em certa linguagem, enquanto o decodificiador recebe a mesma sentença na linguagem a ser traduzida desejada. No encoder, as camadas de atenção podem usar todas as palavras na sentença, já que o significado de cada palavra depende de todas as outras da sentença, seja as seguidas ou anteriores. Enquanto que o decodificador 
-
-
-
-Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas graficas, que promoveram significativamente mais poder computacional para treino. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional.
-
-A maior vantagem dos modelos CNN em comparação com os metodos anteriores era de ser capaz de ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariancia translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
-
-Contudo, a arquitetura em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos muiltimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnosticos em quesito de domínios de aplicação. Nessa direção que em [ref] é criado o  Transformer Visual ( \textit{Vision Transformer (ViT)}), uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
-
-O ViT representa uma imagem de entrada como uma sequencia de retalhos de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem.
-Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
-
-Arquitetura do transformer visual
-
-
-O transformer original recebe como entrada uma sequencia de palavras, que então usa para classificação, tradução ou outras tarefas de processamento natural de linguagem. Para o ViT, em [ref] foram aplicadas poucas modificações, de forma a mesma arquitetura ser aplicada a imagens em vez de palavras, e assim observar como o modelo aprende por si próprio.
-
-O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os píxeis, e progetando-os em uma dimensão de entrada desejada.
-
-
-É possivel observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição -- parametros do modelo que aprende a codificar a posição relativa dos retalhos -- e encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais simolar a outras da mesma coluna e linha, indicando que o modelo recuperou a estruutra de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas caracteristicas globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas caracteristicas locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genericos, como mistura de características globais e locais, dessa forma ajudando generalização.
-
-rev bib
-
-01 forest vit
-Abstract— Understanding the dynamics of deforestation and
-land uses of neighboring areas is of vital importance for the
-design and development of appropriate forest conservation and
-management policies. In this article, we approach deforestation
-as a multilabel classification (MLC) problem in an endeavor
-to capture the various relevant land uses from satellite images.
-To this end, we propose a multilabel vision transformer model,
-ForestViT, which leverages the benefits of the self-attention
-mechanism, obviating any convolution operations involved in
-commonly used deep learning models utilized for deforestation
-detection. Experimental evaluation in open satellite imagery
-datasets yields promising results in the case of MLC, partic-
-ularly for imbalanced classes, and indicates ForestViT’s supe-
-riority compared with well-established convolutional structures
-(ResNET, VGG, DenseNet, and ModileNet neural networks). This
-superiority is more evident for minority classes.
-Index Terms— Deforestation, multilabel image classification,
-self-attention, vision transformers.
 
 
 
@@ -572,41 +493,6 @@ Getting Started
 
 
 
-
-ojlha cara vou escrever toda merda que eu pensar sem o menor pudor pq eu sei que embora
-não estruturado sai algum pensamento utuil dessa merda
-
-o que eu quero dizer caralho é que
-
-a porra da amazonia esta sendo destruida cabulosamentee e vai chegar em um ponto de não
-retorno onde o bioma estará fodido e entratra num feedback positivo de destuiição sem
-precedentes, que alem de perder muitas especies de plantas e animais, vai foder com a
-porra do clima global, são cdapturadas uma quantidade absurda de co2 nessa caralha
-porraaaaaaa
-
-
-
-as causas raizes da ddesmatamento são o descurso anti ambientalista e ocupações e
-desmatamento irregular por parte d agropecuarios, e garimpeiros
-
-
-no que tyange a agropecuaria, inpe e mapabioma possuem sistemas de tempo real de captura
-de incendios e desmatamento, utilizando satelites de resolução 250 por 250 por banda hiper
-espectral.
-
-contudo, existem ainda detalhes padrões dificeis de serem capturados com essa resolução
-ruim.
-
-como por exemplo clareiras de garimpo e garimpo de de balsas.
-
-podem ser detectados por satelites com sensoriamento hiper espectral e com fusão
-sensorial, contudo ainda demandam técnicas de detecção automatizadas destas balsas.
-
-diante disso, este trabalho propoe desenvolver um modelo capaz de classificar imagens de
-satelite de maior resolução como sendo de regiões de degradação.
-
-Uma das possiveisformas para tal é o emprego de deep learning realizando reconhecimento de
-padões para detectar tais regiões degradadas.
 
 In summary, we have revealed empirical evidence that the
 Amazon rainforest has been losing resilience since the early 2000s,
