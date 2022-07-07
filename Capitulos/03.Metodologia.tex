@@ -19,16 +19,16 @@ Foram utilizados dois conjunto de dados, escolhidos por razões de disponibilida
 %ASGM Ponds Dataset https://zenodo.org/record/6400211
 % Planet (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data
 
-\subsection{Dataset compreendendo a amazônia do espaço}\label{sec:Cap3_Amazon_dataset}
+\subsection{Dataset amazônia do espaço}\label{sec:Cap3_Amazon_dataset}
 
-Este dataset foi publicado em uma competição Kaggle, pela empresa Planet \footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de 3m de pixel. Dados foram coletados dos satelites Planet Flock entre 2016 e 2017. Todas imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um crop RGB, pertencente a 14 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em~\cite{9701667} citado no capitulo anterior.
+Este dataset foi publicado em uma competição Kaggle, pela empresa Planet \footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de 3m de pixel. Dados foram coletados dos satelites Planet Flock entre 2016 e 2017. Todas imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um recorde de 256x256 pixeis RGB, pertencente a 14 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em~\cite{9701667} citado no capitulo anterior.
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
 
 
 \subsection{Dataset poças de garimpo}\label{sec:Cap2_amazonia_garimpo}
 
-Este dataset foi utilizado em \cite{rs14071746}, mencionado no capitulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artezanal de ouro de pequena escala; Pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros paises: Venezuela, Indonesia e Myanmar.
+Este dataset foi utilizado em \cite{rs14071746}, mencionado no capitulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artesanal de ouro de pequena escala; Pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros países: Venezuela, Indonesia e Myanmar. (Verificar se esse dataset é utilizável para tarefa de classificação; Resolução parece muito baixa e área muito grande)
 
 % Abstract: Monitoring changes within the land surface and open water bodies is critical for natural resource management, conservation, and environmental policy. While the use of satellite imagery for these purposes is common, fine-scale change detection can be a technical challenge. Difficulties arise from variable atmospheric conditions and the problem of assigning pixels to individual objects. We examined the degree to which two machine learning approaches can better characterize change detection in the context of a current conservation challenge, artisanal small-scale gold mining (ASGM). We obtained Sentinel-2 imagery and consulted with domain experts to construct an open-source labeled land-cover change dataset. The focus of this dataset is the Madre de Dios (MDD) region in Peru, a hotspot of ASGM activity. We also generated datasets of active ASGM areas in other countries (Venezuela, Indonesia, and Myanmar) for out-of-sample testing.
 
@@ -75,19 +75,17 @@ Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidad
 % TODO: citar o paper de aplicação direta
 \section{\textit{Experimentos}}\label{sec:Cap3_Experimentos}
 
-O trabalho 12 implementa uma CNN com regressão. Enquanto o trabalho 3 implementa modelos pré-treinados para classificação. Para a construção da nossa solução desejada, experimentaremos combinar um modelo pré-treinado com camadas internas e de saída treinadas para a região de interesse.
+Para a construção da nossa solução desejada, experimentaremos combinar um modelo pré-treinado com camadas internas e de saída treinadas para a região de interesse.
 Consiste em fazer experimentos em uma complexidade crescente, e replicando resultados para garantir corretude. Será simplificado a reprodução para apenas um dataset.
-Inicialmente os modelos serão validados com imagens apenas geoespaciais, para em seguida serem validadas nas imagens dos VANTs.
+
 
 Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte sequência de experimentos para construir o modelo final:
 
 \begin{enumerate}
-\item  Replicar experimentos dos trabalhos 2 e 3
-\item  Replicar o experimento do trabalho 2 com datasets mencionados em~\ref{sec:Cap3_Dataset}
-\item  Replicar o experimento do trabalho 2 com datasets mencionados e modelo pre-treinado
-\item Treinar com o mínimo de finetune e validar o experimento anterior com cross validation nos datasets de imagens georeferenciadas (sem os drones)
-\item Avaliar performance do anterior com os datasets de imagens de voo de drones
-\item Avaliar performance do anterior em um módulo embarcado Nvidia Jetson
+\item  Replicar experimentos dos trabalhos \ref{sec:Cap2_million} com checkpoints fornecidos. 
+\item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em ResNet-50
+\item  Replicar o experimento do \ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
+\item Avaliar desempenho, comparar com os experimentos e trabalhos bases
 \end{enumerate}
 
 
@@ -100,22 +98,19 @@ Os procedimentos do experimento principal consiste principalmente nas etapas de
 pré-processamento, treino e validação. Explicadas a diante.
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
-O pré-processamento consistem em preparar as amostras do dataset de interesse para treino e validação. Inicialmente foram geradas 10000 recortes aleatórios de tamanho de imagem aproximadamente ao de angulo de visão do drone na altitude de operação, correspondente a uma área de 100mx100m. Cada recorte é aplicado um \textit{downsampling} para a resolução de entrada do modelo pré-treinado. Para cada recorte é registrado seu respectivo rótulo, que é sua coordenada de latitude e longitude, porem em uma escala de 0 a 1, por meio de um \textit{min-max-scaler}. O \textit{downsampling} offline, durante o treino, é feito por uma interpolação cúbica, enquanto que a online, durante o teste, é feito por uma interpolação bilinear, para alívio de custo computacional, como foi implementado no paper 2.
+O pré-processamento consistem em preparar as amostras do dataset de interesse para treino e validação. Para o dataset floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução 256x256 px é aplicado um \textit{downsampling} para a resolução de entrada do modelo pré-treinado, de 224 × 224. 
 
 \subsection{\textit{Treino}}\label{sec:Cap3_Treino}
-Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste de um modelo pré-treinado, e substituindo suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de saída de probabilidade logarítmica, como ilustra a imagem a seguir:
+Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste de um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de softmax, como ilustra a imagem a seguir:
 
 
 TODO Imagem da arquitetura proposta.
-
-Será treinada utilizando o dataset de imagens geolocalizadas, separados por uma divisão aleatória de 80\% para treino e 20\% para testes, após o pré-processamento. Um valor usual na literatura são 500 épocas, com métrica de distância pela raiz da média do erro quadrático. Será utilizada nas camadas adicionais da rede as técnicas de \textit{dropout e pruning} para realizar regularização e compressão da rede.
-
 
 
 
 \subsection{\textit{Validação}}\label{sec:Cap3_Validacao}
 
-A etapa de validação será realizada a medida do desempenho do modelo no conjunto de testes para regressão.
+A etapa de validação será realizada a medida do desempenho do modelo no conjunto de testes para classificação.
 
 
 

@@ -126,7 +126,7 @@ e reutilizam esse conhecimento através de diferentes domínios, tarefas ou agen
 
 Temos que a arquitetura de CNNs em si é projetada especificamente para imagens e podem ser computacionalmente onerosas, dessa forma podendo não escalar ou generalizar o suficiente para modelos multimodais. Diante dessas limitações, foram pesquisados modelos que possam escalar e serem agnósticos em quesito de domínios de aplicação. Nessa direção que em \cite{dosovitskiy2020image} é criado o Transformer Visual ou ViT \footnote{\textit{Vision Transformer}}, uma arquitetura modelo de visão baseado na possibilidade da utilização da arquitetura Transformer, originalmente utilizada para tarefas baseadas em texto, para tarefas de visão computacional.
 
-O ViT representa uma imagem de entrada como uma sequencia de retalhos de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem. Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
+O ViT representa uma imagem de entrada como uma sequencia de recortes de imagem, similarmente a uma sequencia de representações de palavras quando aplicado transformers para texto, e diretamente predizendo a classe de rótulo da imagem. Tal arquitetura e suas variações apresentaram excelente performance, superando a performance de CNNs até então estado-da-arte, a ResNet, consumindo até um quarto de recursos computacionais.
 
 
 O transformer original recebe como entrada uma sequencia de palavras, que então usa para classificação, tradução ou outras tarefas de processamento natural de linguagem. Para o ViT, em \cite{dosovitskiy2020image} foram aplicadas poucas modificações, de forma a mesma arquitetura ser aplicada a imagens em vez de palavras, e assim observar como o modelo aprende por si próprio.
@@ -139,7 +139,7 @@ O transformer original recebe como entrada uma sequencia de palavras, que então
     \includegraphics[width=0.34\columnwidth]{
         Imagens/encoder.png
     }
-    \caption{O ViT divide uma imagem em uma grade de retalhos quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo.}
+    \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo.}
     \label{fig:vit}
 \end{figure}
 
@@ -186,7 +186,7 @@ A MSP é o núcleo do encoder e implementa o mecanismo de auto atenção. Consis
 \end{figure}
 
 
-É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos retalhos, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
+É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos recortes, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco transformer. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
  
 
 \begin{figure}[!ht]
@@ -210,12 +210,11 @@ Em \cite{rs14071746} foi gerado um dataset para detecção de mudanças e de min
 
 \subsection{Classificação de minas e represas}\label{sec:Cap2_minas_represa_classificacao}
 
-O problema de classificação para detecção em sensoriamento remoto, utilizando aprendizado profundo foi explorado em ~\cite{s20236936}, utilizando imagens multiespectrais do satélite \textit{Sentinel-2}. Consistiu em treinar um modelo baseado em CNN para identificar em retalhos da imagem qual classe pertence.
+O problema de classificação para detecção em sensoriamento remoto, utilizando aprendizado profundo foi explorado em ~\cite{s20236936}, utilizando imagens multiespectrais do satélite \textit{Sentinel-2}. Consistiu em treinar um modelo baseado em CNN para identificar em recortes da imagem qual classe pertence.
 
 \subsection{Pré-treino de transformers visuais para sensoriamento remoto}\label{sec:Cap2_million}
 
-% TODO: citar o paper de pre-treino
-Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas. Utilizou-se o dataset MillionAID, que é o maior dataset datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo Google earth, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixels até 900 mega pixels.
+Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o dataset MillionAID, que é o maior dataset datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo Google earth, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixels até 900 mega pixels.
 O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetunes.
 
 \subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
