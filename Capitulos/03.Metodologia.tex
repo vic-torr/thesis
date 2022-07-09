@@ -28,7 +28,9 @@ Este dataset foi publicado em uma competição Kaggle, pela empresa Planet \foot
 
 \subsection{Dataset poças de garimpo}\label{sec:Cap2_amazonia_garimpo}
 
-Este dataset foi utilizado em \cite{rs14071746}, mencionado no capitulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artesanal de ouro de pequena escala; Pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros países: Venezuela, Indonesia e Myanmar. (Verificar se esse dataset é utilizável para tarefa de classificação; Resolução parece muito baixa e área muito grande)
+Este \textit{dataset} foi utilizado em \cite{rs14071746}, mencionado no capitulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artesanal de ouro de pequena escala; Pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros países: Venezuela, Indonésia e Myanmar. 
+
+% (Verificar se esse dataset é utilizável para tarefa de classificação; Resolução parece muito baixa e área muito grande)
 
 % Abstract: Monitoring changes within the land surface and open water bodies is critical for natural resource management, conservation, and environmental policy. While the use of satellite imagery for these purposes is common, fine-scale change detection can be a technical challenge. Difficulties arise from variable atmospheric conditions and the problem of assigning pixels to individual objects. We examined the degree to which two machine learning approaches can better characterize change detection in the context of a current conservation challenge, artisanal small-scale gold mining (ASGM). We obtained Sentinel-2 imagery and consulted with domain experts to construct an open-source labeled land-cover change dataset. The focus of this dataset is the Madre de Dios (MDD) region in Peru, a hotspot of ASGM activity. We also generated datasets of active ASGM areas in other countries (Venezuela, Indonesia, and Myanmar) for out-of-sample testing.
 
@@ -65,8 +67,8 @@ composta por camadas hierarquicas de encoders transformers  que funciona como ex
 O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais no Google Collab. Também será utilizado o \textit{framework PyTorch}, por razões de disponibilidade de métodos e conhecimentos do autor.
 
 \subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
-Pytorch é um framework código aberto de Python para aprendizado de máquinas. É implementado em C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
-Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido à intenção de ser um framework de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
+Pytorch é um \textit{framework}\footnote{Ferramental} código aberto de Python para aprendizado de máquinas. É implementado em linguagens C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
+Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido à intenção de ser um \textit{framework} de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
 
 
 % ----------------------------------------------------------
@@ -82,8 +84,8 @@ Consiste em fazer experimentos em uma complexidade crescente, e replicando resul
 Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte sequência de experimentos para construir o modelo final:
 
 \begin{enumerate}
-\item  Replicar experimentos dos trabalhos \ref{sec:Cap2_million} com checkpoints fornecidos. 
-\item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em ResNet-50
+\item  Replicar experimentos dos trabalhos \ref{sec:Cap2_million} com \texit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} fornecidos. 
+\item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
 \item  Replicar o experimento do \ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
 \item Avaliar desempenho, comparar com os experimentos e trabalhos bases
 \end{enumerate}
