@@ -42,8 +42,13 @@ Para melhor entender cada constituinte dessa definição, podemos utilizar de um
 
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
 
-O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Backpropagation} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}.
+O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. 
+Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Frequentemente citada como \textit{Backpropagation}} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}. Para classificações multi-classes, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
+Temos como exemplo a normalização \textit{softmax}: 
 
+$$y_i=\frac{e^{z_i}} {\Sigma e^{z_k}}$$
+% Falar mais do SGD e GELU, equacionando
+% equação de cada camada
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.47\columnwidth]{
@@ -68,14 +73,14 @@ O termo redes neurais embarca uma grande classe de modelos e métodos de aprendi
 \subsection{Redes Neurais Artificiais Profundas}\label{sec:Cap2_redes_neurais_profundas}
 O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data.
 
-Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Sobre-ajuste}. Se trata de quando o modelo é treinado e de forma a gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de DNNs, podemos citar o Dropout, Dropconnect e pruning, que são respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.
+Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Sobre-ajuste}. Se trata de quando o modelo é treinado e de forma a gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de DNNs\footnote{\textit{Deep Neural Networks}}, podemos citar o \textit{Dropout, Dropconnect e pruning}, que consistem em respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.
 
 
 \subsection{Redes Neurais Convolucionais}\label{sec:Cap2_redes_neurais_convolucionais}
-Uma arquitetura clássica é a rede neural convolucional (CNN), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+Uma arquitetura clássica é a rede neural convolucional (CNN\footnote{\textit{Convolutional Neural Network}}), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
 
 
-Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.
+Em 2012 o modelo de CNN AlexNet ultrapassou em performance os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes datasets\footnote{Conjunto de dados} como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.
 
 A maior vantagem dos modelos CNN em comparação com os métodos anteriores era de ser capaz de ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariância translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
 \begin{figure}[!ht]
@@ -83,7 +88,7 @@ A maior vantagem dos modelos CNN em comparação com os métodos anteriores era 
     \includegraphics[width=0.95\columnwidth]{
         Imagens/CNN_mathworks.jpg
     }
-    \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluída alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
+    \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluta alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
     \label{fig:cnn}
 \end{figure}
 
@@ -157,7 +162,7 @@ O \textit{encoder transformer} é composto por:
     \item Saltos de conexão: somam a saída de blocos a entrada. Desempenha papel de auxiliar a convergência da otimização do gradiente descendente e explosão de gradientes.
 \end{itemize}
 
-A MSP é o núcleo do encoder e implementa o mecanismo de auto atenção. Consiste em relacionar diferentes posições de uma unica sequência para se computar uma representação desta sequencia \cite{AttentionIsAllYouNeed}.
+A MSP é o núcleo do \textit{encoder}\footnote{Codificadoe} implementa o mecanismo de auto atenção. Consiste em relacionar diferentes posições de uma única sequência para se computar uma representação desta sequencia \cite{AttentionIsAllYouNeed}.
 
 %\begin{figure}[!ht]
 %    \centering
@@ -215,8 +220,8 @@ O problema de classificação para detecção em sensoriamento remoto, utilizand
 
 \subsection{Pré-treino de\textit{transformers} visuais para sensoriamento remoto}\label{sec:Cap2_million}
 
-Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o \textit{dataset} MillionAID, que é o maior \textit{dataset} datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo Google earth, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixeis até 900 mega pixeis.
-O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetunes\footnote{Ajuste fino.}.
+Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o \textit{dataset} MillionAID, que é o maior \textit{dataset} datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo \textit{software Google Earth}, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixeis até 900 mega pixeis.
+O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetune\footnote{Ajuste fino.}.
 
 \subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
 

@@ -1,4 +1,5 @@
-Neste trabalho, a metodologia será seccionada nas seguintes partes:
+Neste capítulo será apresentado em detalhes as premissas do problema de classificação visual bem como a metodologia para sua solução, que será particionada nas conforme proposto a seguir. A seção~\ref{sec:Cap3_Dataset} apresenta o conjunto de dados utilizado para o experimento.  A seção~\ref{sec:Cap3_Premissas}. apresenta as limitações e condições de contorno do problema. A seção~\ref{sec:Cap3_Proposta} apresenta a proposta de solução para o problema. A seção~\ref{sec:Cap3_Procedimentos} apresenta os procedimentos do experimento para treino e teste do modelo. Dessa forma, a metodologia será seccionada nas seguintes partes:
+
 \begin{itemize}
     \item  Datasets.
     \item  Premissas do problema.
@@ -6,8 +7,6 @@ Neste trabalho, a metodologia será seccionada nas seguintes partes:
     \item  Experimento para a solução do problema.
 
 \end{itemize}
-
-Neste capítulo será apresentado em detalhes as premissas do problema de classificação visual bem como a metodologia para sua solução, que será particionada nas conforme proposto a seguir. A seção~\ref{sec:Cap3_Premissas}. apresenta as limitações e condições de contorno do problema. A seção~\ref{sec:Cap3_Dataset} apresenta o conjunto de dados utilizado para o experimento. A seção~\ref{sec:Cap3_Proposta} apresenta a proposta de solução para o problema. A seção~\ref{sec:Cap3_Procedimentos} apresenta os procedimentos do experimento para treino e teste do modelo.
 
 % ----------------------------------------------------------
 
@@ -21,7 +20,16 @@ Foram utilizados dois conjunto de dados, escolhidos por razões de disponibilida
 
 \subsection{Dataset amazônia do espaço}\label{sec:Cap3_Amazon_dataset}
 
-Este dataset foi publicado em uma competição Kaggle, pela empresa Planet \footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de 3m de pixel. Dados foram coletados dos satelites Planet Flock entre 2016 e 2017. Todas imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um recorde de 256x256 pixeis RGB, pertencente a 14 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em~\cite{9701667} citado no capitulo anterior.
+Este dataset foi publicado em uma competição Kaggle, pela empresa Planet \footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de 3m de pixel. Dados foram coletados dos satélites Planet Flock entre 2016 e 2017. Todas imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um recorde de 256x256 pixeis RGB, pertencente a 14 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em~\cite{9701667} citado no capitulo anterior.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{
+        Imagens/chips.jpg
+    }
+    \caption{Amostras de classes do dataset Amazônia do espaço}
+\label{fig:dataset}
+\end{figure}
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
 
@@ -78,16 +86,16 @@ Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidad
 \section{\textit{Experimentos}}\label{sec:Cap3_Experimentos}
 
 Para a construção da nossa solução desejada, experimentaremos combinar um modelo pré-treinado com camadas internas e de saída treinadas para a região de interesse.
-Consiste em fazer experimentos em uma complexidade crescente, e replicando resultados para garantir corretude. Será simplificado a reprodução para apenas um dataset.
+Consiste em fazer experimentos em uma complexidade crescente, e replicando resultados para garantir corretude. Será simplificado a reprodução para apenas um \textit{dataset}.
 
 
 Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte sequência de experimentos para construir o modelo final:
 
 \begin{enumerate}
-\item  Replicar experimentos dos trabalhos \ref{sec:Cap2_million} com \texit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} fornecidos. 
+\item  Replicar experimentos dos trabalhos \ref{sec:Cap2_million} com \textit{checkpoints} \footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados. 
 \item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
 \item  Replicar o experimento do \ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
-\item Avaliar desempenho, comparar com os experimentos e trabalhos bases
+\item Avaliar desempenho, comparar com os experimentos e trabalhos bases\ref{sec:Cap2_revisao_literatura}
 \end{enumerate}
 
 
@@ -100,10 +108,10 @@ Os procedimentos do experimento principal consiste principalmente nas etapas de
 pré-processamento, treino e validação. Explicadas a diante.
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
-O pré-processamento consistem em preparar as amostras do dataset de interesse para treino e validação. Para o dataset floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução 256x256 px é aplicado um \textit{downsampling} para a resolução de entrada do modelo pré-treinado, de 224 × 224. 
+O pré-processamento consistem em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução 256x256 px é aplicado um \textit{downsampling}\footnote{subamostragem} para a resolução de entrada do modelo pré-treinado, de 224 × 224. 
 
 \subsection{\textit{Treino}}\label{sec:Cap3_Treino}
-Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste de um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de softmax, como ilustra a imagem a seguir:
+Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste de um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de \textit{softmax}, como ilustra a imagem a seguir:
 
 
 TODO Imagem da arquitetura proposta.
