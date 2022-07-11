@@ -165,7 +165,7 @@ x - Done
 # Methodology
 1. [70%] Datasets
    1. [ ] Add Images
-   2. [ ] Origin of datasets
+   2. [X] Origin of datasets
    3. [ ] Table summaring them
 2. Premisses
 3. Proposed solutions
