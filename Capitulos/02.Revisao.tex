@@ -144,7 +144,7 @@ O\textit{transformer}original recebe como entrada uma sequencia de palavras, que
     \includegraphics[width=0.34\columnwidth]{
         Imagens/encoder.png
     }
-    \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo.}
+    \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo. \cite{dosovitskiy2020image}}
     \label{fig:vit}
 \end{figure}
 
@@ -186,13 +186,13 @@ A MSP é o núcleo do \textit{encoder}\footnote{Codificador} implementa o mecani
         Imagens/ViTVisualization.png
     }
     \caption{
-        Esquerda: ViT aprende a estrutura de grade via representações de posição. Direita: Camadas inferiores do ViT contem ambas características locais e globais, o quão mais profundas as camadas, mais globais as características.
+        Esquerda: ViT aprende a estrutura de grade via representações de posição. Direita: Camadas inferiores do ViT contem ambas características locais e globais, o quão mais profundas as camadas, mais globais as características.\cite{dosovitskiy2020image}
         }
     \label{fig:ViTVisualization}
 \end{figure}
 
 
-É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos recortes, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco \textit{transformer}. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização.
+É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos recortes, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco \textit{transformer}. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização\cite{dosovitskiy2020image}.
  
 
 \begin{figure}[!ht]
