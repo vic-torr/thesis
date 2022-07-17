@@ -17,7 +17,7 @@ E por fim, na seção~\ref{sec:Cap2_revisao_literatura} uma revisão da literatu
     \includegraphics[width=0.9\columnwidth]{
         Imagens/instrutorgis\_sensoriamento\_remoto\_ilustracao.png
     }
-    \caption{Sensoriamento remoto Foto:}
+    \caption{Sensoriamento remoto Foto:\cite{InstrutorGIS}}
 \label{fig:sensoriamento}
 \end{figure}
 
@@ -37,7 +37,62 @@ Aprendizado de máquina é um campo que estuda algorítimos capazes de aprender 
 
 Já em~\cite{Mitchell97} define um algorítimo de aprendizado como “Um algoritmo que é dito ser capaz de uma experiência E com respeito a determinada classe de tarefas T e com medidas de performance P, se sua performance nas tarefas em T, medidas por P, melhoram a partir da experiência E.”
 
-Para melhor entender cada constituinte dessa definição, podemos utilizar de um exemplo. A tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \), o modelo atribui uma entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes~\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo de tarefa sendo realizada pelo sistema. Para tarefas de classificação, é comumente utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o modelo produz a saída correta. Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore f1 e curva precisão-revocação.
+Para melhor entender cada constituinte dessa definição, podemos utilizar de um exemplo. A tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \), o modelo atribui uma entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes~\cite{GoodBengCour16}. A medida de performance P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de performance geralmente é atrelada ao tipo de tarefa sendo realizada pelo sistema. 
+
+\subsection{Métricas de desempenho}\label{sec:cap2_metricas_desempenho}
+
+
+Para tarefas de classificação, é comumente utilizada a métrica de acurácia do modelo. Consiste na proporção de amostras na qual o modelo produz a saída correta. Sejam verdadeiros positivos $vp$, falsos positivos $fp$, verdadeiros negativos $vn$, falsos negativos $fn$, temos que a acurácia AC é:
+\begin{equation}AC = \frac{tp + tn}{tp + tn + fp + fn} \end{equation}
+
+\begin{itemize}
+    \item Verdadeiros Positivos: classificação correta da classe Positivo
+    \item Falsos Positivos (Erro Tipo I): erro em que o modelo previu a classe Positivo quando o rótulo era classe Negativo
+    \item Falsos Positivos (Erro Tipo I): erro em que o modelo previu a classe Positivo quando o rótulo era classe Negativo
+    \item Verdadeiros Negativos: classificação correta da classe Negativo
+\end{itemize}
+
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.47\columnwidth]{
+        Imagens/matrix_confusão.png
+    }
+    \caption{Matriz confusão
+}
+    \label{fig:matriz_confusão}
+\end{figure}
+
+Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore $F_1$ e curva precisão-revocação. Sejam Precisão $P$ e revocação $R$, temos que:
+
+
+
+\begin{figure}[!ht]
+    \centering
+    \begin{minipage}[c]{0.4\textwidth}
+        \includegraphics[width=\columnwidth]{
+            Imagens/Precisão_e_revocação.png
+        }
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation} P = \frac{vp}{vp + vp} \end{equation}
+        \begin{equation}R = \frac{vp}{vp + fp}\end{equation}
+        \begin{equation}F_1 = 2 \times \frac {P \times R}{P + R}\end{equation}
+                
+    \end{minipage}       
+    \caption{Ilustração das métricas de precisão e revocação.}
+    \label{fig:precisão_revocação}
+\end{figure}
+
+
+
+
+\subsection{Métricas de perda}\label{sec:cap2_metricas_desempenho}
+
+Como métricas de perda para tarefas de classificação, podem ser utilizadas por exemplo, a entropia cruzada, dada por:
+
+
 
 
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
@@ -45,21 +100,52 @@ Para melhor entender cada constituinte dessa definição, podemos utilizar de um
 O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. 
 Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Frequentemente citada como \textit{Backpropagation}} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}. Para classificações multi-classes, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
 Temos como exemplo a normalização \textit{softmax}: 
+\begin{equation}
+y_i=\frac{e^{z_i}} {\Sigma e^{z_k}}
+\end{equation}
 
-$$y_i=\frac{e^{z_i}} {\Sigma e^{z_k}}$$
-% Falar mais do SGD e GELU, equacionando
-% equação de cada camada
+
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.47\columnwidth]{
-        Imagens/stochastic_gradient_descent.PNG
-    }
-    \includegraphics[width=0.47\columnwidth]{
-        Imagens/GELU.PNG
-    }
+    \begin{minipage}[c]{\textwidth}
+        \includegraphics[width=0.47\columnwidth]{
+            Imagens/stochastic_gradient_descent.PNG
+        }
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+
+                
+    \end{minipage} 
+
     \caption{Exemplo de algorítimo de otimização à esquerda: gradiente descendente estocástico. Exemplo de função de ativação à direita: GELU, unidade de erro gaussiano linear.}
+    \label{fig:SGD}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \begin{minipage}[c]{0.5\textwidth}
+        \includegraphics[width=\columnwidth]{
+            Imagens/GELU.PNG
+        }
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            \text{GELU}\left(x\right) = x{P}\left(X\leq{x}\right) = 
+            x\Phi\left(x\right)
+        \end{equation}
+        \begin{equation}
+            \text{GELU}\left(x\right) = x \cdot \frac{1}{2}\left[1 + \text{erf}(x/\sqrt{2})\right]
+        \end{equation}
+        \begin{equation}
+            0.5x\left(1+\tanh\left[\sqrt{2/\pi}\left(x + 0.044715x^{3}\right)\right]\right)
+        \end{equation}
+                
+    \end{minipage} 
+
+    \caption{Exemplo de função de ativação: GELU, unidade de erro gaussiano linear.}
     \label{fig:SGD_GELU}
 \end{figure}
+
 
 
 \begin{figure}[!ht]
@@ -149,7 +235,7 @@ O\textit{transformer}original recebe como entrada uma sequencia de palavras, que
 \end{figure}
 
 
-\subsection{\textit{Arquitetura do\textit{transformer}visual}}\label{sec:Cap2_vit}
+\subsection{\textit{Arquitetura do \textit{transformer} visual}}\label{sec:Cap2_vit}
 
 % Mecanismo de atenção
 % 
@@ -192,7 +278,7 @@ A MSP é o núcleo do \textit{encoder}\footnote{Codificador} implementa o mecani
 \end{figure}
 
 
-É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos recortes, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco \textit{transformer}. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma ajudando generalização\cite{dosovitskiy2020image}.
+É possível observar como o modelo aprende ao visualizar alguns comportamentos internos. Ao observar as representações de posição, que são os parâmetros do modelo que aprendem a codificar a representação relativa dos recortes, encontramos que o ViT é capaz de reproduzir intuitivamente uma estrutura de imagem. Cada representação de posição é mais similar a outras da mesma coluna e linha, indicando que o modelo recuperou a estrutura de grade das imagens originais. Em segundo lugar, examinando a distancia espacial média entre elementos para cada bloco \textit{transformer}. Em camadas mais profundas, apenas características globais são utilizadas, ou seja grandes distâncias de atenção. Enquanto que camadas mais rasas capturam ambas características globais e locais, indicado por uma faixa grande de atenção. Em contraste apenas características locais são presentes nas camadas superficiais das CNNs. Estes experimentos indicam que ViT aprendem características codificadas manualmente nas CNNs, como percepção da estrutura de grade. E principalmente revela que tais modelos são livres para aprender padrões mais genéricos, como mistura de características globais e locais, dessa forma contribuindo para generalização~\cite{dosovitskiy2020image}.
  
 
 \begin{figure}[!ht]
@@ -218,14 +304,27 @@ Em \cite{rs14071746} foi gerado um \textit{dataset}\footnote{Conjunto de dados} 
 
 O problema de classificação para detecção em sensoriamento remoto, utilizando aprendizado profundo foi explorado em ~\cite{s20236936}, utilizando imagens multiespectrais do satélite \textit{Sentinel-2}. Consistiu em treinar um modelo baseado em CNN para identificar em recortes da imagem qual classe pertence.
 
-\subsection{Pré-treino de\textit{transformers} visuais para sensoriamento remoto}\label{sec:Cap2_million}
+\subsection{Pré-treino de \textit{transformers} visuais para sensoriamento remoto}\label{sec:Cap2_million}
 
 Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o \textit{dataset} MillionAID, que é o maior \textit{dataset} datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo \textit{software Google Earth}, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixeis até 900 mega pixeis.
 O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetune\footnote{Ajuste fino.}.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{
+        Imagens/ViTAEv2.png
+    }
+    \caption{
+Arquitetura do classificador baseado em transformers visuais ViTAEv2 ~\cite{wang2022empirical}
+        }
+    \label{fig:ViTAEv2}
+\end{figure}
+
+
+
 \subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
 
-Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de\textit{transformers}visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
+Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de \textit{transformers} visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
 
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
