@@ -309,22 +309,28 @@ O problema de classificação para detecção em sensoriamento remoto, utilizand
 Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o \textit{dataset} MillionAID, que é o maior \textit{dataset} datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo \textit{software Google Earth}, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixeis até 900 mega pixeis.
 O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetune\footnote{Ajuste fino.}.
 
+\subsection{Transformer Swin}\label{sec:Cap2_ForestViT}
+
+Em~\cite{} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textia{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
+
+
+
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{
         Imagens/ViTAEv2.png
     }
     \caption{
-Arquitetura do classificador baseado em transformers visuais ViTAEv2 ~\cite{wang2022empirical}
+SWIN Transformer ~\cite{}
         }
-    \label{fig:ViTAEv2}
+    \label{fig:SWIN}
 \end{figure}
 
 
 
-\subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
+%\subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
 
-Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de \textit{transformers} visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
+%Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de \textit{transformers} visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
 
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
