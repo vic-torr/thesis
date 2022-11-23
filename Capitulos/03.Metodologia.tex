@@ -20,7 +20,7 @@ Foram utilizados dois conjuntos de dados, escolhidos por razões de disponibilid
 
 \subsection{Dataset Amazônia do Espaço}\label{sec:Cap3_Amazon_dataset}
 
-Este dataset foi publicado em uma competição Kaggle, pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de $3 m$ de píxel. Dados foram coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a 14 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em ~\cite{9701667} citado no capitulo anterior.
+Este dataset foi publicado na plataforma Kaggle, de competições de aprendizado de máquina, pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data}. Possui resolução de $3 m$ de píxel. Dados foram coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este dataset concerne ao desmatamento de mangues. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a 17 classes distintas. Cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Foi utilizado em ~\cite{9701667} citado no capitulo anterior.
 
 \begin{figure}[!ht]
     \centering
@@ -53,16 +53,16 @@ Este \textit{dataset} foi utilizado em \cite{rs14071746}, mencionado no capitulo
 
 \section{\textit{Premissas}}\label{sec:Cap3_Premissas}
 
-Temos que o problema de identificação em sensoriamento remoto impõe a dificuldade de alta similaridade extra-classes e divergências intra-classes, da qual surge uma dificuldade de generalização e de viés indutivo para identificação de amostras fora das classes treinadas. Temos ainda que o treinamento de tais modelos envolvem um volume massivo de amostras e de custo computacional. 
+Temos que o problema de identificação em sensoriamento remoto impõe a dificuldade de alta similaridade extra-classes e divergências intra-classes, da qual surge uma dificuldade de generalização e de viés indutivo para identificação de amostras fora das classes treinadas. Temos ainda que o treinamento de tais modelos envolvem um volume massivo de amostras rotuladas. 
 
 
 % ----------------------------------------------------------
 
 \section{\textit{Proposta de solução}}\label{sec:Cap3_Proposta}
 
-Como solução para o problema, foi proposta a utilização de um modelo ViT pré-treinado com um dataset expressivo e realizar o fine-tune para o conjunto de dados de interesse. Dessa forma, obtendo um modelo com boa capacidade de generalização e com menor custo computacional para ser treinado.
+Como solução para o problema, foi proposta a utilização de um modelo de \textit{transformer visual}  pré-treinado em um conjunto de dados expressivo e realizar o \textit{fine-tune}\footnote{Ajuste fino} para o conjunto de dados de interesse. Dessa forma, obtendo um modelo com boa capacidade de generalização e melhor viés indutivo, assim demandando menor quantidade de amostras para ser treinado.
 
-Para solucionar o problema de generalização e dataset limitado da região de interesse, propomos a utilização de um modelo pré-treinado explicado em~\ref{sec:Cap2_transfer} um dataset extensivo de imagens aéreas e de satélites, de forma a aproveitar seu extrator de características, como é realizado em~\cite{wang2022empirical}. Assim o modelo será re-treinado (\textit{fine tunning}) para a região de interesse mantendo os pesos das camadas de encoder otimizar apenas a camada MLP fortemente conectadas, assim como a camadas de saídas softmax. 
+Para solucionar o problema de generalização e conjunto de dados limitado da região de interesse, propomos a utilização de um modelo pré-treinado explicado em~\ref{sec:Cap2_transfer} um dataset extensivo de imagens aéreas e de satélites, de forma a aproveitar seu extrator de características, como é realizado em~\cite{wang2022empirical}. Assim o modelo será re-treinado (\textit{fine tunning}) para a região de interesse mantendo os pesos das camadas de encoder otimizar apenas a camada MLP fortemente conectadas, assim como a camadas de saídas softmax. 
 
 Dessa forma, a arquitetura proposta é o ViT apresentado em~\cite{wang2022empirical}
 composta por camadas hierarquicas de encoders transformers  que funcionam como extratores de características. As camadas seguintes são camadas totalmente conectadas seguidas por uma camada \textit{softmax} que realiza a classificação.
@@ -71,7 +71,9 @@ composta por camadas hierarquicas de encoders transformers  que funcionam como e
 \section{\textit{Ambiente e ferramentas}}\label{sec:Cap3_Ferramentas}
 
 
-O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais da plataforma em nuvem \textit{Google Collab}. Também será utilizado o \textit{framework PyTorch}, por razões de disponibilidade de métodos e conhecimentos do autor.
+O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais da plataforma em nuvem \textit{Google Collab}. Também será utilizado o \textit{framework PyTorch}, por razões de disponibilidade de métodos e conhecimentos do autor. 
+
+Foram utilizados 100h de orçamento de recursos, em uma instância com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Se faz necessário o uso de aceleradores como a utilizada, pois possibilitam ganhos de tempo em até 40x em comparação com as em CPU.
 
 \subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
 Pytorch é um \textit{framework}\footnote{Ferramental} código aberto de Python para aprendizado de máquinas. É implementado em linguagens C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
@@ -103,8 +105,10 @@ Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte seq
 
 \section{\textit{Procedimentos}}\label{sec:Cap3_Procedimentos}
 
-Os procedimentos do experimento principal consiste principalmente nas etapas de 
-pré-processamento, treino e validação. Explicadas adiante.
+Os procedimentos do experimento principal consiste principalmente nas etapas de configuração do ambiente, pré-processamento do conjunto de dados, análise exploratória, definição do modelo e iterações de treino-validação. Explicadas adiante.
+
+\subsection{\textit{Configuração de Ambiente}}\label{sec:Cap3_PreProcess}
+O pré-processamento consistem em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução $256 \times 256$ px é aplicado um \textit{downsampling}\footnote{Subamostragem} para a resolução de entrada do modelo pré-treinado, de $224 \times 224$. 
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
 O pré-processamento consistem em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução $256 \times 256$ px é aplicado um \textit{downsampling}\footnote{Subamostragem} para a resolução de entrada do modelo pré-treinado, de $224 \times 224$. 
