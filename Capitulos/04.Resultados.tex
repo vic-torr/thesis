@@ -1,0 +1,38 @@
+Tentativas de reproduzir os todos os experimentos dos trabalhos mencionados não foram bem sucedidos, por falta de reproducibilidade, contudo deram uma direção de como seria a metodologia de realização e validação dos experimentos.
+
+Tentativa inicial:
+
+\begin{enumerate}
+    \item  Replicar experimentos dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados. 
+    \item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
+    \item  Replicar o experimento do~\ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
+    \item Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
+    \end{enumerate}
+
+O segundo item foi possível de ser realizado. Realizando \textit{fine-tune} do modelo o modelo Resnet-16 inicialmente. Foram utilizados os pesos dessa mesma rede treinada para o dataset IMAGENET-1k, realizando a troca das camadas de saída, originalmente para 1000 classes. Foram Removidas e adicionados uma camada completamente conectada de entrada igual ao numero de neurônios da penultima camada. Após a ultima camada foi adicionado uma camada de sigmoid, que realizará a conversão de valores lineares para probabilidade de cada classe.
+
+O modelo obteve um desempenho inicialmente satisfatório de score f2 de 0.88.
+
+A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros e de componentes a fim de aperfeiçoar o desempenho da rede. Dentre as melhorias, constam:
+
+\begin{enumerate}
+    \item  Aumentar capacidade da rede, Adicionando mais camadas de saída
+    \item  Aumentar capacidade da rede, passando para o modelo Resnet-50
+    \item Adicionar regularização de decaimento de pesos
+    \item Função de perda entropia cruzada binária
+    \item Função de perda entropia cruzada binária com pesos 
+    \item Função de perda entropia cruzada binária Focal
+    \item Otimizador gradiente descendente estocástico
+    \item Otimizador adaptativo adam 
+    \item Otimizador adam com decaimento de pesos
+    \item Varredura de diferentes taxas de aprendizado
+    \item Agendamento da taxa de aprendizado
+    \item Transferência de aprendizado vs Fine Tune
+    \item Data augmentation aleatória
+    \item Amostrador aleatório com probabilidades 
+    \item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
+    \item  Replicar o experimento do~\ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
+    \item Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
+    \end{enumerate}
+
+

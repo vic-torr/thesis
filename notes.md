@@ -1,7 +1,90 @@
 # Planning
 
 ## Ideas
+Tranformers: Step by step overview
 
+(1) The input data first gets embedded into a vector. The embedding layer helps us grab a learned vector representation 
+for each word.
+
+(2) In the next stage a positional encoding is injected into the input embeddings. This is because a transformer has no 
+idea about the order of the sequence that is being passed as input - for example a sentence.
+
+(3) Now the multi-headed attention is where things get a little different.
+
+Multi-headed-attention architecture:
+(4) Multi-Headed Attention consists of three learnable vectors. Query, Key and Value vectors. The motivation of this 
+reportedly comes from information retrival where you search (query) and the search engine compares your query with a key 
+and responds with a value.
+
+(5) The Q and K representations undergo a dot product matrix multiplication to produce a score matrix which represents 
+how much a word has to attend to every other word. Higher score means more attention and vice-versa.
+
+(6) Then the Score matrix is scaled down according to the dimensions of the Q and K vectors. This is to ensure more 
+stable gradients as multiplication can have exploding effects.
+
+(We'll discuss the mask part when we reach the decoder section)
+
+(7) Next the Score matrix is softmaxed to turn attention scores into probabilities. Obviously higher scores are 
+heightened and lower scores are depressed. This ensures the model to be confident on which words to attend to.
+
+(8) Then the resultant matrix with probabilites is multiplied with the value vector. This will make the higher 
+probaility scores the model has learned to be more important. The low scoring words will effectively drown out to become 
+irrelevant.
+
+(9) Then, the concatenated output of QK and V vectors are fed into the Linear layer to process further.
+
+(10) Self-Attention is performed for each word in the sequence. Since one doesn't depend on the other a copy of the self 
+attention module can be used to process everything simultaneously making this multi-headed.
+
+(11) Then the output value vectors are concatenated and added to the residual connection coming from the input layer and 
+then the resultant respresentation is passed into a LayerNorm for normalization. (Residual connection help gradients 
+flow through the network and LayernNorm helps reduce the training time by a small fraction and stabilize the network)
+
+(12) Further, the output is passed into a point-wise feed forward network to obtain an even richer representation.
+
+(13) The outputs are again Layer-normed and residuals are added from the previous layer.
+
+Note: This wraps up the encoder section and trust me this is enough to fully understand Vision Transformer. I'll be 
+largely leaving it up to you to understand the decoder part as it is very similar to the encoding layer.
+
+(14) The output from the encoder along with the inputs (if any) from the previous time steps/words are fed into the 
+decoder where the outputs undergo masked-multi headed attention before being fed into the next attention layer along 
+with the output from encoder.
+
+(15) Masked multi headed attention is necessary because the network shouldn't have any visibility into the words that 
+are to come later in the sequence while decoding, to ensure there is no leak. This is done by masking the entries of 
+words that come later in the series in the Score matrix. Current and previous words in the sequence are added with 1 and 
+the future word scores are added with -inf. This ensures the future words in the series get drowned out into 0 when 
+performing softmax to obtain the probabilities, while the rest are retained.
+
+(16) There are residual connections here as well, to improve the flow of gradients. Finally the output is sent to a 
+Linear layer and softmaxed to obtain the outputs in probabilities.
+
+
+(1) They are only using the Encoder part of the transformer but the difference is in how they are feeding the images 
+into the network.
+
+(2) They are breaking down the image into fixed size patches. So one of these patches can be of dimension 16x16 or 32x32 
+as proposed in the paper. More patches means more simpler it is to train these networks as the patches themselves get 
+smaller. Hence we have that in the title - "An Image is worth 16x16 words".
+
+(3) The patches are then unrolled (flattened) and sent for further processing into the network.
+
+(4) Unlike NNs here the model has no idea whatsoever about the position of the samples in the sequence, here each sample 
+is a patch from the input image. So the image is fed along with a positional embedding vector and into the encoder. One 
+thing to note here is the positional embeddings are also learnable so you don't actually feed hard-coded vectors w.r.t 
+to their positions.
+
+(5) There is also a special token at the start just like BERT.
+
+(6) So each image patch is first unrolled (flattened) into a big vector and gets multiplied with an embedding matrix 
+which is also learnable, creating embedded patches. And these embedded patches are combined with the positional 
+embedding vector and that gets fed into the Tranformer.
+
+    Note: From here everything is just the same as a standard transformer
+
+(7) With the only difference being, instead of a decoder the output from the encoder is passed directly into a Feed 
+Forward Neural Network to obtain the classification output.
 
 ## Datasets:
 Understanding the Amazon from Space [20] — multilabel dataset to track the human footprint

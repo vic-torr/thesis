@@ -71,14 +71,20 @@ composta por camadas hierarquicas de encoders transformers  que funcionam como e
 \section{\textit{Ambiente e ferramentas}}\label{sec:Cap3_Ferramentas}
 
 
-O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais da plataforma em nuvem \textit{Google Collab}. Também será utilizado o \textit{framework PyTorch}, por razões de disponibilidade de métodos e conhecimentos do autor. 
+O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais da plataforma em nuvem \textit{Google Colab}. Também será utilizado o \textit{framework PyTorch}, por razões de disponibilidade de métodos e conhecimentos do autor. 
 
-Foram utilizados 100h de orçamento de recursos, em uma instância com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Se faz necessário o uso de aceleradores como a utilizada, pois possibilitam ganhos de tempo em até 40x em comparação com as em CPU.
+\subsection{\textit{Ambiente}}\label{sec:Cap2_Ambiente}
+
+Foram dispostos 100h de orçamento de recursos computacionais, em uma instância da plataforma com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Para o treinamento de redes neurais profundas, aceleradores como placas gráficas podem resultar em ganhos de tempo de até 40x em com paração com treinamentos em CPU, bem como o uso da ram para placa gráfica para realizar \textit{caching}\footnote[1]{Uma cache é um bloco de memória para o armazenamento temporário e ágil de dados que possuem uma grande probabilidade de serem utilizados novamente} obtendo melhores tempos de acesso durante carregamentos.
+
+
+\subsection{\textit{Bibliotecas}}\label{sec:Cap2_NumpyPandas}
+
+Para o experimento também contou-se com bibliotecas de calculo numérico e algébrico como o Numpy. Também Pandas para manipulação de dados tabulares. Já a ferramenta SciKitLearn contém diversos módulos para aprendizado estatístico, como funções de métricas, de perdas. Para visualização dos resultados utilizado serão MatplotLib, Plotly e Seaborn.
 
 \subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
-Pytorch é um \textit{framework}\footnote{Ferramental} código aberto de Python para aprendizado de máquinas. É implementado em linguagens C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
-Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidade de pesquisa e mercado de aprendizado de máquina. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido à intenção de ser um \textit{framework} de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
-
+Pytorch é um \textit{framework}\footnote{Ferramental} código aberto de de front-end em Python para aprendizado profundo. É implementado em linguagens C++ e CUDA para otimizações de computações numéricas e matriciais, que são extensivas para esta aplicação.
+O projeto é originalmente criado pelo \textit{Facebook Research} e é atualmente amplamente adotado pela academia e mercado em aplicações de aprendizado profundo. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido à intenção de ser um \textit{framework} de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
 
 % ----------------------------------------------------------
 
@@ -86,17 +92,21 @@ Foi desenvolvido pelo Facebook e é atualmente amplamente adotado pela comunidad
 % TODO: citar o paper de aplicação direta
 \section{\textit{Experimentos}}\label{sec:Cap3_Experimentos}
 
-Para a construção da nossa solução desejada, experimentaremos combinar um modelo pré-treinado com camadas internas e de saída treinadas para a região de interesse.
+Para a construção da solução desejada, experimentaremos combinar um modelo pré-treinado com camadas internas, correspondente ao extrator de características e de saída treinadas para a região de interesse.
 Consiste em fazer experimentos em uma complexidade crescente, e replicando resultados para garantir corretude. Será simplificado a reprodução para apenas um \textit{dataset}.
 
 
-Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte sequência de experimentos para construir o modelo final:
+Para obter o modelo proposto e de melhor desempenho, inicialmente define-se os seguintes passos de experimentos para construir o modelo final:
 
 \begin{enumerate}
-\item  Replicar experimentos dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados. 
-\item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
-\item  Replicar o experimento do~\ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
-\item Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
+\item   Análise exploratória dos dados, visando a melhor conhecer o problema e amostras. 
+\item   Replicar experimentos dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados, a fim de replicar a metodologia de fine-tune. 
+\item   Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
+\item   Criar um modelo baseline RESNET, fazendo ajuste de hiperparâmetros a fim de obter o melhor score no baseline
+\item   Realizar o mesmo para o modelo de transformers visuais
+\item   Fixar os hiperparâmetros e metodologia de treino para ambos modelos e treiná-los novamente
+\item   Realizar análise dos resultados de ambos e comparar performance em várias métricas
+\item   Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
 \end{enumerate}
 
 
@@ -107,28 +117,129 @@ Para obter o modelo proposto e de melhor desempenho, foi proposto a seguinte seq
 
 Os procedimentos do experimento principal consiste principalmente nas etapas de configuração do ambiente, pré-processamento do conjunto de dados, análise exploratória, definição do modelo e iterações de treino-validação. Explicadas adiante.
 
-\subsection{\textit{Configuração de Ambiente}}\label{sec:Cap3_PreProcess}
-O pré-processamento consistem em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução $256 \times 256$ px é aplicado um \textit{downsampling}\footnote{Subamostragem} para a resolução de entrada do modelo pré-treinado, de $224 \times 224$. 
+\subsection{\textit{Configuração de Ambiente}}\label{sec:Cap3_ConfigAmbiente}
+
+A plataforma GoogleColab consiste em uma instancia alocada temporariamente com custo por tempo de uso, porém com desconexão por tempo ocioso. Durante o treinamento a interface se torna ociosa e ocorrem desconexões. Para mitigar isto foram criadas funções de gerenciar contexto do experimento, para implementar o armazenamento e carregamento se estatisticas do treinamento a cada epoch.
+
+Os arquivos compactados de são obtido de hospedagem em nuvem e descompactado na instância, seja em disco ou em partição na memória ram. Esta segunda opção permitiu importantes melhorias de tempo de carregamento de batches. O arquivo contendo os pesos do modelo para criação do modelo são obtidos da mesma forma. Com cada instância é volátil, sendo possível armazenar conteúdos somente no serviço de hospedagem GoogleDrive, os resultados, pesos do modelo e contexto do experimento precisam ser salvos a cada execução, em caso de desconexão.
+
+
+O pré-processamento em cada amostra é feito em tempo de execução por instâncias de transformação composta de:
+\begin{enumerate}
+    \item   Carregamento de cada imagem dos canais RGB e discartando o infravermelho-próximo
+    \item   Redimensionamento usando interpolação linear de $256 \times 256px$ para $224 \times 224px$. Isto se deve ao fato dos modelos já terem sido pré-treinados e configurados para essa dimensão de entrada.
+    \item   Conversão da imagem para estrutura de dados numérica de Tensor
+    \item   Aplicar espelho vertical ou horizontal, cada um com probabilidade de 25%.
+    \item   Normalizar cada canal de cor RGB usando normalização Gaussiana com médias e desvio padrão do dataset ImageNet.
+\end{enumerate}
+
+
+
+\subsection{\textit{Análise de dados exploratória}}\label{sec:Cap3_AnaliseDeDadosExploratoria}
+Para melhor entendimento das características do conjunto de dados, se faz necessário uma exploração dos dados. Consiste em entender os diferentes tipos de amostras e rótulos, por meio de estatísticas de distribuição de classes e visualizações de agrupamento.
+
+
+
+Pela distribuição de classes em , podemos observar que se trata de um dataset com acentuado desbalanço. 
+
+\begin{table}[h!]
+    \caption{Delay Comparison of Proposed and Existing Method}
+    \centering
+\begin{tabular}{*{4}{c}}
+    \toprule
+    Classe                  &            Rótulo &  Cardinalidade &  Proporção (\%) \\
+    \midrule
+    Mina Convencional       & conventional mine &    100 &       0.247 \\
+    Roça de Ventos          &         blow down &    101 &       0.250 \\
+    Queimada                &        slash burn &    209 &       0.516 \\
+    Florescimento           &          blooming &    332 &       0.820 \\
+    Garimpo                 &    artisinal mine &    339 &       0.837 \\
+    Desmatamento Seletivo   & selective logging &    340 &       0.840 \\
+    Área Desmatada          &       bare ground &    862 &       2.129 \\
+    Nublado                 &            cloudy &   2089 &       5.161 \\
+    Névoa                   &              haze &   2697 &       6.663 \\
+    Habitação               &        habitation &   3660 &       9.042 \\
+    Cultivação              &       cultivation &   4547 &      11.233 \\
+    Parcialmente Nublado    &     partly cloudy &   7261 &      17.938 \\
+    Água                    &             water &   7411 &      18.308 \\
+    Estrada                 &              road &   8071 &      19.939 \\
+    Agricultura             &       agriculture &  12315 &      30.423 \\
+    Clima Limpo             &             clear &  28431 &      70.236 \\
+    Vegetação Primária      &           primary &  37513 &      92.673 \\
+    \bottomrule
+\end{tabular}
+\label{tab1}
+\end{table}
+
+Na figura \ref{fig:classes} a seguir podemos visualizar amostras de cada tipo de classe. Cada amostra pode pdertencer a mais de um tipo de classe.
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/EDA/Class Sampling.jpg}
+    \caption{Amostragem de cada classe de rótulo.
+    Fonte: Autor}
+   \label{fig:classes}
+\end{figure}
+
+%\begin{figure}[!ht]
+%    \centering
+%    \includegraphics[width=0.9\columnwidth]{Imagens/results/EDA/Class distribution.jpg}
+%    \caption{Distribuição da quantidade de amostras por classe.
+%    Fonte: Autor}
+%   \label{fig:classes_distribuicao}
+%\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{Imagens/results/EDA/Co-occurrence matrix.jpg}
+    \caption{Matriz de co-ocorrência.
+    Fonte: Autor}
+   \label{fig:coocorrencia}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Imagens/results/EDA/TSNE.png}
+    \caption{Agrupamento de amostras via técnica TSNE.
+    Fonte: Autor}
+   \label{fig:TSNE}
+\end{figure}
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
-O pré-processamento consistem em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras de treino e 4000 de teste. Cada recorte de resolução $256 \times 256$ px é aplicado um \textit{downsampling}\footnote{Subamostragem} para a resolução de entrada do modelo pré-treinado, de $224 \times 224$. 
+O pré-processamento consiste em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras. Foram separadas em uma divisão de treino-teste na proporção 80\%-20\%. Cada recorte de resolução $256 \times 256$ px.
 
-\subsection{\textit{Treino}}\label{sec:Cap3_Treino}
-Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste em um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de \textit{softmax}, como ilustra a imagem a seguir:
+
+\subsection{\textit{Definição do modelo}}\label{sec:Cap3_Def_modelo}
 
 
 % TODO Imagem da arquitetura proposta.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{Imagens/dois blocos swin sucessivos.png}
+    \caption{ Arquitetura de modelo proposta.
+    Fonte: Autor}
+   \label{fig:Swin-Rsp}
+\end{figure}
 
+% TODO Imagem da arquitetura proposta.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Imagens/arquitetura swin.png}
+    \caption{ Arquitetura de modelo base.
+    Fonte: Autor}
+   \label{fig:ResNet-Rsp}
+\end{figure}
+
+
+
+
+\subsection{\textit{Treino}}\label{sec:Cap3_Treino}
+
+Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste em um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de \textit{softmax}, como ilustra a imagem a seguir:
 
 
 \subsection{\textit{Validação}}\label{sec:Cap3_Validacao}
 
 A etapa de validação será realizada a medida do desempenho do modelo no conjunto de testes para classificação.
 
-
-
-% 5. Experiments
-%  - [ ] Steps
-%  - [ ] Resume
- % - [ ] Baseline
- % - [ ] Pipeline

@@ -98,7 +98,10 @@ Como métricas de perda para tarefas de classificação, podem ser utilizadas po
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
 
 O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. 
-Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Frequentemente citada como \textit{Backpropagation}} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}. Para classificações multi-classes, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
+Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Frequentemente citada como \textit{Backpropagation}} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}. 
+
+TODO: Trocar por sigmoid classificação para muitas classes
+Para classificações multi-classes, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
 Temos como exemplo a normalização \textit{softmax}: 
 \begin{equation}
 y_i=\frac{e^{z_i}} {\Sigma e^{z_k}}
@@ -309,28 +312,45 @@ O problema de classificação para detecção em sensoriamento remoto, utilizand
 Para a aplicação de sensoriamento remoto temos trabalhos~\cite{wang2022empirical} que demonstram a aplicação de transferência de aprendizado e redes pré-treinadas utilizando ViT estado-da-arte. Utilizou-se o \textit{dataset} MillionAID, que é o maior \textit{dataset} datado até agora para sensoriamento remoto. Contem mais de um milhão de imagens sem sobreposição, com múltiplas visões temporais para a mesma cena, de canais apenas RGB. Possui uma árvore de classificação com 51 folhas, de cenas de terras de: agricultura, comercial, industrial, serviço público, industrial, transporte, regiões com água e regiões inutilizadas. Cada Folha possui 2.000~45,000 imagens. Foram obtidas pelo \textit{software Google Earth}, que possui uma diversidade de sensores, resultando em diferente resoluções, desde 50cm à 150m. E tamanhos de imagem de 10k pixeis até 900 mega pixeis.
 O autor pode concluir que a transferência de aprendizado foi eficaz para posteriores finetune\footnote{Ajuste fino.}.
 
-\subsection{Transformer Swin}\label{sec:Cap2_ForestViT}
+\subsection{Transformer Swin}\label{sec:Cap2_Swin}
 
-Em~\cite{} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textia{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
+Em~\cite{} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textit{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
 
 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{
-        Imagens/ViTAEv2.png
-    }
-    \caption{
-SWIN Transformer ~\cite{}
-        }
+    \includegraphics[width=\columnwidth]{Imagens/mapas de caracteristicas hierarquico swin vs vit.png}
+    \caption{Mapa de características hierarquico transformer swin ~\cite{liu2022swin}}
     \label{fig:SWIN}
 \end{figure}
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/janela deslocada swin.png}
+    \caption{Mapa de características hierarquico transformer swin ~\cite{liu2022swin}}
+    \label{fig:SWIN-mapa-hierarquico}
+\end{figure}
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/arquitetura swin.png}
+    \caption{Arquitetura swin ~\cite{liu2022swin}}
+    \label{fig:SWIN-arquitetura}
+\end{figure}
 
-%\subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/dois blocos swin sucessivos.png}
+    \caption{Arquitetura swin ~\cite{liu2022swin}}
+    \label{fig:SWIN-blocos-sucessivos}
+\end{figure}
 
-%Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de \textit{transformers} visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
+dois blocos swin sucessivos.png
+
+\subsection{ForestViT Modelo de classificação de desmatamento}\label{sec:Cap2_ForestViT}
+
+Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitetura de \textit{transformers} visual. Os resultados também foram comparados com modelos baseados em CNN estabelecidos, como Resnet e VGG. 
 
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
