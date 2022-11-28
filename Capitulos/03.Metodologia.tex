@@ -235,21 +235,20 @@ MODEL:
 \fi 
 
 
-O modelo Swin proposto corresponde a figura \ref{fig:Swin-T-Rsp}. Foi elaborado a partir de uma instanciação de um classificador de mesmo \textit{backbone} da biblioteca de modelos timm. Em seguida foram removidos open terminal
+O modelo Swin proposto corresponde a figura \ref{fig:Swin-T-Rsp}. Foi elaborado a partir de uma instanciação de um classificador de mesmo \textit{backbone} da biblioteca de modelos timm. Em seguida foram a camada de saida, chamada de cabaça do transformer, por uma camada completamente conectada, de tamanho de entrada o número de dimensões do espaço de estados e a dimensão de saída o número de atributos/classes.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{Imagens/swin proposto.png}
-    \caption{ Arquitetura de modelo base.
-    Fonte: Autor}
+    \caption{ Arquitetura de modelo proposto.
+    Fonte: \cite{liu2022swin}}
    \label{fig:Swin-T-Rsp}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\columnwidth]{Imagens/swin proposto.png}
-    \caption{ Arquitetura de modelo base.
-    Fonte: Autor}
+    \includegraphics[width=0.9\columnwidth]{Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg}
+    \caption{ Arquitetura de modelo base. Fonte:WikiCommons}
    \label{fig:ResNet-Rsp}
 \end{figure}
 
@@ -268,41 +267,77 @@ A etapa de validação será realizada a medida do desempenho do modelo no conju
 Esta estapa concerne em gerar vários diferentes modelos e selecionar de acordo com a performance. É um processo experimental e de vasculhar diferentes hiperparâmetros e componentes do treino.
 
 
-\begin{enumerate}
-    \item  Ajuste fino de um modelo ResNet18 com pesos de um modelo pré treinado  em um modelo utilizando pesos do dataset ImageNet1k.
-    \item Avaliar transferência de aprendizado vs ajuste fino
-    \item  Ajuste de hiper-parâmetros, funções de perda, e tamanho de modelo até obter um modelo com métrica f2 > 0,9, proximo dos experimentos de \ref{sec:Cap2_ForestViT}.
-    \item Avaliar a performance utilizando um 
-    \item  Replicar experimentos dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados. 
-    \item  Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
-    \item  Replicar o experimento do~\ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
-    \item Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
-    \end{enumerate}
 
 Critérios de seleção de modelo:
-Melhor métrica f2 entre diferentes modelos. Com parada antecipada no menor valor de perda de validação em um treinamento.
+Melhor métrica f2 entre diferentes modelos. Com parada antecipada no menor valor de perda de validação em um treinamento, até no máximo à quinta época, devido a limitações de tempo e orçamento de horas de instâncias de GPU.
 O segundo item foi possível de ser realizado. Realizando \textit{fine-tune} do modelo o modelo Resnet-16 inicialmente. Foram utilizados os pesos dessa mesma rede treinada para o dataset IMAGENET-1k, realizando a troca das camadas de saída, originalmente para 1000 classes. Foram Removidas e adicionados uma camada completamente conectada de entrada igual ao numero de neurônios da penultima camada. Após a ultima camada foi adicionado uma camada de sigmoid, que realizará a conversão de valores lineares para probabilidade de cada classe.
 
 O modelo obteve um desempenho inicialmente satisfatório de métrica f2 de 0,88.
 
-A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros e de componentes a fim de aperfeiçoar o desempenho da rede. Dentre as melhorias, constam:
+A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros e de componentes a fim de aperfeiçoar o desempenho da rede. Dentre as os ajustes para seleção de modelo, constam:
+
 
 \begin{enumerate}
-    \item Aumentar capacidade da rede, Adicionando mais camadas de saída
-    \item Aumentar capacidade da rede, utilizando um modelo de mais camadas: Resnet-50
-    \item Adicionar regularização de decaimento de pesos
-    \item Função de perda entropia cruzada binária
-    \item Função de perda entropia cruzada binária com pesos 
-    \item Função de perda entropia cruzada binária Focal
-    \item Otimizador gradiente descendente estocástico
-    \item Otimizador adaptativo adam 
-    \item Otimizador adam com decaimento de pesos
-    \item Varredura de diferentes taxas de aprendizado
-    \item Agendamento da taxa de aprendizado
+    \item Pesos pré-treinados
+    \item Aumentar capacidade da rede
+    \item Adicionar regularização 
+    \item Amostrador
+    \item Aumento de dados aleatória
+    \item Função de perda
+    \item Otimizador
+    \item Taxas de aprendizado
     \item Transferência de aprendizado vs Fine Tune
-    \item Data augmentation aleatória
-    \item Amostrador aleatório com probabilidades 
-    \item Replicar experimentos de \ref{sec:Cap2_ForestViT} em um modelo base de comparação baseado em em uma CNN ResNet-50
-    \item Replicar o experimento do~\ref{sec:Cap2_ForestViT} utilizando um modelo ViT pré treinado para sensoriamento remoto
-    \item Avaliar desempenho, comparar com os experimentos e trabalhos bases \ref{sec:Cap2_revisao_literatura}
-    \end{enumerate}
+    \item Experimentar os mesmos passos para o modelo Swin-T
+\end{enumerate}
+
+Tendo inicialmente o modelo ResNet-18, os ajustes de capacidade de rede foram inicialmente se aumentar o número de camadas completamente conectadas, Contudo aumentar o número de camadas de blocos básicos resnet, utilizando o modelo ResNet50 demonstrou melhor métrica F2 e perda BCE. O mesmo foi testado utilizando com pesos do conjunto de dados ImageNet1k, igualmente com melhor resultados. Com pesos do trabalho~\ref{sec:Cap2_million} também de sensoriamento remoto, também ouve aumento expressivo de métrica F-2 em comparação com o modelo pre-treinado no conjunto de dados ImageNet-1k
+
+Os modelos pré-treinados aparentavam convergir próximos da primeira época, o que sugere um rápido sobre-ajuste, para isto, testou-se utilizar um otimizador com decaimento de pesos o AdamW, porém leva a perda de performance, supostamente por afetar os pesos já treinados. O uso de regularização se limitou ao drop-out presente nos modelos e camadas de normalização de lote e camada.
+
+Para mitigar o desbalanço de quantidade de amostras nas classes, investigou-se a utilização de outros amostradores, que escolhem amostras baseados em probabilidades especificadas pelo inverso da frequência de cada classe. Contudo não foi possível de ser realizado. O aumento de dados realizado foi aplicar espelho horizontal ou vertical com probabilidade de 25\%, dessa forma, o número de amostras é virtualmente aumentado para 4x o tamanho original.
+
+Outra alternativa a mitigar o desbalanço foi alterar o valor da função de perda por classe, especificando que as classes mais raras realizariam um maior peso na função de perda. Esta alternativa gerou um aumento de performance, porém com rápido sobre-ajuste. Uma terceira alternativa foi a função de perda focal, que foi capaz de melhorar a métrica F2 substanciamente e mitigar sobreajuste da classe dominante.
+
+Para o otimizador, há trabalhos como em\cite{https://doi.org/10.48550/arxiv.2106.10270}, que recomendam o uso de SGD para o ajuste-fino do modelo. Contudo apresentou convergência muito lenta, incompatível com o orçamento de horas de GPUs. O otimizador escolhido foi o Adam sem decaimento de peso. A convergência do modelo demonstrou-se sensível a taxa de aprendizado. Por isso, recorreu-se ao uso de taxas de aprendizado variáveis, utilizando um agendador de taxa de aprendizado, que reajusta para um décimo da anterior cada vez que a função de perda ou de métrica de validação atinge um platô.
+
+Ainda na seleção de modelos, experimentou-se utilizar transferência de aprendizado, definida por congelar os pesos das camadas extratoras de características e treinar apenas ultimas camadas. Foi experimentado o ajuste fino, definido por retreinar o modelo inteiro, com as ultimas camadas inicializadas com pesos 0 ou aleatórios. A segunda opção demonstrou a melhor performance.
+
+
+Os mesmos passsos foram realizados para o modelo Swin-T, chegando em uma iteração final de ambos modelos base e proposto.
+
+\subsection{\textit{Treinamento Swin-T}}\label{sec:Cap3_TrainResnet}
+Após a iteração final, foi registrado as métricas durante o treino no modelo restnet. Pelos gráficos 
+
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/pontuação em treino e validação por época.jpg}
+    \caption{ Arquitetura de modelo base.Fonte: Autor}
+    \label{fig:TreinoResnetScore}
+\end{figure}  
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.jpg}
+    \caption{ Arquitetura de modelo base. Fonte: Autor}
+    \label{fig:TreinoResnetPerda}
+\end{figure}
+
+
+\subsection{\textit{Treinamento Swin-T}}\label{sec:Cap3_TrainSwinT}
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/pontuação em treino e validação por época.jpg}
+    \caption{ Arquitetura de modelo base.Fonte: Autor}
+    \label{fig:PontuacaoTrainSwin}
+\end{figure}  
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Training Loss Per Minibatch.jpg}
+    \caption{ Arquitetura de modelo base. Fonte: Autor}
+    \label{fig:LossTrainSwin}
+\end{figure}

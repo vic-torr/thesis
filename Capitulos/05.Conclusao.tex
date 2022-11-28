@@ -1,6 +1,12 @@
-conclusao 
-
-asdf
+Neste trabalho foi possível aplicar métodos modernos de visão computacional e aprendizado profundo em uma prova de conceito de uma aplicação atual de sensoriamento remoto e de defesa do meio ambiente.  Teve como ponto de partida um dataset já estudado e uma busca de metodologia para problemas análogos. Obteve-se um modelo baseado em transformers visuais superior aos já estabelecidos redes convolucionais resuduais.
 
 \section{Trabalhos futuros}
-asdf
+
+Para trabalhos futuros, é possível aplicar a mesma metodologia para avaliar a comparação em conjunto de dados diferentes. Algumas opções de experimentos não foram exploradas, como:
+\begin{itemize}
+    \item Embutir esta prova de conceito em uma aplicação real para monitoramento remoto.
+    \item Utilizar função de perda Hamming, adequada para classificações multi-rótulos.
+    \item Utilizar Aumento de dado, por meio de geração de dados sintéticos para classes raras utilizando ruido gaussiano.
+    \item Utilizar o canal de infravermelho próximo, já que vários satélites provém esse espectro, e várias técnicas de sensoriamento remoto utilizam desse espectro e de ondas mais longas.
+    \item Normalizar cadas amostra com a média e desvio do próprio dataset, em vez de utilizar os do conjunto de dados ImageNet1k.
+\end{itemize}

@@ -1,12 +1,11 @@
 # TODO
 
 
-preciso ir relatando td que fiz? posso pular pra metodologia final que deu certo e cortar o que nao deu certo
-
 # introducao
 - o trabalho tem como objetivo  tbm demonstrar metodologias de pesquisa utilizadas atualmetne baseadas em recentes publicações util para futuros trabalhos e para aprendizado do autor
 
 # rev bib
+definir ajuste fino, lote, epoca, adam, transferência de aprendizado
 classificador bom curva PR
 Imagem precisao revocacao fonte
 Focal loss
@@ -19,18 +18,7 @@ revisão definir extrator de caracteristicas, transferencia de aprendizado finet
 definir early stopping
 definir fine tuning
 curva cor
+
 # Metodologia
 citar how to train your transformer para metodologia
 
-
-# possiveis experimentos futuros
-usar hamming loss
-usar dado sintético com ruido gaussiano
-usar infravermelho próximo
-benchmark em outros datasets
-Normalizar os canais para mean-std do database
-
-/\b[A-Z][a-z]*\b/g
-/\b[A-Z]*\b/g
-
-benchmark prova de referencia

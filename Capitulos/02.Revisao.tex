@@ -314,7 +314,7 @@ O autor pode concluir que a transferência de aprendizado foi eficaz para poster
 
 \subsection{Transformer Swin}\label{sec:Cap2_Swin}
 
-Em~\cite{} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textit{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
+Em~\cite{liu2022swin} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textit{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
 
 
 \begin{figure}[!ht]
