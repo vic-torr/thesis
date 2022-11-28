@@ -7,6 +7,7 @@ preciso ir relatando td que fiz? posso pular pra metodologia final que deu certo
 - o trabalho tem como objetivo  tbm demonstrar metodologias de pesquisa utilizadas atualmetne baseadas em recentes publicações util para futuros trabalhos e para aprendizado do autor
 
 # rev bib
+classificador bom curva PR
 Imagem precisao revocacao fonte
 Focal loss
 efeito normalização amostras
@@ -15,7 +16,9 @@ arquitetura resnet
 https://paperswithcode.com/method/resnet
 citar tsne reducao de dimensionalidade agrupamento
 revisão definir extrator de caracteristicas, transferencia de aprendizado finetune vs knowledge transfer
-
+definir early stopping
+definir fine tuning
+curva cor
 # Metodologia
 citar how to train your transformer para metodologia
 

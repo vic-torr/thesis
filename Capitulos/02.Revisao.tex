@@ -52,102 +52,102 @@ Para tarefas de classificação, é comumente utilizada a métrica de acurácia 
     \item Verdadeiros Negativos: classificação correta da classe Negativo
 \end{itemize}
 
+Cada uma dessas métricas são representadas na chamada matriz confusão, como ilustra a figura \ref{fig:metricas}.
 
+Para problemas de multiclasses e multirótulos, ainda temos a métrica acurácia até o n-ésimo candidato, denotado por AC@n. Por exemplo: AC@5 é acurácia do verdadeiro positivo estar dentre os primeiros 5 candidatos sugeridos.
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.47\columnwidth]{
-        Imagens/matrix_confusão.png
-    }
-    \caption{Matriz confusão
-}
-    \label{fig:matriz_confusão}
-\end{figure}
-
-Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, como escore $F_1$ e curva precisão-revocação. Sejam Precisão $P$ e revocação $R$, temos que:
+Outras métricas também podem ser interessantes em casos onde amostras das classes são muito desbalanceadas, métricas $F_\beta$ e curva precisão-revocação. Sejam Precisão $P$ e revocação $R$, temos que:
 
 
 
 \begin{figure}[!ht]
     \centering
     \begin{minipage}[c]{0.4\textwidth}
-        \includegraphics[width=\columnwidth]{
-            Imagens/Precisão_e_revocação.png
-        }
+        \includegraphics[width=\columnwidth]{Imagens/Precisão_e_revocação.png}
+        \caption{Ilustração das métricas de precisão e revocação.}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=\columnwidth]{Imagens/matrix_confusão.png}
         \begin{equation} P = \frac{vp}{vp + vp} \end{equation}
         \begin{equation}R = \frac{vp}{vp + fp}\end{equation}
-        \begin{equation}F_1 = 2 \times \frac {P \times R}{P + R}\end{equation}
-                
+        \begin{equation}F_\beta = (1+\beta^2) \times \frac {P \times R}{\beta^2 P + R}\end{equation}
+        \begin{equation}F_2 = 5 \times \frac {P \times R}{5 P + R}\end{equation}
+        \caption{Matriz Confusão, Equações de Precisão, revocação, $F_\beta$ e $F_2$}        
     \end{minipage}       
-    \caption{Ilustração das métricas de precisão e revocação.}
-    \label{fig:precisão_revocação}
+    \label{fig:metricas}
 \end{figure}
 
+Altas taxas de precisão e revocação mostram que o classificafor está retornando resultados relevantes, com poucos falsos positivos (Precisão) e também retornando a maioria de todos resultados positivos (Revocação) \cite{hastie01statisticallearning}. Um sistema com alta revocação e baixa precisão retorna muitos resultados, mas muitos incorretos, enquanto que um com alta precisão e baixa recisão retorna na maioria corretos, mas poucos resultados.
 
+A métrica $F_\beta$ é uma média harmônica entre precisão e revocação, portanto sumariza o compromisso entre esses dois indices  e pesa a importância de cada um a partir de $\beta$.
 
+Podemos comparar métricas e módelos a partir do chamado classificador ingênuo, que atribui a probabilidade de uma classe ser positiva apenas pela frequência de positivos de tal classe no conjunto de dados:
 
-\subsection{Métricas de perda}\label{sec:cap2_metricas_desempenho}
+\begin{equation}
+    ProbClassIng(X|y=1) = \frac{P}{P + N}
+\end{equation}
+
+Em um conjunto de dados muito desbalanceado, métrica de acurácia é pouco capaz de refletir o quão a performance de um modelo é superior ao classificador ingênuo, pois possuem acurácias próximas. Enquanto Precisão-Revocação e métrica $F_2$ é capaz de melhor diferenciar do classificador ingênuo e é capaz de avaliar o o índice de revocação.
+
+Um classificador que retorna a probabilidade de pertencimento de cada classe pode classificar tal classe como positiva ou não ao se comparar com determinado limiar.
+
+A curva precisão-revocação ilustra a relação de compromisso entre os dois indices para diferentes limiares. Uma área grande abaixo da curva representa ambos alta precisão e revocação para muitos limiares diferentes. Do contrário, uma área abaixo da curva \footnote[1]{Area under the curve - AUC} representa que independente do limiar escolhido para o classificador, apresentará baixa precisão e revocação.
+
+Outra métrica para avaliação de classificadores é a curva COR \footnote[2]{Comumente chamada de ROC - Receive Operator Characteristic}, contudo apresenta resultados otimistas para conjuntos de dados balanceados, assim como a acurácia.
+
+Para ambas curvas PR e ROC, um modelo é qualitativamente bom quanto mais performatico for em comparação com o classificador ingênuo, que escolhe classifica com a probabilidade da frequência daquela classe.
+
+\subsection{Função de perda}\label{sec:cap2_fucao_de_perda}
 
 Como métricas de perda para tarefas de classificação, podem ser utilizadas por exemplo, a entropia cruzada, dada por:
 
+Otimizadores possuem como objetivo ajustar pesos de uma função de custo de forma a minimizar ou maximizar tal custo. Para quantificar o custo são utilizadas métricas de perda. Dentre elas, as funções de custos ideais para classificação binária multiclasses e multirótulos temos a entropia binária cruzada, definida por 
+$$ECB(y_c) = -\sum_{c=0}^{M} y_c \times log(\hat{y_c})$$
+sendo $p(\hat{y_c})$ a probabilidade 
+
+Para conjuntos de dados muito desbalanceados, pode-se mitigar o sobre-ajuste da classe dominante utilizando BCE com pesos do inverso da frequência das classes:
+$$ C_i = \frac{FN}{VP_i} $$
+$$ECB(y_c) = -\sum_{c=0}^{M} C_i \times y_c \times log(\hat{y_c})$$
 
 
+Outra solução para mitigar o mesmo problema é a função de perda focal. Consiste de uma ECB penalizando exponencialmente por um peso gama as classificações com probabilidades altas.
+
+$$Focal(y_c) = -\sum_{c=0}^{M} (1-C_i \times y_c \times log(\hat{y_c})$$
 
 \subsection{Redes Neurais Artificiais}\label{sec:Cap2_redes_neurais}
 
 O termo redes neurais embarca uma grande classe de modelos e métodos de aprendizados. O modelo mais simples, também podendo ser chamado rede de camada oculta única de perceptrons. Já o  perceptron é a célula de uma rede neural. Se trata de um modelo matemático análogo a um neurônio. Possui um vetor de entradas e sobre essas entradas é aplicada uma combinação linear utilizando os pesos sobre cada entrada. O resultado de tal operação por sua vez passa por uma função de ativação que resulta numa saída binária de classificação do perceptron. Dessa forma, ao se otimizar os pesos e função de ativação a determinadas amostras de treino e suas respectivas saídas rotuladas, podemos criar um classificador linear simples, caso seja um problema linearmente separável. Portanto o processo de treinamento de uma rede neural se trata de otimizar os pesos dos neurônios. 
 Uma etapa importante dos ajustes dos pesos é a retro-propagação de erro\footnote{Frequentemente citada como \textit{Backpropagation}} que é um algoritmo que otimiza os pesos da camada oculta~\cite{hastie01statisticallearning}. 
 
-TODO: Trocar por sigmoid classificação para muitas classes
-Para classificações multi-classes, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
-Temos como exemplo a normalização \textit{softmax}: 
-\begin{equation}
-y_i=\frac{e^{z_i}} {\Sigma e^{z_k}}
-\end{equation}
+% TODO: Trocar por sigmoid classificação para muitas classes
+Para classificações multi-classes e multi-rótulos, isto é, uma amostra pode pertencer a mais de uma classe simultaneamente, são utilizadas camadas de saída que implementam normalização para selecionar a probabilidade de cada classe.
+
+Temos como exemplo a camada de ativação \textit{Sigmoid}: 
 
 
 \begin{figure}[!ht]
     \centering
-    \begin{minipage}[c]{\textwidth}
-        \includegraphics[width=0.47\columnwidth]{
-            Imagens/stochastic_gradient_descent.PNG
-        }
+    \begin{minipage}[c]{0.4\textwidth}
+        \includegraphics[width=\columnwidth]{Imagens/sigmoid-activation-function.jpg}
+        \caption{Ilustração das métricas de precisão e revocação.}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
+        \begin{equation} Sigmoid(x) = \sigma(x) = \frac{1} {1+ exp(-x)}\end{equation}
+        \caption{Exemplo de função de ativação: sigmoid}     
+    \end{minipage}       
+    \label{fig:sigmoid}
+\end{figure}
 
-                
-    \end{minipage} 
 
-    \caption{Exemplo de algorítimo de otimização à esquerda: gradiente descendente estocástico. Exemplo de função de ativação à direita: GELU, unidade de erro gaussiano linear.}
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.47\columnwidth]{Imagens/stochastic_gradient_descent.PNG}
+    \caption{Exemplo de algorítimo de otimização: gradiente descendente estocástico. }
     \label{fig:SGD}
 \end{figure}
 
-\begin{figure}[!ht]
-    \centering
-    \begin{minipage}[c]{0.5\textwidth}
-        \includegraphics[width=\columnwidth]{
-            Imagens/GELU.PNG
-        }
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
-        \begin{equation}
-            \text{GELU}\left(x\right) = x{P}\left(X\leq{x}\right) = 
-            x\Phi\left(x\right)
-        \end{equation}
-        \begin{equation}
-            \text{GELU}\left(x\right) = x \cdot \frac{1}{2}\left[1 + \text{erf}(x/\sqrt{2})\right]
-        \end{equation}
-        \begin{equation}
-            0.5x\left(1+\tanh\left[\sqrt{2/\pi}\left(x + 0.044715x^{3}\right)\right]\right)
-        \end{equation}
-                
-    \end{minipage} 
 
-    \caption{Exemplo de função de ativação: GELU, unidade de erro gaussiano linear.}
-    \label{fig:SGD_GELU}
-\end{figure}
+
 
 
 
@@ -317,33 +317,11 @@ O autor pode concluir que a transferência de aprendizado foi eficaz para poster
 Em~\cite{} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do calculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é O(n²), sendo n o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura SWIN, ou \textit{Shifted Window} se baseia em uma disposição hierárquica de transformers, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
 
 
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\columnwidth]{Imagens/mapas de caracteristicas hierarquico swin vs vit.png}
-    \caption{Mapa de características hierarquico transformer swin ~\cite{liu2022swin}}
-    \label{fig:SWIN}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\columnwidth]{Imagens/janela deslocada swin.png}
-    \caption{Mapa de características hierarquico transformer swin ~\cite{liu2022swin}}
-    \label{fig:SWIN-mapa-hierarquico}
-\end{figure}
-
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/arquitetura swin.png}
     \caption{Arquitetura swin ~\cite{liu2022swin}}
     \label{fig:SWIN-arquitetura}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\columnwidth]{Imagens/dois blocos swin sucessivos.png}
-    \caption{Arquitetura swin ~\cite{liu2022swin}}
-    \label{fig:SWIN-blocos-sucessivos}
 \end{figure}
 
 dois blocos swin sucessivos.png
@@ -356,7 +334,7 @@ Em~\cite{9701667} foi proposto um classificador multiclasses baseado na arquitet
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified pixel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
 
 
-% Abstract: Monitoring changes within the land surface and open water bodies is critical for natural resource management, conservation, and environmental policy. While the use of satellite imagery for these purposes is common, fine-scale change detection can be a technical challenge. Difficulties arise from variable atmospheric conditions and the problem of assigning pixels to individual objects. We examined the degree to which two machine learning approaches can better characterize change detection in the context of a current conservation challenge, artisanal small-scale gold mining (ASGM). We obtained Sentinel-2 imagery and consulted with domain experts to construct an open-source labeled land-cover change dataset. The focus of this dataset is the Madre de Dios (MDD) region in Peru, a hotspot of ASGM activity. We also generated datasets of active ASGM areas in other countries (Venezuela, Indonesia, and Myanmar) for out-of-sample testing. With these labeled data, we utilized a supervised (E-ReCNN) and semi-supervised (SVM-STV) approach to study binary and multi-class change within mining ponds in the MDD region. Additionally, we tested how the inclusion of multiple channels, histogram matching, and La*b* color metrics improved performance of the models and reduced the influence of atmospheric effects. Empirical results show that the supervised E-ReCNN method on 6-Channel histogram-matched images generated the most accurate detection of change not only in the focal region (Kappa: 0.92(±0.04), Jaccard: 0.88(±0.07), F1:0.88(±0.05)) but also in the out-of-sample prediction regions (Kappa: 0.90(±0.03), Jaccard: 0.84(±0.04), and F1: 0.77(±0.04)). While semi-supervised methods did not perform as accurately on 6- or 10-channel imagery, histogram matching and the inclusion of La*b* metrics generated accurate results with low memory and resource costs. These results show that E-ReCNN is capable of accurately detecting specific and object-oriented environmental changes related to ASGM. E-ReCNN is scalable to areas outside the focal area and is a method of change detection that can be extended to other forms of land-use modification.
+% Abstract: Monitoring changes within the land surface and open water bodies is critical for natural resource management, conservation, and environmental policy. While the use of satellite imagery for these purposes is common, fine-scale change detection can be a technical challenge. Difficulties arise from variable atmospheric conditions and the problem of assigning pixels to individual objects. We examined the degree to which two machine learning approaches can better characterize change detection in the context of a current conservation challenge, artisanal small-scale gold mining (ASGM). We obtained Sentinel-2 imagery and consulted with domain experts to construct an open-source labeled land-cover change dataset. The focus of this dataset is the Madre de Dios (MDD) region in Peru, a hotspot of ASGM activity. We also generated datasets of active ASGM areas in other countries (Venezuela, Indonesia, and Myanmar) for out-of-sample testing. With these labeled data, we utilized a supervised (E-ReCNN) and semi-supervised (SVM-STV) approach to study binary and multi-class change within mining ponds in the MDD region. Additionally, we tested how the inclusion of multiple channels, histogram matching, and La*b* color metrics improved performance of the models and reduced the influence of atmospheric effects. Empirical results show that the supervised E-ReCNN method on 6-Channel histogram-matched images generated the most accurate detection of change not only in the focal region (Kappa: 0,92(±0.04), Jaccard: 0,88(±0.07), F1:0.88(±0.05)) but also in the out-of-sample prediction regions (Kappa: 0,90(±0.03), Jaccard: 0,84(±0.04), and F1: 0,77(±0.04)). While semi-supervised methods did not perform as accurately on 6- or 10-channel imagery, histogram matching and the inclusion of La*b* metrics generated accurate results with low memory and resource costs. These results show that E-ReCNN is capable of accurately detecting specific and object-oriented environmental changes related to ASGM. E-ReCNN is scalable to areas outside the focal area and is a method of change detection that can be extended to other forms of land-use modification.
 
 
 
