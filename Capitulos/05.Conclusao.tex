@@ -1,12 +1,19 @@
-Neste trabalho foi possível aplicar métodos modernos de visão computacional e aprendizado profundo em uma prova de conceito de uma aplicação atual de sensoriamento remoto e de defesa do meio ambiente.  Teve como ponto de partida um dataset já estudado e uma busca de metodologia para problemas análogos. Obteve-se um modelo baseado em transformers visuais superior aos já estabelecidos redes convolucionais resuduais.
+
+Este trabalho primeiro realizou um teórico sobre o sensoriamento remoto e aprendizado de máquina profundo, citando tanto conceitos fundamentais, como pontos onde as redes CNNs não apresentam bom desempenho, visando a criar um modelo aplicável á detecção de áreas irregulares como de garimpo e queimadas. Apresentou novas arquiteturas de outro paradigma de redes neurais. Contribuiu fornecendo a metodologia e aspectos necessários para realizar experimentos análogos.
+
+Também Foi possível realizar uma prova de conceito onde a arquitetura Swin é aplicável para o contexto de sensoreamento remoto para detecção de cenas.  Teve como ponto de partida um dataset da bacia da floresta amazônica com cenas de eventos comuns e raros e uma busca de metodologia para problemas análogos. Obteve-se um modelo baseado na arquitetura SWIN de melhor pontuação global e de principalmente nas classes raras, que indicou melhor capacidade de generalização sobre classes com poucas amostras aos já estabelecidos redes convolucionais residuais.
+Embora não tenha sido possível realizar a mesma comparação com outros conjuntos de dados, como o já mencionado Amazon Ponds, pode-se demonstrar que o modelo obtido além de compatível para esse problema, consegue superar em métricas significativas arquiteturas já estabelecidas, sendo um forte arquitetura candidata para futuros sistemas de sensoriamento remoto.
 
 \section{Trabalhos futuros}
 
-Para trabalhos futuros, é possível aplicar a mesma metodologia para avaliar a comparação em conjunto de dados diferentes. Algumas opções de experimentos não foram exploradas, como:
+Para trabalhos futuros, é possível aplicar a mesma metodologia para avaliar a comparação em conjunto de dados diferentes. Algumas opções interessantes de experimentos que não foram exploradas, podem ser citadas:
 \begin{itemize}
+    \item Utilizar o extrator de características para obter o mapa de atenção e ter explicabilidade do modelo
+    \item Realizar o experimento em outros datasets para validação das conclusões
     \item Embutir esta prova de conceito em uma aplicação real para monitoramento remoto.
     \item Utilizar função de perda Hamming, adequada para classificações multi-rótulos.
     \item Utilizar Aumento de dado, por meio de geração de dados sintéticos para classes raras utilizando ruido gaussiano.
-    \item Utilizar o canal de infravermelho próximo, já que vários satélites provém esse espectro, e várias técnicas de sensoriamento remoto utilizam desse espectro e de ondas mais longas.
+    \item Utilizar o canal de infravermelho próximo, já que vários satélites provêm esse espectro, e várias técnicas de sensoriamento remoto utilizam desse espectro e de ondas mais longas.
     \item Normalizar cadas amostra com a média e desvio do próprio dataset, em vez de utilizar os do conjunto de dados ImageNet1k.
 \end{itemize}
+

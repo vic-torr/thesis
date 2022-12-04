@@ -3,11 +3,17 @@
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
 
-% The advent of technology offers many possibilities in different areas. The greatest benefit that was in automating tasks and improving activities that were previously done manually. In this sense, there has been a great increase in the use of robots to perform tasks in industrial, commercial and residential environments, due to lower costs compared to the last decades and the development of new technologies. Among these technologies, many seek to develop fields of Computer Vision, such as Object Detection. This work explores the implementation of Pattern Recognition combined with the control of Robotic Manipulators in order to always enable the best framing of a camera coupled to the end-effector. For this purpose, OpenCV and TensorFlow libraries are used to assist in capturing and identifying people in the image, in addition to the COCO-SSD pre-trained model that has a wide variety of classification of objects and a database updated from time to time. Furthermore, concepts of direct and differential kinematics are used in order to carry out the kinematic control of the manipulator. Validation comes through the simulation in CoppeliaSim platform, using programs such as Visual Studio Code and MATLAB to intermediate all data processing and manipulator control. The combination of these technologies expands the possibilities in industrial environments, in the use of security cameras and even in the entertainment industry, since it can guarantee a stabilization and tracking of pre-defined objects.
+The Amazon Forest has suffered a worrying increase in the number of new cases of deforestation and artisanal mining on protected lands in the previous decade, in addition to fluvials on the Madeira River in 2022. As a result, monitoring agencies require modern techniques to identify irregularities capable of helping in the detection of small regions in the vast territory of the Amazon basin, for the maintenance of environmental preservation policies. New techniques of computer vision, pattern recognition and deep learning allow solutions of tasks at better levels of resolution and performance in the context of remote sensing.
+  
+Based on this field, this work studies the limitations of the already established techniques of convolutional networks and seeks to carry out a proof of concept of a computer vision technique of Swin architecture for classifying images of irregular areas of the Amazon, based on visual transformers. As well as the performance comparison between the two techniques. In addition to providing a methodology and reproducible experiments for using the Swin architecture for similar problems, from different sets of remote sensing data.
 
-   \vspace{\onelineskip}
- 
+This work documented the experiment carried out with steps such as: aspects of creating the cloud environment using the GoogleColab platform in order to better exploit its computational resources; exploratory data analysis; build a base model by searching through different configurations, components and training features, using libraries such as Pytorch and SciKitLearn.
+
+In this way, a base model of a ResNet50 convolutional neural network architecture with good performance was developed using classification metrics such as $F_2$, and PR curve, with the exception of the rare classes of the dataset, which had a poor performance. Following the same training settings, the second Swin architecture model was fitted and compared with the one based on ResNet50. It presented relevant performance improvements and better generalization with few samples under varied climate conditions in the classification of rare classes. Thus demonstrating the capability and compatibility of this architecture for the application.
+  
+\vspace{\onelineskip}
+
    \noindent 
-   \textbf{Keywords}: Localization; Machine Learning; Pattern Recognition; PyTorch; DeepLearning.
+   \textbf{Keywords}: Remote sensing; Visual Transformers; Transformer Swin; Deep learning; Convolutional Neural Networks; Machine Learning; Pattern Recognition; PyTorch; Computer vision.
  \end{otherlanguage*}
 \end{resumo}

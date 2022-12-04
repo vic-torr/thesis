@@ -6,11 +6,19 @@
 % \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
   
-  % O advento da tecnologia proporcionou muitas possibilidades em diversas áreas. O maior aproveito que se teve foi na automatização de tarefas e melhoria de atividades que antes eram feitas manualmente. Nesse sentido, houve um grande aumento do uso de robôs para realizar tarefas em ambientes industriais, comerciais e residenciais, devido ao barateamento de custos e desenvolvimento de novas tecnologias. Dentre essas tecnologias, muitas buscam desenvolver campos da Visão Computacional, como a Detecção de Objetos. Este trabalho explora a implementação de Reconhecimento de Padrões aliado ao controle de Manipuladores Robóticos a fim de possibilitar sempre o melhor enquadramento de uma câmera acoplada no efetuador. Para isso, são utilizadas as bibliotecas OpenCV e TensorFlow para auxiliar na captura e identificação de pessoas na imagem, além do modelo pré-treinado COCO-SSD que possui vasta variedade de classificação de objetos e um banco de dados atualizado de tempos em tempos. Além disso, são utilizados conceitos de cinemática direta e diferencial a fim de se realizar o controle cinemático do manipulador. A validação vem por meio da simulação através da plataforma CoppeliaSim, utilizando programas como Visual Studio Code e MATLAB para intermediar todo o processamento de dados e controle do manipulador. A junção dessas tecnologias amplia as possibilidades em ambientes industriais, no uso de câmeras de segurança e até mesmo na indústria do entretenimento, uma vez que se pode garantir uma estabilização e rastreamento de objetos pré-definidos.
 
+  A Floresta Amazônica sofreu um aumento preocupante número de novos casos de desmatamento e de garimpos em terras protegidas na década anterior, além de garimpos fluviais no rio madeira em 2022. Com isso, agências de monitoramento requerem modernas técnicas para a identificação de irregularidades capazes de auxiliar na detecção de pequenas regiões em no vasto território da bacia amazônica, para manutenção de políticas de preservação ambiental. Novas técnicas de visão computacional, reconhecimento de padrões e aprendizado profundo permitem soluções e a realização de tarefas em  melhor nível de resolução e desempenho no contexto de sensoreamento remoto.
+  
+  Partindo desse ponto, este trabalho estuda as limitações das técnicas já estabelecidas de redes convolucionais e realizará uma prova de conceito de uma técnica de visão computacional de arquitetura Swin para classificação de imagens de áreas irregulares da amazônia, baseado em transformers visuais. Assim como a comparação de desempenho dentre as duas técnicas. Além de prover uma metodologia e experimentos reprodutíveis para utilização da arquitetura Swin para problemas análogos, de diferentes conjuntos de dados de sensoriamento remoto.
+    
+  Este trabalho documentou o experimento realizado com etapas como: aspectos da criação do ambiente em nuvem utilizando a plataforma GoogleColab para melhor explorar seus recursos computacionais; análise exploratória dos dados; construção um modelo base vasculhando diferentes configurações, componentes e características de treinamento, utilizando bibliotecas como Pytorch e SciKitLearn.
+  
+  Dessa forma, foi desenvolvido um modelo base de uma arquitetura de rede neural convolucional ResNet50 com bom desempenho global utilizando métricas de classificação como a $F_2$, e curva PR. Contudo, as classes raras do conjunto de dados, tiveram um mal desempenho. Seguindo as mesmas configurações de treino, o segundo modelo de arquitetura Swin foi ajustado e comparado com o baseado em ResNet50. Apresentou relevantes melhorias de desempenho e melhor capacidade de generalização com poucas amostras sob condições climáticas variadas na classificação de classes raras. Demonstrando assim a  compatibilidade desta arquitetura para a aplicação.
+
+  
 \vspace{\onelineskip}
 
 \noindent 
 
-\textbf{Palavras-chave}: Localização; DeepLearning; Aprendizado de Máquina; Reconhecimento de Padrões; PyTorch; Visão computacional.
+\textbf{Palavras-chave}: Sensoriamento remoto; Transformers Visuais; Transformer Swin; Aprendizado profundo; Redes Neurais Convolucionais; Aprendizado de Máquina; Reconhecimento de Padrões; PyTorch; Visão computacional.
 \end{resumo}

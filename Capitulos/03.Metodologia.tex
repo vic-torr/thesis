@@ -1,5 +1,5 @@
 
-Neste capítulo será apresentado em detalhes as premissas do problema de classificação visual bem como a metodologia para sua solução, que será particionada nas conforme proposto a seguir. A seção~\ref{sec:Cap3_Dataset} apresenta o conjunto de dados utilizado para o experimento.  A seção~\ref{sec:Cap3_Premissas} apresenta as limitações e condições de contorno do problema. A seção~\ref{sec:Cap3_Proposta} apresenta a proposta de solução para o problema. A seção~\ref{sec:Cap3_Procedimentos} apresenta os procedimentos do experimento para treino e teste do modelo. Dessa forma, a metodologia será seccionada nas seguintes partes:
+Neste capítulo será apresentado em detalhes as premissas do problema de classificação visual, bem como a metodologia para sua solução, que será particionada nas conforme proposto a seguir. A seção~\ref{sec:Cap3_Dataset} apresenta o conjunto de dados utilizado para o experimento.  A seção~\ref{sec:Cap3_Premissas} apresenta as limitações e condições de contorno do problema. A seção~\ref{sec:Cap3_Proposta} apresenta a proposta de solução para o problema. A seção~\ref{sec:Cap3_Procedimentos} apresenta os procedimentos do experimento para treino e teste do modelo. Dessa forma, a metodologia será seccionada nas seguintes partes:
 
 \begin{itemize}
     \item  Datasets.
@@ -15,13 +15,13 @@ Neste capítulo será apresentado em detalhes as premissas do problema de classi
 Foram utilizados dois conjuntos de dados, escolhidos por razões de disponibilidade e representatividade do problema. 
 
 %% Tabelas dos datasets
-%- Million A1
+% Million A1
 %ASGM Ponds Dataset https://zenodo.org/record/6400211
 % Planet (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data
 
 \subsection{Dataset Amazônia do Espaço}\label{sec:Cap3_Amazon_dataset}
 
-Este conjunto de dados são de imagens coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este dataset concerne ao desmatamento e cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a uma ou mais das 17 classes distintas e possui resolução espaciais variáveis, por exemplo de $3 m$ por píxel. Este dataset foi publicado pela pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data} na plataforma Kaggle, de concursos de aprendizado de máquina.
+Este conjunto de dados é de imagens coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este data set concerne ao desmatamento e cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a uma ou mais das 17 classes distintas e possui resolução espaciais variáveis, por exemplo, de $3 m$ por píxel. Este data set foi publicado pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data} na plataforma Kaggle, de concursos de aprendizado de máquina.
 
 \begin{figure}[!ht]
     \centering
@@ -36,7 +36,7 @@ Este conjunto de dados são de imagens coletados dos satélites Planet Flock ent
 
 \subsection{Dataset poças de garimpo}\label{sec:Cap2_amazonia_garimpo}
 
-Este \textit{dataset} foi utilizado em \cite{rs14071746}, mencionado no capitulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artesanal de ouro de pequena escala; Pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros países: Venezuela, Indonésia e Myanmar. 
+Este \textit{dataset} foi utilizado em \cite{rs14071746}, mencionado no capítulo anterior. Concerne a tarefa de identificação de mudanças de imagem. Aplicadas a identificação de garimpo artesanal de ouro de pequena escala, pode ser desafiador de se identificar, dado a variabilidade de condições atmosféricas e baixa resolução. Foram utilizadas imagens de Madre de Dios, região do Peru. Bem como amostras de outros países: Venezuela, Indonésia e Myanmar. 
 
 % (Verificar se esse dataset é utilizável para tarefa de classificação; Resolução parece muito baixa e área muito grande)
 
@@ -47,19 +47,20 @@ Este \textit{dataset} foi utilizado em \cite{rs14071746}, mencionado no capitulo
 
 \section{\textit{Premissas}}\label{sec:Cap3_Premissas}
 
-Temos que o problema de identificação em sensoriamento remoto impõe a dificuldade de alta similaridade extra-classes e divergências intra-classes, da qual surge uma dificuldade de generalização e de viés indutivo para identificação de amostras fora das classes treinadas. Temos ainda que o treinamento de tais modelos envolvem um volume massivo de amostras rotuladas. 
+Temos que o problema de identificação em sensoriamento remoto impõe a dificuldade de alta similaridade extra-classes e divergências intra-classes, da qual surge uma dificuldade de generalização e de viés indutivo para identificação de amostras fora das classes treinadas. Temos ainda que o treinamento completo de tais modelos geralmente requer um volume substancial de amostras (>1 milhão de amostras) rotuladas e de recursos computacionais. 
 
 
 % ----------------------------------------------------------
 
 \section{\textit{Proposta de solução}}\label{sec:Cap3_Proposta}
 
-Como solução para o problema, foi proposta a utilização de um modelo de \textit{transformer visual}  pré-treinado em um conjunto de dados expressivo e realizar o \textit{fine-tune}\footnote{Ajuste fino} para o conjunto de dados de interesse. Dessa forma, obtendo um modelo com boa capacidade de generalização e melhor viés indutivo, assim demandando menor quantidade de amostras para ser treinado.
+Como solução para o problema, foi proposta a utilização de um modelo de \textit{Transformer visual}  pré-treinado em um conjunto de dados expressivo e realizar o \textit{fine-tune}\footnote{Ajuste fino} para o conjunto de dados de interesse. Dessa forma, obtendo um modelo com boa capacidade de generalização e melhor viés indutivo, assim demandando menor quantidade de amostras para ser treinado.
 
-Para solucionar o problema de generalização e conjunto de dados limitado da região de interesse, propomos a utilização de um modelo pré-treinado explicado em~\ref{sec:Cap2_transfer} um dataset extensivo de imagens aéreas e de satélites, de forma a aproveitar seu extrator de características, como é realizado em~\cite{wang2022empirical}. Assim o modelo será re-treinado (\textit{fine tunning}) para a região de interesse mantendo os pesos das camadas de encoder otimizar apenas a camada MLP fortemente conectadas, assim como a camadas de saídas softmax. 
+Para solucionar o problema de generalização e conjunto de dados limitado da região de interesse, propomos a utilização de um modelo pré-treinado explicado em~\ref{sec:Cap2_transfer} um dataset extensivo de imagens aéreas e de satélites, para aproveitar seu extrator de características, conforme realizado em~\cite{wang2022empirical}. Assim o modelo será re-treinado (\textit{fine-tunning\footnote{Trad. do inglês: Ajuste fino.}}) para o conjunto de dados de interesse.
 
-Dessa forma, a arquitetura proposta é o ViT apresentado em~\cite{wang2022empirical}
-composta por camadas hierarquicas de encoders transformers  que funcionam como extratores de características. As camadas seguintes são camadas totalmente conectadas seguidas por uma camada \textit{softmax} que realiza a classificação.
+Dessa forma, a arquitetura proposta é o Swin-T apresentado em~\cite{liu2022swin}
+composta por camadas hierárquicas de Encoders\footnote{Trad. do inglês: Codificador} Transformers  que funcionam como extratores de características. As camadas seguintes são camadas conectadas totalmente seguidas por uma camada \textit{sigmoide} que realiza a classificação.
+
 % ----------------------------------------------------------
 
 \section{\textit{Ambiente e ferramentas}}\label{sec:Cap3_Ferramentas}
@@ -71,15 +72,15 @@ O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilm
 
 \subsection{\textit{Ambiente}}\label{sec:Cap2_Ambiente}
 
-Foram dispostos 100h de orçamento de recursos computacionais, em uma instância da plataforma com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Para o treinamento de redes neurais profundas, aceleradores como placas gráficas podem resultar em ganhos de tempo de até 40x em com paração com treinamentos em CPU, bem como o uso da ram para placa gráfica para realizar \textit{caching}\footnote[1]{Caching é o processo de utilizar um espaço de memória para o armazenamento temporário e de acesso rápido de dados que possuem uma grande probabilidade de serem utilizados novamente} obtendo melhores tempos de acesso durante carregamentos.
+Foram dispostos 100h de orçamento de recursos computacionais, em uma instância da plataforma com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Para o treinamento de redes neurais profundas, aceleradores como placas gráficas podem resultar em ganhos de tempo de até 40x em comparação com treinamentos em CPU, bem como o uso da RAM para placa gráfica para realizar \textit{caching}\footnote[1]{Caching é o processo de utilizar um espaço de memória para o armazenamento temporário e de acesso rápido de dados que possuem uma grande probabilidade de serem utilizados novamente} obtendo melhores tempos de acesso durante carregamentos. Todos resultados de experimentos serão executados neste \href{https://colab.research.google.com/github/vic-torr/thesis-experiments/blob/main/experiments/rsp_Swint_t_planet_portugues.ipynb}{Caderno Jupyter}.
 
 
 \subsection{\textit{Bibliotecas}}\label{sec:Cap2_NumpyPandas}
 
-Para o experimento também contou-se com bibliotecas de calculo numérico e algébrico como o Numpy. Também Pandas para manipulação de dados tabulares. Já a ferramenta SciKitLearn contém diversos módulos para aprendizado estatístico, como funções de métricas, de perdas. Para visualização dos resultados utilizado serão MatplotLib, Plotly e Seaborn.
+Para o experimento também contou-se com bibliotecas de cálculo numérico e algébrico como o Numpy. Também Pandas para manipulação de dados tabulares. Já a ferramenta SciKitLearn contém diversos módulos para aprendizado estatístico, como funções de métricas, de perdas. Para visualização dos resultados utilizado serão MatplotLib, Plotly e Seaborn.
 
 \subsection{\textit{PyTorch}}\label{sec:Cap2_PyTorch}
-Pytorch é um \textit{framework}\footnote{Ferramental} de processamento de tensores e acelerados por GPU\footnote[3]{Unidade de Processamento Gráfico, Trad.:\textit{Graphic Process Unit}} ou TPUs \footnote{Unidade de Processamento de Tensores. Trad. de \textit{Tensor Processing Unit}} para aprendizado de máquina profundo. É código aberto de de front-end em Python, implementado em linguagens C++ e CUDA para otimizações de computações numéricas, matriciais e de difenciação, que são extensivas para esta aplicação.
+Pytorch é um \textit{framework}\footnote{Ferramental} de processamento de tensores e acelerados por GPU\footnote[3]{Unidade de Processamento Gráfico, Trad.:\textit{Graphic Process Unit}} ou TPUs \footnote{Unidade de Processamento de Tensores. Trad. de \textit{Tensor Processing Unit}} para aprendizado de máquina profundo. É código-aberto, possuindo um front-end de fácil utilização em Python, implementado em linguagens C++ e CUDA para otimizações de computações numéricas, matriciais e de diferenciação, extensivas para esta aplicação.
 O projeto é originalmente criado pelo \textit{Facebook Research} e é atualmente amplamente adotado pela academia e mercado em aplicações de aprendizado profundo. Possui muitas implementações das ferramentas mais utilizadas, especificamente aplicadas a \textit{Deep Learning} e visão computacional. Tem ampla adoção devido à intenção de ser um \textit{framework} de fácil uso e alto nível, com muitas abstrações e técnicas já implementadas.
 
 %http://pytorch.org
@@ -92,17 +93,17 @@ Para a construção da solução desejada, experimentaremos combinar um modelo p
 Consiste em fazer experimentos em uma complexidade crescente, e replicando resultados para garantir corretude. Será simplificado a reprodução para apenas um \textit{dataset}.
 
 
-Para obter o modelo proposto e de melhor desempenho, inicialmente define-se os seguintes passos de experimentos para construir o modelo final:
+Para obter o modelo proposto e de melhor desempenho, inicialmente definem-se os seguintes passos de experimentos para construir o modelo final:
 
 \begin{enumerate}
 \item   Análise exploratória dos dados, visando a melhor conhecer o problema e amostras. 
 \item   Disponibilizar pre-processamento do conjunto de dados e de carregadores de amostras.
-\item   Elaborar e treinar um modelo baseline RESNET-18 pré-treinado, fazendo ajuste de hiperparâmetros a fim de obter o melhor score no baseline
+\item   Elaborar e treinar um modelo RESNET-18 pré-treinado, fazendo ajuste de hiperparâmetros a fim de obter o melhor valor de métrica no modelo base
 \item   Utilizar pesos do dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados, a fim de replicar a metodologia de fine-tune. 
-\item   Realizar o mesmo para o modelo proposto de transformers visuais
-\item   Fixar os hiperparâmetros e metodologia de treino para modelos baseline e proposto e treiná-los novamente a fim de realizar comparações
-\item   Realizar análise dos resultados de ambos e comparar performance em várias métricas relevantes ao problema
-\item   Comparar modelos e com trabalhos base \ref{sec:Cap2_ForestViT} 
+\item   Realizar o mesmo para o modelo proposto baseado em transformers visuais
+\item   Fixar os hiperparâmetros e metodologia de treino para modelos base e proposto e treiná-los novamente a fim de realizar comparações
+\item   Realizar análise dos resultados de ambos e comparar desempenho em várias métricas relevantes ao problema
+\item   Comparar modelos e com trabalhos-base \ref{sec:Cap2_ForestViT} 
 \end{enumerate}
 
 
@@ -115,16 +116,16 @@ Os procedimentos do experimento principal consiste principalmente nas etapas de 
 
 \subsection{\textit{Configuração de Ambiente}}\label{sec:Cap3_ConfigAmbiente}
 
-A plataforma GoogleColab consiste em uma instancia alocada temporariamente com custo por tempo de uso, porém com desconexão por tempo ocioso. Durante o treinamento a interface se torna ociosa e ocorrem desconexões. Para mitigar isto foram criadas funções de gerenciar contexto do experimento, para implementar o armazenamento e carregamento se estatisticas do treinamento a cada epoch.
+A plataforma GoogleColab consiste em uma instância alocada temporariamente com custo por tempo de uso, porém com desconexão por tempo ocioso. Durante o treinamento a interface se torna ociosa e ocorrem desconexões. Para mitigar isto foram criadas funções de gerenciar contexto do experimento, para implementar o armazenamento e carregamento se estatísticas do treinamento a cada época.
 
-Os arquivos compactados de são obtido de hospedagem em nuvem e descompactado na instância, seja em disco ou em partição na memória ram. Esta segunda opção permitiu importantes melhorias de tempo de carregamento de batches\footnote[1]{Número de amostras processadas entre atualizações de modelo}. O arquivo contendo os pesos do modelo para criação do modelo são obtidos da mesma forma. Com cada instância é volátil, sendo possível armazenar conteúdos somente no serviço de hospedagem GoogleDrive, os resultados, pesos do modelo e contexto do experimento precisam ser salvos a cada execução, em caso de desconexão.
+Os arquivos compactados de são obtidos de hospedagem em nuvem e descompactado na instância, seja em disco ou em partição na memória RAM. Esta segunda opção permitiu importantes melhorias de tempo de carregamento de batches\footnote[1]{Lotes ou número de amostras processadas entre atualizações de modelo}. O arquivo contendo os pesos do modelo para criação do modelo são obtidos da mesma forma. Com cada instância é volátil, sendo possível armazenar conteúdos somente no serviço de hospedagem GoogleDrive, os resultados, pesos do modelo e contexto do experimento precisam ser salvos a cada execução, em caso de desconexão.
 
 
 \subsection{\textit{Análise de dados exploratória}}\label{sec:Cap3_AnaliseDeDadosExploratoria}
 Para melhor entendimento das características do conjunto de dados, se faz necessário uma exploração dos dados. Consiste em entender os diferentes tipos de amostras e rótulos, por meio de estatísticas de distribuição de classes e visualizações de agrupamento.
 
 
-Pela distribuição de classes em \ref{tab:proporcao_classes}, podemos observar que se trata de um dataset com acentuado desbalanço. Contem certos eventos raros como o chamado de Roça de ventos, que consiste de um evento climático gerador de ventos de mais de 160 Km/h que devasta uma vasta área de floresta. Na figura \ref{fig:classes} a seguir podemos visualizar amostras de cada tipo de classe. Cada amostra pode a mais de um tipo de classe.  
+Pela distribuição de classes em \ref{table:proporcao_classes}, podemos observar que se trata de um dataset com acentuado desbalanço. Contem certos eventos raros como o chamado de Roça de ventos, que consiste em um evento climático gerador de ventos de mais de 160 km/h que devasta uma vasta área de floresta. Na figura \ref{fig:classes} podemos visualizar amostras de cada tipo de classe. Cada amostra pode a mais de um tipo de classe.  
 
 \begin{table}[h!]
     \caption{Proporção de Classes do conjunto de dados \textit{Planet}}
@@ -183,13 +184,13 @@ Pela distribuição de classes em \ref{tab:proporcao_classes}, podemos observar 
    \label{fig:TSNE}
 \end{figure}
 
-A partir da matriz de coocorrência, podemos averiguar sobreposições de classes mais frequentes. É possível constatar que as amostras relacionadas a vegetação primária, agricultura e águas são as predominantes. Quanto ao clima, também há sobreposição de classes. Contudo para as classes raras, são em sua maior parte independentes entre si.
+A partir da matriz de coocorrência, podemos averiguar sobreposições de classes mais frequentes. É possível constatar que as amostras relacionadas a vegetação primária, agricultura e águas são as predominantes. Quanto ao clima, também há sobreposição de classes. Contudo, para as classes raras, são em sua maior parte independentes entre si.
 
-Outra técnica de semelhança entre amostras é o t-SNE\footnote[5]{T-distributed Stochastic Neighor Embedding} que é um método de redução de dimensionalidade para dados de alta dimensionalidade e projeção em espaço de baixa dimensões. Assim é possível realizar agrupamentos de amostras proximas num espaço de representação. Na figura \ref{fig:TSNE} podemos verificar grupos de amostras visualmente próximos que serão desafiadores de realizar uma classificação precisa. FONTE
+Outra técnica de semelhança entre amostras é o t-SNE\footnote[5]{T-distributed Stochastic Neighor Embedding} que é um método de redução de dimensionalidade para dados de alta dimensionalidade e projeção em espaço de baixa dimensão. Assim é possível realizar agrupamentos de amostras próximas num espaço de representação. Na figura \ref{fig:TSNE} podemos verificar grupos de amostras visualmente próximos que serão desafiadores de realizar uma classificação precisa. FONTE
 
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
-O pré-processamento consiste em preparar as amostras do conjunto de dados de interesse para treino e validação. Para o conjunto de dados floresta amazônica temos 40000 amostras. Foram separadas em uma divisão de treino-validação na proporção 80\%-20\%. Cada recorte de resolução $256 \times 256$ px.
+O pré-processamento consiste em preparar as amostras do conjunto de dados de interesse para treino e validação utilizando as bibliotecas mencionadas anteriormente. Para o conjunto de dados floresta amazônica temos 40479 amostras. Foram separadas em uma divisão de treino-validação na proporção 80\%-20\%. Cada recorte de resolução $256 \times 256$ px.
 
 O pré-processamento em cada amostra é feito em tempo de execução por instâncias de transformação composta de:
 \begin{enumerate}
@@ -204,46 +205,7 @@ O pré-processamento em cada amostra é feito em tempo de execução por instân
 \subsection{\textit{Definição do modelo}}\label{sec:Cap3_Def_modelo}
 
 
-Para a definição do modelo, é interessante começar com modelos de menor capacidade, e ao longo da sintonização poder trocar por um de maior capacidade. Por isso, para o experimento base primeiro utilizou-se o modelo ResNet-18 e depois de validado utilizou-se o ResNet-50. Da mesma forma, a implementação do modelo Swin disponibilizado pelo autor de menor capacidade é o \textit{Swin-Tiny}, de número de parâmetros e desempenho próximo ao ResNet50 em \textit{benchmarks} no dataset Imagenet-1k.
-
-\begin{table}[h!]
-    \caption{Caracteristicas do modelo fornecida pela biblioteca } 
-    \centering
-\begin{tabular}{*{8}{c}}
-    \toprule
-    Nome & Pré-Treino & Resolution & Acuracia@1 & Acuracia@5 &  Parâmetros & FLOPs \\
-    \midrule
-    Swin-T & ImageNet-1K & 224x224 & 81.474 & 95.5 &	28.3M &	4.5G \\
-    Resnet50 & ImageNet-1K & 224x224 &	80.858 & 92.9 &	25.5M &	4.1G \\
-    % https://pytorch.org/vision/main/models/generated/torchvision.models.swin_t.html
-    \bottomrule
-\end{tabular}
-\label{tab:especificacao_modelos}
-\end{table}
-
-\iffalse
-MODEL:
-  TYPE: swin
-  NAME: swin_tiny_patch4_window7_224
-  DROP_PATH_RATE: 0,2
-  SWIN:
-    EMBED_DIM: 96
-    DEPTHS: [ 2, 2, 6, 2 ]
-    NUM_HEADS: [ 3, 6, 12, 24 ]
-    WINDOW_SIZE: 7
-    
-\fi 
-
-
-O modelo Swin proposto corresponde a figura \ref{fig:Swin-T-Rsp}. Foi elaborado a partir de uma instanciação de um classificador de mesmo \textit{backbone} da biblioteca de modelos timm. Em seguida foram a camada de saida, chamada de cabaça do transformer, por uma camada completamente conectada, de tamanho de entrada o número de dimensões do espaço de estados e a dimensão de saída o número de atributos/classes.
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{Imagens/swin proposto.png}
-    \caption{ Arquitetura de modelo proposto.
-    Fonte: \cite{liu2022swin}}
-   \label{fig:Swin-T-Rsp}
-\end{figure}
+Para a definição do modelo, é interessante começar com modelos de menor capacidade, e ao longo da sintonização poder trocar por um de maior capacidade. Por isso, para o experimento base primeiro utilizou-se o modelo ResNet-18 e após validado utilizou-se o ResNet-50, correspondente a figura \ref{fig:ResNet-Rsp}. Da mesma forma, a implementação do modelo Swin disponibilizado pelo autor de menor capacidade é o \textit{Swin-Tiny}, de número de parâmetros e desempenho próximo ao ResNet50 em \textit{benchmarks} no dataset Imagenet-1k.
 
 \begin{figure}[!ht]
     \centering
@@ -253,9 +215,37 @@ O modelo Swin proposto corresponde a figura \ref{fig:Swin-T-Rsp}. Foi elaborado 
 \end{figure}
 
 
+\begin{table}[h!]
+    \caption{Características do modelo fornecida pela biblioteca } 
+    \centering
+\begin{tabular}{*{8}{c}}
+    \toprule
+    Nome & Pré-Treino & Resolution & Acurácia@1 & Acurácia@5 &  Parâmetros & FLOPs \\
+    \midrule
+    Swin-T & ImageNet-1K & 224x224 & 81.474 & 95.5 &	28.3M &	4.5G \\
+    Resnet50 & ImageNet-1K & 224x224 &	80.858 & 92.9 &	25.5M &	4.1G \\
+    % https://pytorch.org/vision/main/models/generated/torchvision.models.swin_t.html
+    \bottomrule
+\end{tabular}
+\label{tab:especificacao_modelos}
+\end{table}
+
+
+O modelo Swin proposto corresponde a figura \ref{fig:Swin-T-Rsp}. Foi elaborado a partir de uma instanciação de um classificador de mesmo \textit{backbone} da biblioteca de modelos \textit{timm}. Em seguida foram a camada de saída, chamada de cabaça do transformer, por uma camada completamente conectada, de tamanho de entrada o número de dimensões do espaço de estados e a dimensão de saída o número de atributos/classes.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Imagens/swin proposto.png}
+    \caption{ Arquitetura de modelo proposto.
+    Fonte: \cite{liu2022swin}}
+   \label{fig:Swin-T-Rsp}
+\end{figure}
+
+
+
 \subsection{\textit{Treino}}\label{sec:Cap3_Treino}
 
-Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste em um modelo pré-treinado, e retreinando suas ultimas camadas de classificação por camadas fortemente conectadas seguidas de camadas de \textit{softmax}, como ilustra a imagem a seguir
+Para a etapa de treino, utilizamos a arquitetura proposta em~\ref{sec:Cap3_Proposta}, que consiste em um modelo pré-treinado, e retreinando suas últimas camadas de classificação por camadas conectadas fortemente seguidas de camadas de \textit{sigmoide}, como ilustra a imagem a seguir
 
 
 \subsection{\textit{Validação}}\label{sec:Cap3_Validacao}
@@ -264,17 +254,17 @@ A etapa de validação será realizada a medida do desempenho do modelo no conju
 
 \subsection{\textit{Seleção de modelos}}\label{sec:Cap3_SelecaoModelos}
 
-Esta estapa concerne em gerar vários diferentes modelos e selecionar de acordo com a performance. É um processo experimental e de vasculhar diferentes hiperparâmetros e componentes do treino.
+Esta etapa concerne em gerar vários modelos e selecionar conforme o desempenho. É um processo experimental e de vasculhar diferentes hiperparâmetros e componentes do treino.
 
 
 
 Critérios de seleção de modelo:
 Melhor métrica f2 entre diferentes modelos. Com parada antecipada no menor valor de perda de validação em um treinamento, até no máximo à quinta época, devido a limitações de tempo e orçamento de horas de instâncias de GPU.
-O segundo item foi possível de ser realizado. Realizando \textit{fine-tune} do modelo o modelo Resnet-16 inicialmente. Foram utilizados os pesos dessa mesma rede treinada para o dataset IMAGENET-1k, realizando a troca das camadas de saída, originalmente para 1000 classes. Foram Removidas e adicionados uma camada completamente conectada de entrada igual ao numero de neurônios da penultima camada. Após a ultima camada foi adicionado uma camada de sigmoid, que realizará a conversão de valores lineares para probabilidade de cada classe.
+O segundo item foi possível de ser realizado. Realizando \textit{fine-tune} do modelo o modelo Resnet-16 inicialmente. Foram utilizados os pesos dessa mesma rede treinada para o dataset IMAGENET-1k, realizando a troca das camadas de saída, originalmente para 1000 classes. Foram Removidas e adicionados uma camada completamente conectada de entrada igual ao número de neurônios da penúltima camada. Após a última camada foi adicionado uma camada de Sigmoide, que realizará a conversão de valores lineares para probabilidade de cada classe.
 
 O modelo obteve um desempenho inicialmente satisfatório de métrica f2 de 0,88.
 
-A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros e de componentes a fim de aperfeiçoar o desempenho da rede. Dentre as os ajustes para seleção de modelo, constam:
+A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros e de componentes a fim de aperfeiçoar o desempenho da rede. Dentre os ajustes para seleção de modelo, constam:
 
 
 \begin{enumerate}
@@ -290,23 +280,23 @@ A partir deste modelo inicial, foram feitos vários ajustes de hiperparâmetros 
     \item Experimentar os mesmos passos para o modelo Swin-T
 \end{enumerate}
 
-Tendo inicialmente o modelo ResNet-18, os ajustes de capacidade de rede foram inicialmente se aumentar o número de camadas completamente conectadas, Contudo aumentar o número de camadas de blocos básicos resnet, utilizando o modelo ResNet50 demonstrou melhor métrica F2 e perda BCE. O mesmo foi testado utilizando com pesos do conjunto de dados ImageNet1k, igualmente com melhor resultados. Com pesos do trabalho~\ref{sec:Cap2_million} também de sensoriamento remoto, também ouve aumento expressivo de métrica F-2 em comparação com o modelo pre-treinado no conjunto de dados ImageNet-1k
+Tendo inicialmente o modelo ResNet-18, os ajustes de capacidade de rede foram inicialmente se aumentar o número de camadas completamente conectadas, contudo, aumentar o número de camadas de blocos básicos, utilizando o modelo ResNet50 demonstrou melhor métrica $F_2$ e perda BCE. O mesmo foi testado utilizando com pesos do conjunto de dados ImageNet1k, igualmente com melhor resultados. Com pesos do trabalho~\ref{sec:Cap2_million} também de sensoriamento remoto, também houve aumento expressivo de métrica F-2 em comparação com o modelo pre-treinado no conjunto de dados ImageNet-1k
 
-Os modelos pré-treinados aparentavam convergir próximos da primeira época, o que sugere um rápido sobre-ajuste, para isto, testou-se utilizar um otimizador com decaimento de pesos o AdamW, porém leva a perda de performance, supostamente por afetar os pesos já treinados. O uso de regularização se limitou ao drop-out presente nos modelos e camadas de normalização de lote e camada.
+Os modelos pré-treinados aparentavam convergir próximos da primeira época, sugerindo um rápido sobre-ajuste, para isto, testou-se utilizar um otimizador com decaimento de pesos o AdamW, porém leva a perda de desempenho, supostamente por afetar os pesos já treinados. O uso de regularização se limitou ao drop-out presente nos modelos e camadas de normalização de lote e camada.
 
-Para mitigar o desbalanço de quantidade de amostras nas classes, investigou-se a utilização de outros amostradores, que escolhem amostras baseados em probabilidades especificadas pelo inverso da frequência de cada classe. Contudo não foi possível de ser realizado. O aumento de dados realizado foi aplicar espelho horizontal ou vertical com probabilidade de 25\%, dessa forma, o número de amostras é virtualmente aumentado para 4x o tamanho original.
+Para mitigar o desbalanço de quantidade de amostras nas classes, investigou-se a utilização de outros amostradores, que escolhem amostras baseados em probabilidades especificadas pelo inverso da frequência de cada classe. Contudo, não foi possível de ser realizado. O aumento de dados realizado foi aplicar espelho horizontal ou vertical com probabilidade de 25\%, dessa forma, o número de amostras é virtualmente aumentado para 4x o tamanho original.
 
-Outra alternativa a mitigar o desbalanço foi alterar o valor da função de perda por classe, especificando que as classes mais raras realizariam um maior peso na função de perda. Esta alternativa gerou um aumento de performance, porém com rápido sobre-ajuste. Uma terceira alternativa foi a função de perda focal, que foi capaz de melhorar a métrica F2 substanciamente e mitigar sobreajuste da classe dominante.
+Outra alternativa a mitigar o desbalanço alterou o valor da função de perda por classe, especificando que as classes mais raras realizariam um maior peso na função de perda. Esta alternativa gerou um aumento de desempenho, porém com rápido sobre-ajuste. Uma terceira alternativa foi a função de perda focal, capaz de melhorar a métrica F₂ substancialmente e mitigar sobreajuste da classe dominante.
 
-Para o otimizador, há trabalhos como em\cite{https://doi.org/10.48550/arxiv.2106.10270}, que recomendam o uso de SGD para o ajuste-fino do modelo. Contudo apresentou convergência muito lenta, incompatível com o orçamento de horas de GPUs. O otimizador escolhido foi o Adam sem decaimento de peso. A convergência do modelo demonstrou-se sensível a taxa de aprendizado. Por isso, recorreu-se ao uso de taxas de aprendizado variáveis, utilizando um agendador de taxa de aprendizado, que reajusta para um décimo da anterior cada vez que a função de perda ou de métrica de validação atinge um platô.
+Para o otimizador, há trabalhos como em\cite{https://doi.org/10.48550/arxiv.2106.10270}, que recomendam o uso de SGD para o ajuste-fino do modelo. Contudo, apresentou convergência muito lenta, incompatível com o orçamento de horas de GPUs. O otimizador escolhido foi o Adam sem decaimento de peso. A convergência do modelo demonstrou-se sensível à taxa de aprendizado. Por isso, recorreu-se ao uso de taxas de aprendizado variáveis, utilizando um agendador de taxa de aprendizado, que reajusta para um décimo da anterior cada vez que a função de perda ou de métrica de validação atinge um platô.
 
-Ainda na seleção de modelos, experimentou-se utilizar transferência de aprendizado, definida por congelar os pesos das camadas extratoras de características e treinar apenas ultimas camadas. Foi experimentado o ajuste fino, definido por retreinar o modelo inteiro, com as ultimas camadas inicializadas com pesos 0 ou aleatórios. A segunda opção demonstrou a melhor performance.
+Ainda na seleção de modelos, experimentou-se utilizar transferência de aprendizado, definida por congelar os pesos das camadas extratoras de características e treinar apenas ultimas camadas. Foi experimentado o ajuste fino, definido por retreinar o modelo inteiro, com as últimas camadas inicializadas com pesos 0 ou aleatórios. A segunda opção demonstrou a melhor desempenho.
 
 
-Os mesmos passsos foram realizados para o modelo Swin-T, chegando em uma iteração final de ambos modelos base e proposto.
+Os mesmos passos foram realizados para o modelo Swin-T, chegando em uma iteração final de ambos modelos-base e proposto.
 
-\subsection{\textit{Treinamento Swin-T}}\label{sec:Cap3_TrainResnet}
-Após a iteração final, foi registrado as métricas durante o treino no modelo restnet. Pelos gráficos 
+\subsection{\textit{Treinamento ResNet}}\label{sec:Cap3_TrainResnet}
+Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gráficos \ref{fig:TreinoResnetScore} e \ref{fig:TreinoResnetPerda}, observamos a evolução da perda.
 
 
 
@@ -327,6 +317,7 @@ Após a iteração final, foi registrado as métricas durante o treino no modelo
 
 \subsection{\textit{Treinamento Swin-T}}\label{sec:Cap3_TrainSwinT}
 
+Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gráficos \ref{fig:PontuacaoTrainSwin} e \ref{fig:LossTrainSwin}, observamos a evolução da perda.
 
 \begin{figure}[!ht]
     \centering
@@ -341,3 +332,6 @@ Após a iteração final, foi registrado as métricas durante o treino no modelo
     \caption{ Arquitetura de modelo base. Fonte: Autor}
     \label{fig:LossTrainSwin}
 \end{figure}
+
+
+Pelos gráficos de perda e de métrica $F_2$ podemos determinar quando o modelo atinge o ponto de sobre-ajuste: quando a perda de validação começa a crescer enquanto a de treino continua a decair. Por meio das evoluções de perda também pode-se ser feitos ajustes durante a etapa de varredura de hiperparâmetros. Come exemplo foi a varreduras de taxas de aprendizado.
