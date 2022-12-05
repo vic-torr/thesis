@@ -9,13 +9,13 @@ O classificador base pôde ser mensurado pelas métricas $F_2$ e áreas das curv
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.jpg}
-    \caption{ Matriz Confusão Resnet50
+    \caption{ Matriz Confusão Resnet-50
     Fonte: Autor}
     \label{fig:Matriz Confusao Resnet50}
 \end{figure} 
 
 
-O desempenho do modelo base para cada classe foi sumarizado a seguir, em ordem crescente de métrica F₂. O desempenho do modelo para as diferentes classes foi muito discrepante, expressivamente abaixo para as classes mais raras. O classificador atinge resultados satisfatórios para classes mais abundantes, como o esperado. Contudo, o que os modelos podem se distinguir são nas classes raras. Para isso serão comparados os resultados globais e das classes raras, definidas como possuindo menos de 5\% do total de amostras, expostas na tabela \ref{table:Classes raras}. Dessa forma é possível de comparar a capacidade de generalização dos modelos e do viés indutivo.
+O desempenho do modelo base para cada classe foi sumarizado a seguir, em ordem crescente de métrica $F_2$. O desempenho do modelo para as diferentes classes foi muito discrepante, expressivamente abaixo para as classes mais raras. O classificador atinge resultados satisfatórios para classes mais abundantes, como o esperado. Contudo, o que os modelos podem se distinguir são nas classes raras. Para isso serão comparados os resultados globais e das classes raras, definidas como possuindo menos de 5\% do total de amostras, expostas na tabela \ref{table:Classes raras}. Dessa forma é possível de comparar a capacidade de generalização dos modelos e do viés indutivo.
 
 \begin{table}[h!]
     \caption{Resultados do Modelo ResNet50}
@@ -83,7 +83,7 @@ Sintetizando os mesmos resultados anteriores para as classes escassas da tabela 
 
 
 \begin{table}[h!]
-    \caption{Resultados do Modelo ResNet50}
+    \caption{Resultados do Modelo Base}
     \centering
 \begin{tabular}{*{6}{c}}
     \toprule
@@ -106,7 +106,7 @@ Sintetizando os mesmos resultados anteriores para as classes escassas da tabela 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.jpg}
-    \caption{ Curva PR para o modelo base Resnet50.
+    \caption{ Curva PR para o modelo base.
     Fonte: Autor}
    \label{fig:CurvaPRResnet50}
 \end{figure}   
@@ -131,7 +131,7 @@ Reproduzindo os mesmos procedimentos anteriores para o modelo Swin-T os mesmos r
         \centering
     \begin{tabular}{*{6}{c}}
         \toprule
-                     Rótulo &  F₂    &   PR AUC &  PR-AUC Class.Ingênuo \\
+                     Rótulo &  F2    &   PR AUC &  PR-AUC Class.Ingênuo \\
         \midrule
                   blooming &  0,230 &    0,129 &       0,008 \\
                 slash burn &  0,338 &    0,342 &       0,005 \\
@@ -158,7 +158,7 @@ Nesta sessão compararemos a desempenho dos modelos. Podemos observar pela curva
     \centering
 \begin{tabular}{*{6}{c}}
     \toprule
-    Rótulo &F₂-Resnet&F₂-SwinT \\
+    Rótulo &F2-Resnet&F2-SwinT \\
     \midrule
             slash burn &  0,030 &  0,338 \\ 
               blooming &  0,140 &  0,230 \\
