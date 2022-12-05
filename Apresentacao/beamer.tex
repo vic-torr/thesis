@@ -22,41 +22,41 @@
 \begin{frame}
 \frametitle{Motivação}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.6\columnwidth]{Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg}
- \caption[width=0.2\columnwidth]{\\\small Garimpo ilegal na Terra Indígena Munduruku, município de Jacareacanga. Foto: Marizilda Cruppe/Amazônia Real}
-\label{fig:garimpo}
-\end{figure}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg}
+    \caption[width=0.2\columnwidth]{\\\small Garimpo ilegal na Terra Indígena Munduruku, município de Jacareacanga. Foto: Marizilda Cruppe/Amazônia Real}
+    \label{fig:garimpo}
+    \end{figure}
 
-% A Floresta Amazônica enfrenta um acumulo histórico de degradação, além de crescentes níveis de desmatamento e destruição de habidats, seja por agricultura, mineração, extração e pecuária ilegais. Para diagnisticar tais degradações sobre a imensa área que a floresta cobre, o instuturo nacional de pesquisas espaciais possui satélites que realizam o sensoriamento remoto da região, para diagnisticar utilizando vários expectros e áreas abrangentes. Contudo até então foram usados satélites de baixa resolução para o espectro visível. Recentemente O INPE conta com satélites do espectro visiível de altissimas resoluções e que combinados com técnicas de visão computacional e aprendizado profundo, podem diagnisticar com presição degradações esparças e de pequena escalas, ou mesmo ocultas.
+    % A Floresta Amazônica enfrenta um acumulo histórico de degradação, além de crescentes níveis de desmatamento e destruição de habidats, seja por agricultura, mineração, extração e pecuária ilegais. Para diagnisticar tais degradações sobre a imensa área que a floresta cobre, o instuturo nacional de pesquisas espaciais possui satélites que realizam o sensoriamento remoto da região, para diagnisticar utilizando vários espectros e áreas abrangentes. Contudo até então foram usados satélites de baixa resolução para o espectro visível. Recentemente O INPE conta com satélites do espectro visiível de altissimas resoluções e que combinados com técnicas de visão computacional e aprendizado profundo, podem diagnisticar com presição degradações esparças e de pequena escalas, ou mesmo ocultas.
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Proposta}
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.95\columnwidth]{
-        Imagens/CNN_mathworks.jpg
-    }
-    \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluta alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
-    \label{fig:cnn}
-\end{figure}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.95\columnwidth]{
+            Imagens/CNN_mathworks.jpg
+        }
+        \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluta alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
+        \label{fig:cnn}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Método}
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.5\columnwidth]{
-        Imagens/vit.png
-    }
-    \includegraphics[width=0.2\columnwidth]{
-        Imagens/encoder.png
-    }
-    \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo. \cite{dosovitskiy2020image}}
-    \label{fig:vit}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{
+            Imagens/vit.png
+        }
+        \includegraphics[width=0.2\columnwidth]{
+            Imagens/encoder.png
+        }
+        \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo. \cite{dosovitskiy2020image}}
+        \label{fig:vit}
 \end{figure}
 % Diante desse desafio, este trabalho consiste em utilizar técnicas estado da arte de visão computacional e aprendizado profundo para fazer classificações de regiões e capturas de satélites.
 
