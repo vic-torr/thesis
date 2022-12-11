@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  4 DEC 2022 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  10 DEC 2022 10:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex
-(/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex
+**/home/vektor/Thesis/thesis/Apresentacao/beamer.tex
+(/home/vektor/Thesis/thesis/Apresentacao/beamer.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2022/02/08 v3.66 A class for typesetting presentations
@@ -595,7 +595,11 @@ Package caption Info: Hyperref support is turned off
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count346
 \l__pdf_internal_box=\box80
-) (./beamer.aux)
+) (./beamer.aux
+
+LaTeX Warning: Label `fig:vit' multiply defined.
+
+)
 \openout1 = `beamer.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -683,6 +687,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
 LaTeX Info: Redefining \nameref on input line 18.
+ (./beamer.out) (./beamer.out)
 \@outlinefile=\write5
 \openout5 = `beamer.out'.
 
@@ -743,82 +748,35 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-No file beamer.nav.
-[1
+ (./beamer.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg, id=44, 1284.8pt x 856.19875pt>
+File: ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg Graphic file (type jpg)
+<use ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>
+Package pdftex.def Info: ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg  used on input line 34.
+(pdftex.def)             Requested size: 184.3758pt x 122.85878pt.
+ [2
 
-LaTeX Warning: File `Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg' not found on input line 34.
+ <../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>]
+<../Imagens/CNN_mathworks.jpg, id=71, 1003.75pt x 341.275pt>
+File: ../Imagens/CNN_mathworks.jpg Graphic file (type jpg)
+<use ../Imagens/CNN_mathworks.jpg>
+Package pdftex.def Info: ../Imagens/CNN_mathworks.jpg  used on input line 46.
+(pdftex.def)             Requested size: 291.92444pt x 99.25362pt.
+ [3
 
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:34: Package pdftex.def Error: File `Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Missing character: There is no � in font cmtt10!
-Missing character: There is no � in font cmtt10!
-[2
-
-]
-
-LaTeX Warning: File ` Imagens/CNN_mathworks.jpg ' not found on input line 46.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:46: Package pdftex.def Error: File `Imagens/CNN_mathworks.jpg' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \vbox (116.73134pt too high) detected at line 46
- []
-
-[3
-
-]
-
-LaTeX Warning: File ` Imagens/vit.png ' not found on input line 64.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:64: Package pdftex.def Error: File `Imagens/vit.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File ` Imagens/encoder.png ' not found on input line 64.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:64: Package pdftex.def Error: File `Imagens/encoder.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ <../Imagens/CNN_mathworks.jpg>]
+<../Imagens/vit.png, id=98, 543.53062pt x 410.2828pt>
+File: ../Imagens/vit.png Graphic file (type png)
+<use ../Imagens/vit.png>
+Package pdftex.def Info: ../Imagens/vit.png  used on input line 64.
+(pdftex.def)             Requested size: 153.64493pt x 115.98022pt.
+<../Imagens/encoder.png, id=99, 207.77625pt x 411.78844pt>
+File: ../Imagens/encoder.png Graphic file (type png)
+<use ../Imagens/encoder.png>
+Package pdftex.def Info: ../Imagens/encoder.png  used on input line 64.
+(pdftex.def)             Requested size: 61.45703pt x 121.79698pt.
 
 
 LaTeX Warning: Citation `dosovitskiy2020image' on page 4 undefined on input line 64.
@@ -828,36 +786,17 @@ LaTeX Warning: Citation `dosovitskiy2020image' on page 4 undefined on input line
 
 [4
 
-]
-
-LaTeX Warning: File ` Imagens/validacao_cruzada.png ' not found on input line 81.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:81: Package pdftex.def Error: File `Imagens/validacao_cruzada.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.81 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File ` Imagens/fine_tune.png ' not found on input line 81.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:81: Package pdftex.def Error: File `Imagens/fine_tune.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.81 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ <../Imagens/vit.png (PNG copy)> <../Imagens/encoder.png (PNG copy)>]
+<../Imagens/validacao_cruzada.png, id=128, 888.31876pt x 615.29875pt>
+File: ../Imagens/validacao_cruzada.png Graphic file (type png)
+<use ../Imagens/validacao_cruzada.png>
+Package pdftex.def Info: ../Imagens/validacao_cruzada.png  used on input line 81.
+(pdftex.def)             Requested size: 138.2795pt x 95.77403pt.
+<../Imagens/fine_tune.png, id=130, 1385.175pt x 726.715pt>
+File: ../Imagens/fine_tune.png Graphic file (type png)
+<use ../Imagens/fine_tune.png>
+Package pdftex.def Info: ../Imagens/fine_tune.png  used on input line 81.
+(pdftex.def)             Requested size: 138.2795pt x 72.54268pt.
 
 
 LaTeX Warning: Citation `dosovitskiy2020image' on page 5 undefined on input line 81.
@@ -872,29 +811,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{fig:vit}) has 
 l.81 \end{frame}
                  [5
 
-]
+ <../Imagens/validacao_cruzada.png> <../Imagens/fine_tune.png (PNG copy)>]
+<../Imagens/chips.jpg, id=156, 2308.625pt x 788.9475pt>
+File: ../Imagens/chips.jpg Graphic file (type jpg)
+<use ../Imagens/chips.jpg>
+Package pdftex.def Info: ../Imagens/chips.jpg  used on input line 95.
+(pdftex.def)             Requested size: 276.559pt x 94.50107pt.
+ [6
 
-LaTeX Warning: File ` Imagens/chips.jpg ' not found on input line 95.
-
-
-/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex:95: Package pdftex.def Error: File `Imagens/chips.jpg' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \vbox (65.36227pt too high) detected at line 95
- []
-
-[6
-
-]
+ <../Imagens/chips.jpg>]
 \tf@nav=\write6
 \openout6 = `beamer.nav'.
 
@@ -909,30 +834,24 @@ Overfull \vbox (65.36227pt too high) detected at line 95
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `beamer.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `beamer.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `beamer.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25887 strings out of 478238
- 514813 string characters out of 5850456
- 759995 words of memory out of 5000000
- 43624 multiletter control sequences out of 15000+600000
- 471838 words of font info for 37 fonts, out of 8000000 for 9000
+ 25721 strings out of 478238
+ 508582 string characters out of 5850456
+ 760840 words of memory out of 5000000
+ 43471 multiletter control sequences out of 15000+600000
+ 471670 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,104p,886b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on beamer.pdf (6 pages, 67676 bytes).
+ 99i,14n,104p,884b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on beamer.pdf (6 pages, 2495101 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  17 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 
