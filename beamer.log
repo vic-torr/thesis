@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  12 DEC 2022 01:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  12 DEC 2022 01:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex
-(/mnt/data/UFMG/Thesis/thesis/Apresentacao/beamer.tex
+**/home/vektor/Thesis/thesis/beamer.tex
+(/home/vektor/Thesis/thesis/beamer.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2022/02/08 v3.66 A class for typesetting presentations
@@ -816,14 +816,14 @@ Package caption Info: End \AtBeginDocument code.
  (./beamer.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg, id=44, 1284.8pt x 856.19875pt>
-File: ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg Graphic file (type jpg)
-<use ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>
-Package pdftex.def Info: ../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg  used on input line 44.
+<Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg, id=44, 1284.8pt x 856.19875pt>
+File: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg Graphic file (type jpg)
+<use Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>
+Package pdftex.def Info: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg  used on input line 44.
 (pdftex.def)             Requested size: 184.3758pt x 122.85878pt.
  [2
 
- <../Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>]
+ <./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -834,132 +834,119 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3
 
 ]
-<../Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png, id=97, 592.46344pt x 334.24875pt>
-File: ../Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png Graphic file (type png)
-<use ../Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>
-Package pdftex.def Info: ../Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png  used on input line 72.
+<Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png, id=97, 592.46344pt x 334.24875pt>
+File: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png Graphic file (type png)
+<use Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>
+Package pdftex.def Info: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png  used on input line 72.
 (pdftex.def)             Requested size: 276.559pt x 156.03098pt.
+ [4
 
+ <./Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>] [5
 
-LaTeX Warning: Citation `InstrutorGIS' on page 4 undefined on input line 72.
-
-
-LaTeX Warning: Citation `InstrutorGIS' on page 4 undefined on input line 72.
-
-[4
-
- <../Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>]
-
-LaTeX Warning: Citation `Samuel1959SomeSI' on page 5 undefined on input line 86.
-
-
-LaTeX Warning: Citation `Mitchell97' on page 5 undefined on input line 86.
-
-[5
+] [6
 
 ]
+<Imagens/Precisão_e_revocação.png, id=193, 46.2528pt x 92.07198pt>
+File: Imagens/Precisão_e_revocação.png Graphic file (type png)
+<use Imagens/Precisão_e_revocação.png>
+Package pdftex.def Info: Imagens/Precisão_e_revocação.png  used on input line 131.
+(pdftex.def)             Requested size: 122.91406pt x 244.68921pt.
+<Imagens/matrix_confusão.png, id=195, 941.5175pt x 327.2225pt>
+File: Imagens/matrix_confusão.png Graphic file (type png)
+<use Imagens/matrix_confusão.png>
+Package pdftex.def Info: Imagens/matrix_confusão.png  used on input line 131.
+(pdftex.def)             Requested size: 153.64493pt x 53.3952pt.
 
-LaTeX Warning: Citation `Samuel1959SomeSI' on page 6 undefined on input line 101.
+Overfull \vbox (83.41609pt too high) detected at line 131
+ []
 
+[7
 
-LaTeX Warning: Citation `Mitchell97' on page 6 undefined on input line 101.
-
-[6
-
-]
-<../Imagens/CNN_mathworks.jpg, id=177, 1003.75pt x 341.275pt>
-File: ../Imagens/CNN_mathworks.jpg Graphic file (type jpg)
-<use ../Imagens/CNN_mathworks.jpg>
-Package pdftex.def Info: ../Imagens/CNN_mathworks.jpg  used on input line 113.
+ <./Imagens/Precisão_e_revocação.png> <./Imagens/matrix_confusão.png (PNG copy)>]
+<Imagens/CNN_mathworks.jpg, id=226, 1003.75pt x 341.275pt>
+File: Imagens/CNN_mathworks.jpg Graphic file (type jpg)
+<use Imagens/CNN_mathworks.jpg>
+Package pdftex.def Info: Imagens/CNN_mathworks.jpg  used on input line 144.
 (pdftex.def)             Requested size: 291.92444pt x 99.25362pt.
- [7
+ [8
 
- <../Imagens/CNN_mathworks.jpg>]
-<../Imagens/vit.png, id=205, 543.53062pt x 410.2828pt>
-File: ../Imagens/vit.png Graphic file (type png)
-<use ../Imagens/vit.png>
-Package pdftex.def Info: ../Imagens/vit.png  used on input line 131.
+ <./Imagens/CNN_mathworks.jpg>]
+<Imagens/vit.png, id=254, 543.53062pt x 410.2828pt>
+File: Imagens/vit.png Graphic file (type png)
+<use Imagens/vit.png>
+Package pdftex.def Info: Imagens/vit.png  used on input line 163.
 (pdftex.def)             Requested size: 153.64493pt x 115.98022pt.
-<../Imagens/encoder.png, id=206, 207.77625pt x 411.78844pt>
-File: ../Imagens/encoder.png Graphic file (type png)
-<use ../Imagens/encoder.png>
-Package pdftex.def Info: ../Imagens/encoder.png  used on input line 131.
+<Imagens/encoder.png, id=255, 207.77625pt x 411.78844pt>
+File: Imagens/encoder.png Graphic file (type png)
+<use Imagens/encoder.png>
+Package pdftex.def Info: Imagens/encoder.png  used on input line 163.
 (pdftex.def)             Requested size: 61.45703pt x 121.79698pt.
+ [9
 
-
-LaTeX Warning: Citation `dosovitskiy2020image' on page 8 undefined on input line 131.
-
-
-LaTeX Warning: Citation `dosovitskiy2020image' on page 8 undefined on input line 131.
-
-[8
-
- <../Imagens/vit.png (PNG copy)> <../Imagens/encoder.png (PNG copy)>]
-<../Imagens/validacao_cruzada.png, id=233, 888.31876pt x 615.29875pt>
-File: ../Imagens/validacao_cruzada.png Graphic file (type png)
-<use ../Imagens/validacao_cruzada.png>
-Package pdftex.def Info: ../Imagens/validacao_cruzada.png  used on input line 148.
+ <./Imagens/vit.png (PNG copy)> <./Imagens/encoder.png (PNG copy)>]
+<Imagens/validacao_cruzada.png, id=287, 888.31876pt x 615.29875pt>
+File: Imagens/validacao_cruzada.png Graphic file (type png)
+<use Imagens/validacao_cruzada.png>
+Package pdftex.def Info: Imagens/validacao_cruzada.png  used on input line 180.
 (pdftex.def)             Requested size: 138.2795pt x 95.77403pt.
-<../Imagens/fine_tune.png, id=235, 1385.175pt x 726.715pt>
-File: ../Imagens/fine_tune.png Graphic file (type png)
-<use ../Imagens/fine_tune.png>
-Package pdftex.def Info: ../Imagens/fine_tune.png  used on input line 148.
+<Imagens/fine_tune.png, id=288, 1385.175pt x 726.715pt>
+File: Imagens/fine_tune.png Graphic file (type png)
+<use Imagens/fine_tune.png>
+Package pdftex.def Info: Imagens/fine_tune.png  used on input line 180.
 (pdftex.def)             Requested size: 138.2795pt x 72.54268pt.
-
-
-LaTeX Warning: Citation `dosovitskiy2020image' on page 9 undefined on input line 148.
-
-
-LaTeX Warning: Citation `dosovitskiy2020image' on page 9 undefined on input line 148.
-
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:vit}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.148 \end{frame}
-                  [9
+l.180 \end{frame}
+                  [10
 
- <../Imagens/validacao_cruzada.png> <../Imagens/fine_tune.png (PNG copy)>]
-<../Imagens/chips.jpg, id=262, 2308.625pt x 788.9475pt>
-File: ../Imagens/chips.jpg Graphic file (type jpg)
-<use ../Imagens/chips.jpg>
-Package pdftex.def Info: ../Imagens/chips.jpg  used on input line 162.
+ <./Imagens/validacao_cruzada.png> <./Imagens/fine_tune.png (PNG copy)>]
+<Imagens/chips.jpg, id=319, 2308.625pt x 788.9475pt>
+File: Imagens/chips.jpg Graphic file (type jpg)
+<use Imagens/chips.jpg>
+Package pdftex.def Info: Imagens/chips.jpg  used on input line 194.
 (pdftex.def)             Requested size: 276.559pt x 94.50107pt.
- [10
+ [11
 
- <../Imagens/chips.jpg>]
-\tf@nav=\write6
-\openout6 = `beamer.nav'.
+ <./Imagens/chips.jpg>] (./beamer.bbl (./beamer.brf)
+\tf@brf=\write6
+\openout6 = `beamer.brf'.
 
-\tf@toc=\write7
-\openout7 = `beamer.toc'.
+) [12
 
-\tf@snm=\write8
-\openout8 = `beamer.snm'.
+ </usr/share/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+\tf@nav=\write7
+\openout7 = `beamer.nav'.
+
+\tf@toc=\write8
+\openout8 = `beamer.toc'.
+
+\tf@snm=\write9
+\openout9 = `beamer.snm'.
 
  (./beamer.aux)
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `beamer.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `beamer.brf' has not changed.
+(rerunfilecheck)             Checksum: CADF6FAEFDA85B14F7AA486E7C1397A4;227.
  ) 
 Here is how much of TeX's memory you used:
- 28053 strings out of 478238
- 550852 string characters out of 5850456
- 815003 words of memory out of 5000000
- 45728 multiletter control sequences out of 15000+600000
- 476770 words of font info for 55 fonts, out of 8000000 for 9000
+ 28195 strings out of 478238
+ 554377 string characters out of 5850456
+ 818636 words of memory out of 5000000
+ 45852 multiletter control sequences out of 15000+600000
+ 479539 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,104p,992b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on beamer.pdf (10 pages, 2547581 bytes).
+ 99i,14n,104p,977b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on beamer.pdf (12 pages, 2711706 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 26 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 370 compressed objects within 4 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

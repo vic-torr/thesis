@@ -21,14 +21,14 @@ Foram utilizados dois conjuntos de dados, escolhidos por razões de disponibilid
 
 \subsection{Dataset Amazônia do Espaço}\label{sec:Cap3_Amazon_dataset}
 
-Este conjunto de dados é de imagens coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este data set concerne ao desmatamento e cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a uma ou mais das 17 classes distintas e possui resolução espaciais variáveis, por exemplo, de $3 m$ por píxel. Este data set foi publicado pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data} na plataforma Kaggle, de concursos de aprendizado de máquina.
+Este conjunto de dados é de imagens coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este data set concerne ao desmatamento e cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a uma ou mais das 17 classes distintas e possui resolução espaciais variáveis, por exemplo, de $3 m$ por píxel. Este data set foi publicado pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data} na plataforma Kaggle, de concursos de aprendizado de máquina. Também são disponibilizadas o mesmo conjunto de dados com o canal de infravermelho-próximo e sem compressão.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{
         Imagens/chips.jpg
     }
-    \caption{Amostras de classes do dataset Amazônia do Espaço}\label{fig:dataset}
+    \caption{Amostras de classes do dataset Amazônia do Espaço Fonte:\cite{Kaggle:PlanetAmazonFromSpace}}\label{fig:dataset}
 \end{figure}
 
 %We utilize a dataset (URL: https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data) published in a Kaggle competition (by Planet company), containing coarse-resolution imagery data from satellites with varying spatial resolution characteristics, i.e., the imagery has a ground-sample distance (GSD) of 3.7 m and an orthorectified píxel size of 3 m. The data comes from Planet’s Flock tow satellites in both Sun-synchronous and ISS orbits and was collected in the time interval between January 1, 2016, and February 1, 2017. All of the images are derived from the Amazon basin. Mangrove deforestation in the Amazon forest is an intense phenomenon, and a plethora of factors that contribute to deforestation is observed there. Each entry contains imagery data in RGB plus the infrared band in geo-referenced.tiff format. In our experiment, the images are classified into 14 classes and the labels are broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena (see Fig. 3). Here, each entry is assigned to one or more classes.
@@ -98,7 +98,7 @@ Para obter o modelo proposto e de melhor desempenho, inicialmente definem-se os 
 \begin{enumerate}
 \item   Análise exploratória dos dados, visando a melhor conhecer o problema e amostras. 
 \item   Disponibilizar pre-processamento do conjunto de dados e de carregadores de amostras.
-\item   Elaborar e treinar um modelo RESNET-18 pré-treinado, fazendo ajuste de hiperparâmetros a fim de obter o melhor valor de métrica no modelo base
+\item   Elaborar e treinar um modelo ResNet-18 pré-treinado, fazendo ajuste de hiperparâmetros a fim de obter o melhor valor de métrica no modelo base
 \item   Utilizar pesos do dos trabalhos~\ref{sec:Cap2_million} com \textit{checkpoints}\footnote{Captura dos pesos de uma rede a partir de certo ponto do processo de treino} disponibilizados, a fim de replicar a metodologia de fine-tune. 
 \item   Realizar o mesmo para o modelo proposto baseado em transformers visuais
 \item   Fixar os hiperparâmetros e metodologia de treino para modelos base e proposto e treiná-los novamente a fim de realizar comparações
@@ -168,9 +168,15 @@ Pela distribuição de classes em \ref{table:proporcao_classes}, podemos observa
 \end{figure}
 
 
+
+
+A partir da matriz de coocorrência, podemos averiguar sobreposições de classes mais frequentes. É possível constatar que as amostras relacionadas a vegetação primária, agricultura e águas são as predominantes. Quanto ao clima, também há sobreposição de classes. Contudo, para as classes raras, são em sua maior parte independentes entre si.
+
+Outra técnica de agrupamento e semelhança entre amostras é o t-SNE\footnote[5]{T-distributed Stochastic Neighbor Embedding}, ou Representação de vizinhos estocástica T-Distribuida, que é um método de redução de dimensionalidade para dados de alta dimensionalidade e projeção em espaço de representação de baixa dimensão \footnote[6]{Embedding}. Assim é possível realizar agrupamentos de amostras próximas num espaço de representação. Na figura \ref{fig:TSNE} podemos verificar grupos de amostras visualmente próximos que serão desafiadores de realizar uma classificação precisa. \cite{JMLR:v9:vandermaaten08a}
+
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.5\columnwidth]{Imagens/results/EDA/matriz de coocorrencia.png}
+    \includegraphics[width=0.8\columnwidth]{Imagens/results/EDA/matriz de coocorrencia.png}
     \caption{Matriz de co-ocorrência.
     Fonte: Autor}
    \label{fig:coocorrencia}
@@ -178,16 +184,11 @@ Pela distribuição de classes em \ref{table:proporcao_classes}, podemos observa
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\columnwidth]{Imagens/results/EDA/TSNE.png}
+    \includegraphics[width=0.7\columnwidth]{Imagens/results/EDA/TSNE.png}
     \caption{Agrupamento de amostras via técnica TSNE.
     Fonte: Autor}
    \label{fig:TSNE}
 \end{figure}
-
-A partir da matriz de coocorrência, podemos averiguar sobreposições de classes mais frequentes. É possível constatar que as amostras relacionadas a vegetação primária, agricultura e águas são as predominantes. Quanto ao clima, também há sobreposição de classes. Contudo, para as classes raras, são em sua maior parte independentes entre si.
-
-Outra técnica de semelhança entre amostras é o t-SNE\footnote[5]{T-distributed Stochastic Neighor Embedding} que é um método de redução de dimensionalidade para dados de alta dimensionalidade e projeção em espaço de baixa dimensão. Assim é possível realizar agrupamentos de amostras próximas num espaço de representação. Na figura \ref{fig:TSNE} podemos verificar grupos de amostras visualmente próximos que serão desafiadores de realizar uma classificação precisa. FONTE
-
 
 \subsection{\textit{Pré-processamento}}\label{sec:Cap3_PreProcess}
 O pré-processamento consiste em preparar as amostras do conjunto de dados de interesse para treino e validação utilizando as bibliotecas mencionadas anteriormente. Para o conjunto de dados floresta amazônica temos 40479 amostras. Foram separadas em uma divisão de treino-validação na proporção 80\%-20\%. Cada recorte de resolução $256 \times 256$ px.
@@ -303,14 +304,14 @@ Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gr�
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/pontuação em treino e validação por época.jpg}
-    \caption{ Arquitetura de modelo base.Fonte: Autor}
+    \caption{ Métrica F2 em treino e validação por época para a rede ResNet50. Fonte: Autor}
     \label{fig:TreinoResnetScore}
 \end{figure}  
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.jpg}
-    \caption{ Arquitetura de modelo base. Fonte: Autor}
+    \caption{ Métrica de perda em treino e validação por época para a rede ResNet50. Fonte: Autor}
     \label{fig:TreinoResnetPerda}
 \end{figure}
 
@@ -322,14 +323,14 @@ Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gr�
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/pontuação em treino e validação por época.jpg}
-    \caption{ Arquitetura de modelo base.Fonte: Autor}
+    \caption{ Métrica F2 em treino e validação por época para a rede Swin-T. Fonte: Autor}
     \label{fig:PontuacaoTrainSwin}
 \end{figure}  
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Training Loss Per Minibatch.jpg}
-    \caption{ Arquitetura de modelo base. Fonte: Autor}
+    \caption{ Métrica de perda em treino e validação por época para a rede Swin-T. Fonte: Autor}
     \label{fig:LossTrainSwin}
 \end{figure}
 

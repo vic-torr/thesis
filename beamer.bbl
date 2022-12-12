@@ -1,0 +1,31 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Dosovitskiy et al. 2020]{dosovitskiy2020image}
+\abntrefinfo{Dosovitskiy et al.}{DOSOVITSKIY et al.}{2020}
+{DOSOVITSKIY, A. et al. An image is worth 16x16 words: Transformers for image
+  recognition at scale.
+\emph{arXiv preprint arXiv:2010.11929}, 2020.}
+
+\bibitem[instrutorgis 2022]{InstrutorGIS}
+\abntrefinfo{instrutorgis}{INSTRUTORGIS}{2022}
+{INSTRUTORGIS. \emph{QGIS: Satélite Amazonia-1 – Composição Colorida RGB}.
+  2022.
+Dispon{\'\i}vel em:
+  \url{https://www.instrutorgis.com.br/qgis-satelite-amazonia1-composicao-colorida-rgb}.}
+
+\bibitem[Mitchell 1997]{Mitchell97}
+\abntrefinfo{Mitchell}{MITCHELL}{1997}
+{MITCHELL, T.~M. \emph{Machine Learning}. New York: McGraw-Hill, 1997.
+ISBN 978-0-07-042807-2.}
+
+\bibitem[Samuel 1959]{Samuel1959SomeSI}
+\abntrefinfo{Samuel}{SAMUEL}{1959}
+{SAMUEL, A.~L. Some studies in machine learning using the game of checkers.
+\emph{IBM J. Res. Dev.}, v.~3, p. 210--229, 1959.}
+
+\end{thebibliography}

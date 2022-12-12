@@ -190,11 +190,12 @@ A maior vantagem dos modelos CNN em comparação com os métodos anteriores era 
     \label{fig:conv}
 \end{figure}
 
+\subsection{\textit{ResNet}}\label{sec:Cap2_ResNet}
+
 Após a primeira arquitetura AlexNet, a arquitetura subsequentes utilizaram mais camadas em uma rede neural profunda para gerar melhores modelos. Contudo, sofreram de um problema de convergência de otimização e regularização, chamado explosão de gradiente. Consiste no fato de quando o número de camadas é muito alta há gera gradientes muito altos ou se tornam zero, fazendo com que o treinamento não tenha convergência. 
 Para solucionar este problema, foi proposta a arquitetura de redes residuais, que possuem conexões saltos, conectando camadas de diferentes profundidades, como ilustra \ref{fig:ResNet-Rsp}. Possibilitando a propagação de gradiente saltando camadas. Assim mitigou o problema de explosão de gradientes e permitiu, desde então, a escalabilidade de redes neurais profundas. 
 
 
-\subsection{\textit{ResNet}}\label{sec:Cap2_ResNet}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg}
