@@ -1,0 +1,12 @@
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\contentsline {table}{\numberline {1}{\ignorespaces Proporção de Classes do conjunto de dados \textit {Planet}}}{38}{table.3.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces Características do modelo fornecida pela biblioteca }}{40}{table.3.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces Resultados do Modelo ResNet50}}{49}{table.4.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces Classes Raras Dataset \textit {Planet} — Valores do conjunto de dados inteiro}}{49}{table.4.4}%
+\contentsline {table}{\numberline {5}{\ignorespaces Resultados do Modelo Base}}{49}{table.4.5}%
+\contentsline {table}{\numberline {6}{\ignorespaces Resultados do Modelo Swin-T}}{51}{table.4.6}%
+\contentsline {table}{\numberline {7}{\ignorespaces Comparação de resultados da métrica F2 entre Modelo base e proposto.}}{51}{table.4.7}%
+\contentsline {table}{\numberline {8}{\ignorespaces Comparação de resultados da métrica PR-AUC entre Modelo base e proposto.}}{52}{table.4.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces Resultados do Modelo Swin-T}}{62}{table.anexochapback.0.9}%
+\contentsline {table}{\numberline {10}{\ignorespaces Resultados do Modelo ResNet50}}{63}{table.anexochapback.0.10}%
