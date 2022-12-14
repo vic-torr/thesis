@@ -52,17 +52,17 @@
 % ---
 % inserir lista de ilustrações
 % ---
-% \pdfbookmark[0]{\listfigurename}{lof}
-%\listoffigures*
-% \cleardoublepage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 % ---
 
 % ---
 % inserir lista de tabelas
 % ---
-% \pdfbookmark[0]{\listtablename}{lot}
-% \listoftables*
-% \cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 % ---
 
 \include{Capa/ListaSiglas}
@@ -73,8 +73,8 @@
 % inserir o sumario
 % ---
 %\pdfbookmark[0]{\contentsname}{toc} - Não remover comentário
-% \tableofcontents*
-% \cleardoublepage
+\tableofcontents*
+\cleardoublepage
 % ---
 
 % ----------------------------------------------------------
@@ -149,4 +149,8 @@
 \phantompart
 \printindex
 %---------------------------------------------------------------------
+\end{document}
 
+
+
+%---------------------------------------------------------------------

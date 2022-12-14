@@ -1,12 +1,21 @@
 \documentclass{beamer}
 \usepackage{tikz}
 
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{microtype} 			% para melhorias de justificação
 \usepackage{graphicx}
 % Required package
 \usepackage{subcaption}
 % ---
 % Configurações de aparência do PDF final
 
+%\usepackage[section]{algorithm}
+%\usepackage[numbered]{algo}
 
 \usepackage{xcolor}
 
@@ -29,6 +38,7 @@
 
 \frame{\titlepage}
 
+% Motivação
 \begin{frame}
 \frametitle{Motivação}  
 
@@ -43,7 +53,7 @@
 
 \end{frame}
 
-
+% Revisão -----
 \begin{frame}
     \frametitle{Revisão bibliográfica }
 \begin{itemize}
@@ -93,103 +103,413 @@
     \frametitle{Aprendizado de máquina - Exemplo}
     Exemplo:  
 
-    \begin{quotation}
-        “Um algoritmo dito conseguir uma experiência E com respeito a determinada classe de tarefas T e com medidas de desempenho P, se seu desempenho nas tarefas em T, medidas por P, melhoram a partir da experiência E.” ~\cite{Mitchell97} 
-        \end{quotation}
-
     \begin{itemize}
         \item Tarefa T: Problema de classificação
         \item Experiência E: Amostras dentre k classes a classificar
         \item Desempenho P: acurácia do algorítimo
     \end{itemize}
     
-    Determinar função:
+    Produzir função:
 
     \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \)
     %Para melhor entender cada constituinte dessa definição, podemos utilizar de um exemplo. A tarefa T temos como exemplo o problema de classificação, que consiste do algorítimo responder quais das k categorias para o qual ele experimentou em E, certas amostras de entradas pertencem. Para resolver tal tarefa, tal algorítimo de aprendizado deve produzir uma função \(f:\Re^n\rightarrow \{1,\ldots,k\}\). Quando \( y=f(x) \), o modelo atribui uma entrada descrita pelo por \(x\), que nosso caso constitui uma amostra de entrada, a uma categoria identificada por um código numérico \(y\). Uma variante do mesmo problema é em vez de classificar qual classe, retornar a distribuição de probabilidade sobre as classes~\cite{GoodBengCour16}. A medida de desempenho P, necessária para avaliar as habilidades de um dado algorítimo. Tal medida de desempenho é geralmente atrelada ao tipo de tarefa sendo realizada pelo sistema. 
     \end{frame}
 
 
-    \begin{frame}
+\begin{frame}
         \frametitle{Métricas de desempenho}
         \begin{figure}[!ht]
             \centering
-            \begin{minipage}[c]{0.4\textwidth}
-                \includegraphics[width=\columnwidth]{Imagens/Precisão_e_revocação.png}
-                \caption{Ilustração das métricas de precisão e revocação.}
-            \end{minipage}%
-            \begin{minipage}{0.5\textwidth}
-                \includegraphics[width=\columnwidth]{Imagens/matrix_confusão.png}
-                \begin{equation} P = \frac{vp}{vp + vp} \end{equation}
-                \begin{equation}R = \frac{vp}{vp + fp}\end{equation}
-                \begin{equation}F_\beta = (1+\beta^2) \times \frac {P \times R}{\beta^2 P + R}\end{equation}
-                \begin{equation}F_2 = 5 \times \frac {P \times R}{5 P + R}\end{equation}    
-            \end{minipage}
-            \caption{Matriz Confusão, Equações de Precisão, revocação, $F_\beta$ e $F_2$}         
-            \label{fig:metricas}
+                \includegraphics[width=\columnwidth]{Imagens/Precisão_e_revocação_cropped.png}
+            \caption{Precisão e revocação}         
         \end{figure}
 \end{frame}  
 
 
 \begin{frame}
-    \frametitle{Proposta}
+    \frametitle{Métricas de desempenho}
+    \begin{figure}[!ht]
+        \centering
+            \includegraphics[width=0.6\columnwidth]{Imagens/matrix_confusão.png}
+            \begin{equation} P = \frac{VP}{VP + VP} \end{equation}
+            \begin{equation}R = \frac{VP}{VP + FP}\end{equation}
+            \begin{equation}AC = \frac{VP + VN}{VP + VN + FM + FP}\end{equation}
+        \caption{Matriz Confusão, Equações de Precisão, Revocação e Acurácia}         
+        \label{fig:metricas}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Métricas de desempenho}
+    \begin{figure}[!ht]
+        \centering
+        \begin{equation}F_1 = \frac {P \times R}{P + R}\end{equation}
+            \begin{equation}F_\beta = (1+\beta^2) \times \frac {P \times R}{\beta^2 P + R}\end{equation}
+            \begin{equation}F_2 = 5 \times \frac {P \times R}{5 P + R}\end{equation}    
+        \caption{Equações de $F_\beta$ e $F_2$}         
+        \label{fig:metricas}
+    \end{figure}
+\end{frame}  
+
+\begin{frame}
+    \frametitle{Regressão logística}
+    \begin{figure}[!ht]
+        \centering
+        \begin{minipage}[c]{0.4\textwidth}
+            \includegraphics[width=\columnwidth]{Imagens/sigmoid-activation-function.jpg}
+            \caption{Função de ativação \textit{Sigmoid}.}
+        \end{minipage}%
+        \begin{minipage}{0.5\textwidth}
+            \begin{equation} \sigma(x) = \frac{1} {1+ exp(-z(x))}\end{equation}
+        \end{minipage}       
+        \label{fig:sigmoid}
+    \end{figure}
+% A regressão logística é uma técnica estatística que tem como objetivo produzir, a partir de um conjunto de observações, um modelo que permita a predição de valores tomados por uma variável categórica, frequentemente binária, a partir de uma série de variáveis explicativas contínuas e/ou binárias
+\end{frame}
+
+\begin{frame}
+    \frametitle{Otimização}
+
+\begin{equation}
+    w \leftarrow w - \eta \nabla L(w)
+\end{equation}
+\begin{equation}
+Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n}\sum_i \nabla Q_i(w)
+\end{equation}
+\begin{figure}[!ht]
+    \centering
+        \includegraphics[width=0.6\columnwidth]{Imagens/stochastic_gradient_descent.PNG}
+    \caption{Ilustração do algorítimo gradiente descendente estocástico. }
+    \label{fig:SGD}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Função de perda}
+
+    \begin{equation}
+        ECB(y_c) = -\sum_{c=0}^{M} y_c \times log(\hat{y_c})
+    \end{equation}
+
+    \begin{equation}
+        Focal(y_c) = -\sum_{c=0}^{M} (1-w_i \times y_c)^\gamma \times log(\hat{y_c})
+    \end{equation}
+% Otimizadores possuem como objetivo ajustar pesos de uma função de custo para minimizar ou maximizar tal custo. Para quantificar o custo são utilizadas métricas de perda. Dentre elas, as funções de custos ideais para classificação binária multiclasses e multirótulos temos a entropia binária cruzada, definida por
+
+% Para conjuntos de dados muito desbalanceados, pode-se mitigar o sobre-ajuste da classe dominante utilizando BCE com pesos do inverso da frequência das classes:    
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{Redes Neurais Artificiais Profundas}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.6\columnwidth]{
+            Imagens/RedeNeural.PNG
+        }
+        \caption{Exemplo de uma rede de perceptrons de multiplas camadas - MLP.}
+        \label{fig:ann}
+    \end{figure}
+% O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data.
+
+%Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Sobre-ajuste}. Se trata de quando o modelo é treinado e para gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de DNNs\footnote{\textit{Deep Neural Networks}}, podemos citar o \textit{Dropout, Dropconnect e pruning}, que consistem em respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.        
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Redes convolucionais}
         \begin{figure}[!ht]
             \centering
             \includegraphics[width=0.95\columnwidth]{
                 Imagens/CNN_mathworks.jpg
             }
-            \caption{Arquitetura de uma rede convolucional. Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluta alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.}
+            \caption{Arquitetura de uma rede convolucional. }
+            % Filtros extratores de características são aplicados em diferentes resoluções e campos visuais. A saída de cada imagem convoluta alimenta a próxima camada. As ultimas camadas completamente conectadas realizam a classificação.
             \label{fig:cnn}
         \end{figure}
-    \end{frame}
+
+
+% Uma arquitetura clássica é a rede neural convolucional (CNN\footnote{\textit{Convolutional Neural Network}}), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+
+
+%Em 2012, o modelo de CNN AlexNet ultrapassou em desempenho os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes \textit{datasets}\footnote{Conjunto de dados} como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.
+
+%A maior vantagem dos modelos CNN em comparação com os métodos anteriores era de conseguir ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariância translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
+\end{frame}
+
 
 \begin{frame}
+    \frametitle{Redes convolucionais}
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{
+                Imagens/operacao_conv.png
+            }
+            \caption{
+         Filtro convolucional que aplica uma janela deslizante aplicando operação de convolução e pooling.  
+                % --- Source: https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2
+            }
+            \label{fig:conv}
+        \end{figure}        
 
-\frametitle{Método}
+% Uma arquitetura clássica é a rede neural convolucional (CNN\footnote{\textit{Convolutional Neural Network}}), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+
+
+%Em 2012, o modelo de CNN AlexNet ultrapassou em desempenho os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes \textit{datasets}\footnote{Conjunto de dados} como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.
+
+%A maior vantagem dos modelos CNN em comparação com os métodos anteriores era de conseguir ser treinados ponta a ponta, sem a necessidade de criação de filtros ou a criação manual de extratores de características visuais. Também possuem duas importantes propriedades como invariância translacional, isto é, o sistema produz a mesma resposta independente de translação; e campo receptivo restrito, o que significa que neurônios das primeiras camadas capturam detalhes finos e locais.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{ResNet}
+
     \begin{figure}[!ht]
         \centering
-        \includegraphics[width=0.5\columnwidth]{
+        \includegraphics[width=0.9\columnwidth]{Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg}
+        \caption{ Arquitetura redes ResNet.}
+       \label{fig:ResNet-Rsp}
+    \end{figure}
+% Um dos principais desafios envolvido o treino de \textit{CNNs} aplicado a sensoriamento remoto é representar um estado de características que cubram as variações fotográficas, tanto em características do sensor, como variações da imagem no dia, clima, estação e plataforma da câmera, o que se torna uma tarefa difícil. Para uma localização efetiva, o modelo deve ser robusto a todas essas variações, que requer um grande conjunto de treino que cobre boa parte das diversas condições possíveis. Tal conjunto de dados não é disponível e nem viável de obter, pois se trata um volume muito grande de amostras. Tais limitações levam a necessitar o desenvolvimento de algorítimos que aprendem seletivamente para que o poder computacional seja utilizado eficientemente, bem como reutilizar conhecimento prévio e evitar treinamento redundante~\cite{rostami2019learning}.  Dentre as técnicas utilizadas para implementar esses modelos mais eficientes, temos como exemplo o aprendizado supervisionado fraco, e a transferência de aprendizado.    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Transformer Visual}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.7\columnwidth]{
             Imagens/vit.png
         }
         \includegraphics[width=0.2\columnwidth]{
             Imagens/encoder.png
         }
-        \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo. \cite{dosovitskiy2020image}}
+        \caption{\cite{dosovitskiy2020image}}
+        % O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos os canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos Encoders em paralelo. 
         \label{fig:vit}
-\end{figure}
-% Diante desse desafio, este trabalho consiste em utilizar técnicas estado da arte de visão computacional e aprendizado profundo para fazer classificações de regiões e capturas de satélites.
-
-% Para isso serão testado modelos consolidados de visão, como o ResNet, bem como mais recentes, baseados em transformers visuais, o ViT. Também serão utilizadas técnicas de transferência de aprendizado, por meio de ajuste fino de modelo pré-treinados.
+    \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Resultados e discussão}
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.45\columnwidth]{
-        Imagens/validacao_cruzada.png
-    }
-    \includegraphics[width=0.45\columnwidth]{
-        Imagens/fine_tune.png
-    }
-    \caption{O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos encoders em paralelo. \cite{dosovitskiy2020image}}
-    \label{fig:vit}
-\end{figure}
-% Serão utilizados modelos pré-treinados em Imagens de sensoriamento remoto e serão experimentados se a partir do fine-tune generalizam bem o suficiente para serem utilizados na prática, nesta corrente aplicação. % Para avaliação dos resultados, também serão comparados com trabalhos bases. Serão aplicadas técinicas de validação como validação cruzada de 5 partições.
+    \frametitle{Transformer Swin}
 
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=\columnwidth]{Imagens/arquitetura swin.png}
+        \caption{Arquitetura swin ~\cite{liu2022swin}}
+        \label{fig:SWIN-arquitetura}
+    \end{figure}
+
+    % Em~\cite{liu2022swin} foi proposto uma arquitetura de transformer visual com melhorias capazes de reduzir o custo computacional do cálculo de atenção entre cada recorte da imagem de entrada. Este trabalho aponta que a ordem de complexidade do ViT clássico é $O(n^2)$, sendo $n$ o número de retalhos, já que é calculado a métrica de atenção entre cada retalho com todos os outros demais. Com isso, torna caro o treino para maiores resoluções ou granularidade de detalhes. A arquitetura Swin, ou \textit{Shifted Window} se baseia em uma disposição hierárquica de Transformers, como ilustra a figura \ref{fig:SWIN-arquitetura}, sendo que nas camadas mais baixas, coletam atenção apenas localmente e não com todo restante da imagem. Dessa forma o custo se torna aproximadamente linear. 
 \end{frame}
 
 \begin{frame}
-\frametitle{Conclusão}
-%Com o principal objetivo de aplicação de regiões irregulares como garimpo, agropecuária e desmatamento, este trabalho utilizará técnicas estado da arte de visão computacional e aprendizado profundo, bem como trabalhará arquiteturas como redes convolucionais e Transformers Visuais. 
+    \frametitle{Trabalhos anteriores}
+
+    \begin{itemize}
+        \item Em \cite{rs14071746}: Detecção de mudanças para detecção de minas de ouro
+        \item Em \cite{s20236936}: classificação de minas e represas
+        \item ~\cite{wang2022empirical}: Dataset MillionAID e transformers visuais
+        \item Em~\cite{9701667}: transformers visuais para detecção de desmatamento
+    \end{itemize}
+\end{frame}
+
+
+% Metodologia -----
+
+\begin{frame}
+
+\frametitle{Método}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{
         Imagens/chips.jpg
     }
-    \caption{Amostras de classes do dataset Amazônia do espaço}\label{fig:dataset}
+    \caption{Amostras de classes do dataset Amazônia do Espaço Fonte:\cite{Kaggle:PlanetAmazonFromSpace}}\label{fig:dataset}
 \end{figure}
+
+% Este conjunto de dados é de imagens coletados dos satélites Planet Flock entre 2016 e 2017. Todas as imagens são da bacia amazônica. Este data set concerne ao desmatamento e cobrindo condições atmosféricas, coberturas de terreno e fenômenos raros. Cada amostra é um recorde de $256 \times 256$ pixeis RGB, pertencente a uma ou mais das 17 classes distintas e possui resolução espaciais variáveis, por exemplo, de $3 m$ por píxel. Este data set foi publicado pela empresa Planet\footnote{https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data} na plataforma Kaggle, de concursos de aprendizado de máquina. Também são disponibilizadas o mesmo conjunto de dados com o canal de infravermelho-próximo e sem compressão.
+
+% Outros datasets também foram considerados mas por limitaões de tempo e de tratamento das amostras não foram possíveis de serem utilizadas
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Premissas e proposta de solução}
+    \begin{itemize}
+        \item Explorar viés indutivo dos transformers visuais
+        \item Comparar desempenho de um modelo Swin e ResNet
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Ambiente e ferramentas}
+    \begin{itemize}
+        \item Jupyter e ambiente cloud Google Collab
+        \item Pytorch, SciKitLearn e NumPy
+    \end{itemize}
+% O Ambiente dos experimentos será em cadernos \textit{Jupyters}, para ser facilmente replicável e ser executável em nuvem, com a possibilidade de alugar recursos computacionais da plataforma em nuvem \textit{Google Colab}.
+
+
+
+% Foram dispostos 100h de orçamento de recursos computacionais, em uma instância da plataforma com GPU NVidia Tesla T4 de 12 GB de RAM. CPU Intel(R) Xeon(R) CPU @ 2.20GHz, 12 GB de memória. Para o treinamento de redes neurais profundas, aceleradores como placas gráficas podem resultar em ganhos de tempo de até 40x em comparação com treinamentos em CPU, bem como o uso da RAM para placa gráfica para realizar \textit{caching}\footnote[1]{Caching é o processo de utilizar um espaço de memória para o armazenamento temporário e de acesso rápido de dados que possuem uma grande probabilidade de serem utilizados novamente} obtendo melhores tempos de acesso durante carregamentos. Todos resultados de experimentos serão executados neste \href{https://colab.research.google.com/github/vic-torr/thesis-experiments/blob/main/experiments/rsp_Swint_t_planet_portugues.ipynb}{Caderno Jupyter}.
+
+% Pytorch é um \textit{framework}\footnote{Ferramental} de processamento de tensores e acelerados por GPU\footnote[3]{Unidade de Processamento Gráfico, Trad.:\textit{Graphic Process Unit}} ou TPUs \footnote{Unidade de Processamento de Tensores. Trad. de \textit{Tensor Processing Unit}} para aprendizado de máquina profundo. É código-aberto, possuindo um front-end de fácil utilização em Python, implementado em linguagens C++ e CUDA para otimizações de computações numéricas, matriciais e de diferenciação, extensivas para esta aplicação.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experimentos}
+    \begin{enumerate}
+        \item   Análise exploratória dos dados
+        \item   Disponibilizar pre-processamento do conjunto de dados e de carregadores de amostras.
+        \item   Elaborar um modelo base
+        \item   Utilizar pesos do dos trabalhos disponibilizados para fine-tune. 
+        \item   Elaborar modelo proposto baseado em transformers visuais
+        \item   Fixar os hiperparâmetros e metodologia de treino para modelos base e proposto e treiná-los novamente a fim de realizar comparações
+        \item   Realizar análise dos resultados de ambos e comparar desempenho em várias métricas relevantes ao problema
+        \end{enumerate}
+        
+\end{frame}
+
+\begin{frame}{size: 9pt, vskip=10pt}
+    \frametitle{Análise de dados exploratória}
+    \fontsize{9pt}{10pt}\selectfont
+        %\caption{Proporção de Classes do conjunto de dados \textit{Planet}}
+        %\centering
+    \begin{tabular}{*{4}{c}}
+        \hline
+        Classe                  &            Rótulo &  Amostras      &  Proporção (\%) \\
+        \hline
+        Mina Convencional       & conventional mine &        100     &       0,247 \\
+        Roça de Ventos          &         blow down &        101     &       0,250 \\
+        Queimada                &        slash burn &        209     &       0,516 \\
+        Florescimento           &          blooming &        332     &       0,820 \\
+        Garimpo                 &    artisinal mine &        339     &       0,837 \\
+        Desmatamento Seletivo   & selective logging &        340     &       0,840 \\
+        Área Descoberta         &       bare ground &        862     &       2.129 \\
+        Nublado                 &            cloudy &       2089     &       5.161 \\
+        Névoa                   &              haze &       2697     &       6.663 \\
+        Habitação               &        habitation &       3660     &       9.042 \\
+        Cultivação              &       cultivation &       4547     &      11.233 \\
+        Parcialmente Nublado    &     partly cloudy &       7261     &      17.938 \\
+        Águas                   &             water &       7411     &      18.308 \\
+        Estrada                 &              road &       8071     &      19.939 \\
+        Agricultura             &       agriculture &      12315     &      30.423 \\
+        Clima Limpo             &             clear &      28431     &      70.236 \\
+        Vegetação Primária      &           primary &      37513     &      92.673 \\
+        \hline
+    \end{tabular}
+    %\label{table:proporcao_classes}
+  
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Resultados e discussão}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=\columnwidth]{Imagens/results/EDA/Class Sampling.jpg}
+        \caption{Amostragem de cada classe de rótulo.
+        Fonte: Autor}
+       \label{fig:classes}
+    \end{figure}
+        
+\end{frame}
+    
+
+\begin{frame}
+    \frametitle{Análise de dados exploratória - Matriz de co-ocorrência}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.8\columnwidth]{Imagens/results/EDA/matriz de coocorrencia.png}
+        \caption{Matriz de co-ocorrência.
+        Fonte: Autor}
+       \label{fig:coocorrencia}
+    \end{figure}    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Análise de dados exploratória - Agrupamento de amostras}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.7\columnwidth]{Imagens/results/EDA/TSNE.png}
+        \caption{Agrupamento de amostras via técnica TSNE.
+        Fonte: Autor}
+       \label{fig:TSNE}
+    \end{figure}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Pré-processamento, Transformação e carregamento}
+    \begin{enumerate}
+        \item   Carregamento dos canais RGB e descartando o de infravermelho-próximo de cada imagem.
+        \item   Redimensionamento usando interpolação linear de $256 \times 256px$ para $224 \times 224px$. Isto se deve ao fato dos modelos já terem sido pré-treinados e configurados para essa dimensão de entrada.
+        \item   Conversão da imagem para estrutura de dados numérica de Tensor
+        \item   Aplicar espelho vertical ou horizontal, cada um com probabilidade de 25%.
+        \item   Normalizar cada canal de cor RGB usando normalização Gaussiana com médias e desvio padrão do dataset ImageNet.
+    \end{enumerate}    
+\end{frame}
+
+\begin{frame}
+\frametitle{Definição do modelo}
+\fontsize{7pt}{8pt}\selectfont
+\begin{tabular}{*{8}{c}}
+    \hline
+    Nome & Pré-Treino & Resolution & Acurácia@1 & Acurácia@5 &  Parâmetros & FLOPs \\
+    \hline
+    Swin-T & ImageNet-1K & 224x224 & 81.474 & 95.5 &	28.3M &	4.5G \\
+    Resnet50 & ImageNet-1K & 224x224 &	80.858 & 92.9 &	25.5M &	4.1G \\
+    % https://pytorch.org/vision/main/models/generated/torchvision.models.swin_t.html
+    \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Seleção de modelos}
+\begin{enumerate}
+    \item Pesos pré-treinados
+    \item Aumentar capacidade da rede
+    \item Adicionar regularização 
+    \item Amostrador
+    \item Aumento de dados aleatória
+    \item Função de perda
+    \item Otimizador
+    \item Taxas de aprendizado
+    \item Transferência de aprendizado vs Fine Tune
+    \item Experimentar os mesmos passos para o modelo Swin-T
+\end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Resultados e discussão}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Resultados e discussão}
+
+\end{frame}        
+
+\begin{frame}
+\frametitle{Conclusão}
+%Com o principal objetivo de aplicação de regiões irregulares como garimpo, agropecuária e desmatamento, este trabalho utilizará técnicas estado da arte de visão computacional e aprendizado profundo, bem como trabalhará arquiteturas como redes convolucionais e Transformers Visuais. 
+
+
 
 \end{frame}
 
