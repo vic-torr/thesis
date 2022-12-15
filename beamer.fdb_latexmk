@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex beamer"] 1671088986 "beamer.aux" "beamer.bbl" "beamer" 1671089179
+["bibtex beamer"] 1671089609 "beamer.aux" "beamer.bbl" "beamer" 1671089618
   "/usr/share/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1650181511 5396 4eb260dac60f150ae608d45252853090 ""
   "/usr/share/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1650181511 60064 0819ac8568f9a482510a46e3a8a6f605 ""
   "Referencias.bib" 1670994852 22164 71a57e26c53d340d3cf8a6a5cbbf429a ""
-  "beamer.aux" 1671089178 16874 7a7fe2fc2d301971e45cb01439389e76 "pdflatex"
+  "beamer.aux" 1671089617 16877 523882f5c02fa4b5e558b23323d507c6 "pdflatex"
   (generated)
   "beamer.bbl"
   "beamer.blg"
-["pdflatex"] 1671089172 "/home/vektor/Thesis/thesis/beamer.tex" "beamer.pdf" "beamer" 1671089179
-  "/home/vektor/Thesis/thesis/beamer.tex" 1671089170 41369 41430b4cb2ad1bbc90a6ee7ba880fb6f ""
+["pdflatex"] 1671089609 "/home/vektor/Thesis/thesis/beamer.tex" "beamer.pdf" "beamer" 1671089618
+  "/home/vektor/Thesis/thesis/beamer.tex" 1671089598 41372 73bcb504a7c20af881ba314285c37a12 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1650183167 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1650183167 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1650183167 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -288,12 +288,12 @@
   "Imagens/sigmoid-activation-function.jpg" 1670198839 18399 dfe1a5a755f741f5cf379d7584c54d09 ""
   "Imagens/stochastic_gradient_descent.png" 1657078470 90537 7140a8b685231536cdd79f453b28e54c ""
   "Imagens/vit.png" 1656999179 97444 f949a7994070f494d5285892eb3ac660 ""
-  "beamer.aux" 1671089178 16874 7a7fe2fc2d301971e45cb01439389e76 "pdflatex"
-  "beamer.bbl" 1671088986 3089 f1cdd0c7b51cdd18325e6381d95f9eae "bibtex beamer"
-  "beamer.brf" 1671089178 429 a73fff38ac8ffec7712ef513da3846a6 "pdflatex"
-  "beamer.nav" 1671089178 6723 9fe39e9a7ede2f49245bc0c3f82af459 "pdflatex"
-  "beamer.out" 1671089178 1016 afb1d3f525e1305cc7a8d5f781a6e3e9 "pdflatex"
-  "beamer.toc" 1671089178 443 a4645f5cfc0101205043ef13ea880ee5 "pdflatex"
+  "beamer.aux" 1671089617 16877 523882f5c02fa4b5e558b23323d507c6 "pdflatex"
+  "beamer.bbl" 1671089609 3089 f1cdd0c7b51cdd18325e6381d95f9eae "bibtex beamer"
+  "beamer.brf" 1671089617 429 a73fff38ac8ffec7712ef513da3846a6 "pdflatex"
+  "beamer.nav" 1671089617 6723 9fe39e9a7ede2f49245bc0c3f82af459 "pdflatex"
+  "beamer.out" 1671089617 1016 afb1d3f525e1305cc7a8d5f781a6e3e9 "pdflatex"
+  "beamer.toc" 1671089617 443 a4645f5cfc0101205043ef13ea880ee5 "pdflatex"
   (generated)
   "beamer.aux"
   "beamer.brf"
