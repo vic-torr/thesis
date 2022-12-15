@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[8pt]{beamer}
 \usepackage{tikz}
 
 
@@ -34,7 +34,7 @@
 \setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
 
 %Information to be included in the title page:
-\title{Implementação de um modelo de classificação de áreas irregulares na Floresta Amazônica baseado em Transformers Visuais}
+\title{Prova de conceito de um modelo classificador de áreas irregulares na Floresta Amazônica baseado em Transformers Visuais}
 
 
 \author{Victor Moraes}
@@ -46,7 +46,16 @@
 
 \frame{\titlepage}
 
+\begin{frame}{Estrutura da Apresentação}
+    \tableofcontents
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Summary}
+
+\end{frame}
+
 \section{Introdução} 
+
+    %Este trabalho estuda as limitações das técnicas já estabelecidas de redes convolucionais e realizará uma prova de conceito de uma técnica de visão computacional de arquitetura Swin para classificação de imagens de áreas irregulares da amazônia, baseado em transformers visuais. Assim como a comparação de desempenho dentre as duas técnicas. Além de prover uma metodologia e experimentos reprodutíveis para utilização da arquitetura Swin para problemas análogos, de diferentes conjuntos de dados de sensoriamento remoto.
+
 
 \section{Motivação} 
 \begin{frame}{Motivação}  
@@ -140,7 +149,6 @@
             \begin{equation}R = \frac{VP}{VP + FP}\end{equation}
             \begin{equation}AC = \frac{VP + VN}{VP + VN + FM + FP}\end{equation}
         \caption{Matriz Confusão, Equações de Precisão, Revocação e Acurácia}         
-        \label{fig:metricas}
     \end{figure}
 \end{frame}
 
@@ -151,7 +159,14 @@
             \begin{equation}F_\beta = (1+\beta^2) \times \frac {P \times R}{\beta^2 P + R}\end{equation}
             \begin{equation}F_2 = 5 \times \frac {P \times R}{5 P + R}\end{equation}    
         \caption{Equações de $F_\beta$ e $F_2$}         
-        \label{fig:metricas}
+    \end{figure}
+\end{frame} 
+
+\begin{frame}{Curva PR}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{Imagens/pr_curve_orig.jpg}
+        \caption{Curva Precisão-Recisão}
     \end{figure}
 \end{frame}  
 
@@ -294,12 +309,33 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
     \end{figure}
 \end{frame}
 
+
+\begin{frame}{Auto-Atenção}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.3\columnwidth]{
+            Imagens/Scaled Dot-Product Attention.png
+        }
+        \includegraphics[width=0.3\columnwidth]{
+            Imagens/Multi-Head Attention.png
+        }
+
+        \begin{equation}
+            Y = softmax(QK^T)V
+        \end{equation}
+        \caption{\cite{dosovitskiy2020image}}
+        % O ViT divide uma imagem em uma grade de recortes quadrados, cada fragmento é achatado em um vetor único contendo todos os canais de todos os pixeis, e projetando-os em uma dimensão de entrada desejada, alimentando a camada de múltiplos Encoders em paralelo. 
+        \label{fig:vit}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Transformer Swin}
 
     \begin{figure}[!ht]
         \centering
         \includegraphics[width=\columnwidth]{Imagens/arquitetura swin.png}
-        \caption{Arquitetura swin ~\cite{liu2022swin}}
+        \caption{Arquitetura Swin (\textit{Shifted-Window} - Janela deslocada) ~\cite{liu2022swin}}
         \label{fig:SWIN-arquitetura}
     \end{figure}
 
@@ -362,19 +398,18 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
 
 \begin{frame}{Experimentos}
     \begin{enumerate}
-        \item   Análise exploratória dos dados
-        \item   Disponibilizar pre-processamento do conjunto de dados e de carregadores de amostras.
-        \item   Elaborar um modelo base
+        \item   Análise exploratória dos dados.
+        \item   Pre-processamento do conjunto de dados e de carregadores de amostras.
+        \item   Elaborar um modelo base.
         \item   Utilizar pesos do dos trabalhos disponibilizados para fine-tune. 
-        \item   Elaborar modelo proposto baseado em transformers visuais
-        \item   Fixar os hiperparâmetros e metodologia de treino para modelos base e proposto e treiná-los novamente a fim de realizar comparações
-        \item   Realizar análise dos resultados de ambos e comparar desempenho em várias métricas relevantes ao problema
+        \item   Elaborar modelo proposto baseado em transformers visuais.
+        \item   Fixar os hiperparâmetros e metodologia de treino para modelos base e proposto e treiná-los novamente a fim de realizar comparações.
+        \item   Análise dos resultados de ambos comparando desempenho em métricas relevantes ao problema.
         \end{enumerate}
         
 \end{frame}
 \subsection{Análise exploratória}
 \begin{frame}{Análise exploratória}
-    \fontsize{9pt}{10pt}\selectfont
         %\caption{Proporção de Classes do conjunto de dados \textit{Planet}}
         %\centering
     \begin{tabular}{*{4}{c}}
@@ -405,12 +440,10 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Amostragem de cada classe}
-
+\begin{frame}{Amostragem de cada classe}
     \begin{figure}[!ht]
         \centering
-        \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf}
+        \includegraphics[width=0.7\textheight]{Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf}
         \caption{Amostragem de cada classe de rótulo.
         Fonte: Autor}
        \label{fig:classes}
@@ -422,7 +455,7 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
 \begin{frame}{Matriz de co-ocorrência}
     \begin{figure}[!ht]
         \centering
-        \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf}
+        \includegraphics[width=0.6\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf}
         \caption{Matriz de co-ocorrência.
         Fonte: Autor}
        \label{fig:coocorrencia}
@@ -450,9 +483,10 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
     \end{enumerate}    
 \end{frame}
 
-\begin{frame}
-\frametitle{Definição do modelo}
-\fontsize{7pt}{8pt}\selectfont
+\begin{frame}{Definição do modelo}
+
+\centering
+\fontsize{6pt}{7pt}\selectfont
 \begin{tabular}{*{8}{c}}
     \hline
     Nome & Pré-Treino & Resolution & Acurácia@1 & Acurácia@5 &  Parâmetros & FLOPs \\
@@ -462,6 +496,14 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
     % https://pytorch.org/vision/main/models/generated/torchvision.models.swin_t.html
     \hline
 \end{tabular}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\columnwidth]{Imagens/diagrama camadas modelo.pdf}
+
+    \caption{ Definição do modelo.}
+
+\end{figure}  
 \end{frame}
 
 
@@ -529,6 +571,7 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
 
 \section{Resultados} 
 \begin{frame}{Resultados do Modelo base}
+    \centering
     \fontsize{6pt}{7pt}\selectfont
     \begin{tabular}{*{6}{c}}
         \hline
@@ -612,22 +655,11 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
     \begin{figure}[!ht]
         \centering
         \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf}
-        \caption{ Arquitetura de modelo Swin-T proposto.
-        Fonte: Autor}
+        \caption{ Curva Precisão-Revocação para o modelo proposto. Fonte: Autor}
         \label{fig:CurvaPRSwint}
     \end{figure}       
 \end{frame}  
 
-
-
-\begin{frame}{Resultados e discussão}
-    \begin{figure}[!ht]
-        \centering
-        \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf}
-        \caption{ Arquitetura de modelo Swin-T proposto. Fonte: Autor}
-        \label{fig:CurvaPRSwint}
-    \end{figure}   
-\end{frame}
 
 
 \begin{frame}{Comparação de resultados}
@@ -676,19 +708,35 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
 \end{frame}    
 
 
-\begin{frame}{Resultados e discussão}
-    
-\end{frame}    
 
 
 \section{Conclusão} 
+\begin{frame}{Conclusão}
+    \begin{itemize}
+        \item Sensoriamento remoto
+        \item Aprendizado profundo
+        \item Metodologia para desenvolvimento de novos modelos
+        \item Redes CNN vs Transformers
+        \item Prova de conceito 
+    \end{itemize}
+%Este trabalho primeiro realizou um teórico sobre o sensoriamento remoto e aprendizado de máquina profundo, citando tanto conceitos fundamentais, como pontos onde as redes CNNs não apresentam bom desempenho, visando a criar um modelo aplicável á detecção de áreas irregulares como de garimpo e queimadas. Apresentou novas arquiteturas de outro paradigma de redes neurais. Contribuiu fornecendo a metodologia e aspectos necessários para realizar experimentos análogos.
 
-\begin{frame}
-\frametitle{Conclusão}
-%Com o principal objetivo de aplicação de regiões irregulares como garimpo, agropecuária e desmatamento, este trabalho utilizará técnicas estado da arte de visão computacional e aprendizado profundo, bem como trabalhará arquiteturas como redes convolucionais e Transformers Visuais. 
+%Também Foi possível realizar uma prova de conceito onde a arquitetura Swin é aplicável para o contexto de sensoreamento remoto para detecção de cenas.  Teve como ponto de partida um dataset da bacia da floresta amazônica com cenas de eventos comuns e raros e uma busca de metodologia para problemas análogos. Obteve-se um modelo baseado na arquitetura SWIN de melhor pontuação global e de principalmente nas classes raras, que indicou melhor capacidade de generalização sobre classes com poucas amostras aos já estabelecidos redes convolucionais residuais.
 
+%Embora não tenha sido possível realizar a mesma comparação com outros conjuntos de dados, como o já mencionado Amazon Ponds, pode-se demonstrar que o modelo obtido além de compatível para esse problema, consegue superar em métricas significativas arquiteturas já estabelecidas, sendo um forte arquitetura candidata para futuros sistemas de sensoriamento remoto.
+    
+\end{frame}    
 
-
+\begin{frame}{Trabalhos futuros}
+    \fontsize{7pt}{8pt}\selectfont
+\begin{itemize}
+    \item Visualização e explicabilidade do o extrator de características
+    \item Outros datasets para validação das conclusões
+    \item Embutir em uma aplicação
+    \item Perda Hamming, adequada para classificações multi-rótulos.
+    \item Geração de dados sintéticos para classes raras utilizando ruido gaussiano.
+    \item Canal de infravermelho próximo
+\end{itemize}
 \end{frame}
 
 \section{Referências} 

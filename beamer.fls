@@ -170,12 +170,12 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
-INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
-INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
-INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/share/texmf-dist/tex/latex/extsizes/size8.clo
+INPUT /usr/share/texmf-dist/tex/latex/extsizes/size8.clo
+INPUT /usr/share/texmf-dist/tex/latex/extsizes/size8.clo
+INPUT /usr/share/texmf-dist/tex/latex/extsizes/size8.clo
 INPUT /usr/share/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 INPUT /usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
@@ -940,7 +940,7 @@ INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
@@ -1113,7 +1113,7 @@ INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
@@ -1564,33 +1564,37 @@ INPUT ./beamer.nav
 INPUT beamer.nav
 INPUT beamer.nav
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT ./beamer.toc
+INPUT beamer.toc
+INPUT beamer.toc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omllmm.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi6.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy6.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
@@ -1605,8 +1609,8 @@ INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1616,9 +1620,10 @@ INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso8.tfm
 INPUT ./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg
@@ -1627,13 +1632,11 @@ INPUT Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg
 INPUT ./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg
 INPUT ./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ts1-lmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ts1-lmss8.tfm
 INPUT ./Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png
 INPUT ./Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png
 INPUT Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png
@@ -1649,26 +1652,17 @@ INPUT ./Imagens/matrix_confusão.png
 INPUT Imagens/matrix_confusão.png
 INPUT ./Imagens/matrix_confusão.png
 INPUT ./Imagens/matrix_confusão.png
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso8.tfm
+INPUT ./Imagens/pr_curve_orig.jpg
+INPUT ./Imagens/pr_curve_orig.jpg
+INPUT Imagens/pr_curve_orig.jpg
+INPUT ./Imagens/pr_curve_orig.jpg
+INPUT ./Imagens/pr_curve_orig.jpg
 INPUT ./Imagens/sigmoid-activation-function.jpg
 INPUT ./Imagens/sigmoid-activation-function.jpg
 INPUT Imagens/sigmoid-activation-function.jpg
@@ -1714,6 +1708,16 @@ INPUT ./Imagens/encoder.png
 INPUT Imagens/encoder.png
 INPUT ./Imagens/encoder.png
 INPUT ./Imagens/encoder.png
+INPUT ./Imagens/Scaled Dot-Product Attention.png
+INPUT ./Imagens/Scaled Dot-Product Attention.png
+INPUT Imagens/Scaled Dot-Product Attention.png
+INPUT ./Imagens/Scaled Dot-Product Attention.png
+INPUT ./Imagens/Scaled Dot-Product Attention.png
+INPUT ./Imagens/Multi-Head Attention.png
+INPUT ./Imagens/Multi-Head Attention.png
+INPUT Imagens/Multi-Head Attention.png
+INPUT ./Imagens/Multi-Head Attention.png
+INPUT ./Imagens/Multi-Head Attention.png
 INPUT ./Imagens/arquitetura swin.png
 INPUT ./Imagens/arquitetura swin.png
 INPUT Imagens/arquitetura swin.png
@@ -1724,13 +1728,6 @@ INPUT ./Imagens/chips.jpg
 INPUT Imagens/chips.jpg
 INPUT ./Imagens/chips.jpg
 INPUT ./Imagens/chips.jpg
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss9.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi9.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy9.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmsso9.tfm
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf
 INPUT Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf
@@ -1746,6 +1743,11 @@ INPUT ./Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf
 INPUT Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf
+INPUT ./Imagens/diagrama camadas modelo.pdf
+INPUT ./Imagens/diagrama camadas modelo.pdf
+INPUT Imagens/diagrama camadas modelo.pdf
+INPUT ./Imagens/diagrama camadas modelo.pdf
+INPUT ./Imagens/diagrama camadas modelo.pdf
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf
 INPUT ./Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf
 INPUT Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf
@@ -1780,15 +1782,12 @@ INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
 INPUT Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
-INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
-INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
-INPUT Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
-INPUT ./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf
 INPUT Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf
 INPUT ./Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ts1-lmss8.tfm
 INPUT ./beamer.bbl
 INPUT beamer.bbl
 INPUT ./beamer.bbl
@@ -1810,20 +1809,17 @@ INPUT ./beamer.out
 INPUT ./beamer.brf
 INPUT ./beamer.brf
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
-INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmssbo10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsso8.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
