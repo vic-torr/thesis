@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  14 DEC 2022 02:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.1)  15 DEC 2022 01:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -685,15 +685,34 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \l_MT_below_shortintertext_sep=\dimen322
 \xmathstrut@box=\box81
 \xmathstrut@dim=\dimen323
+) (/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen324
+\lightrulewidth=\dimen325
+\cmidrulewidth=\dimen326
+\belowrulesep=\dimen327
+\belowbottomsep=\dimen328
+\aboverulesep=\dimen329
+\abovetopsep=\dimen330
+\cmidrulesep=\dimen331
+\cmidrulekern=\dimen332
+\defaultaddspace=\dimen333
+\@cmidla=\count352
+\@cmidlb=\count353
+\@aboverulesep=\dimen334
+\@belowrulesep=\dimen335
+\@thisruleclass=\count354
+\@lastruleclass=\count355
+\@thisrulewidth=\dimen336
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2022/02/26 3.73 The Babel package
-\babel@savecnt=\count352
-\U@D=\dimen324
+\babel@savecnt=\count356
+\U@D=\dimen337
 \l@unhyphenated=\language87
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
 LaTeX Info: Redefining \textlatin on input line 3969.
-\bbl@dirlevel=\count353
+\bbl@dirlevel=\count357
  (/usr/share/texmf-dist/tex/generic/babel-portuges/portuguese.ldf
 Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
 Package babel Info: Making " an active character on input line 143.
@@ -709,8 +728,8 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 \bibindent=\skip69
 \minimumbiblabelwidth=\skip70
 \ABCIauxlen=\skip71
-\c@ABCIaux=\count354
-\c@ABCImax=\count355
+\c@ABCIaux=\count358
+\c@ABCImax=\count359
  (/usr/share/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 ) (/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
@@ -722,35 +741,67 @@ Package: relsize 2013/03/29 ver 4.1
 LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 618.
 \ABCItoken=\toks50
-) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty
+Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
+ (/usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks51
+\pgfopts@list@add@b@toks=\toks52
+) (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamerinnerthememetropolis.sty
+Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
+\metropolis@titleseparator@linewidth=\skip73
+\metropolis@progressonsectionpage=\skip74
+\metropolis@progressonsectionpage@linewidth=\skip75
+\metropolis@blocksep=\skip76
+\metropolis@blockadjust=\skip77
+\metropolis@parskip=\skip78
+) (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamerouterthememetropolis.sty
+Package: beamerouterthememetropolis 2017/01/23 Metropolis outer theme
+\metropolis@frametitle@padding=\skip79
+\metropolis@progressinheadfoot=\skip80
+\metropolis@progressinheadfoot@linewidth=\skip81
+) (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamercolorthememetropolis.sty
+Package: beamercolorthememetropolis 2017/01/23 Metropolis color theme
+) (/usr/share/texmf-dist/tex/latex/beamertheme-metropolis/beamerfontthememetropolis.sty
+Package: beamerfontthememetropolis 2017/01/23 Metropolis font theme
+ (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+
+Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts on input line 95.
+
+)) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count356
+\l__color_backend_stack_int=\count360
 \l__pdf_internal_box=\box82
 ) (./beamer.aux
 
 LaTeX Warning: Label `fig:metricas' multiply defined.
 
+
+LaTeX Warning: Label `fig:CurvaPRSwint' multiply defined.
+
 )
 \openout1 = `beamer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -788,24 +839,24 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count357
-\scratchdimen=\dimen325
+\scratchcounter=\count361
+\scratchdimen=\dimen338
 \scratchbox=\box83
-\nofMPsegments=\count358
-\nofMParguments=\count359
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count360
-\MPscratchDim=\dimen326
-\MPnumerator=\count361
-\makeMPintoPDFobject=\count362
-\everyMPtoPDFconversion=\toks52
+\nofMPsegments=\count362
+\nofMParguments=\count363
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count364
+\MPscratchDim=\dimen339
+\MPnumerator=\count365
+\makeMPintoPDFobject=\count366
+\everyMPtoPDFconversion=\toks54
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 45.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
@@ -813,61 +864,61 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count363
+\c@section@level=\count367
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (./beamer.out) (./beamer.out)
 \@outlinefile=\write5
 \openout5 = `beamer.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 37.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 37.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 37.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 37.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 45.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 37.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 37.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 37.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 37.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 37.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 37.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 37.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 37.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 37.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 37.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 37.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 37.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 37.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 37.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 37.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 37.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 37.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 45.
  (/usr/share/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -881,13 +932,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (/usr/share/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 37.
-Package microtype Info: Applying patch `item' on input line 37.
-Package microtype Info: Applying patch `toc' on input line 37.
-Package microtype Info: Applying patch `eqnum' on input line 37.
+LaTeX Info: Redefining \microtypecontext on input line 45.
+Package microtype Info: Applying patch `item' on input line 45.
+Package microtype Info: Applying patch `toc' on input line 45.
+Package microtype Info: Applying patch `eqnum' on input line 45.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 37.
+Package microtype Warning: Unable to apply patch `footnote' on input line 45.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -895,7 +946,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 37.
+LaTeX Info: Redefining \showhyphens on input line 45.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -905,18 +956,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-(./beamer.nav) [1
+(./beamer.nav)
+Overfull \vbox (46.55624pt too high) detected at line 47
+ []
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg, id=44, 1284.8pt x 856.19875pt>
-File: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg Graphic file (type jpg)
-<use Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>
-Package pdftex.def Info: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg  used on input line 54.
-(pdftex.def)             Requested size: 184.3758pt x 122.85878pt.
- [2
-
- <./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>]
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 68.
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 49.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -924,244 +971,396 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 68.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 49.
  (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 68.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 49.
  (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 68.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 49.
  (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 68.
+(Font)              <10.95> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 68.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 68.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 49.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 49.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
- [3
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 49.
+ [2
+
+] [3
 
 ]
-<Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png, id=97, 592.46344pt x 334.24875pt>
-File: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png Graphic file (type png)
-<use Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>
-Package pdftex.def Info: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png  used on input line 82.
-(pdftex.def)             Requested size: 276.559pt x 156.03098pt.
+<Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg, id=70, 1284.8pt x 856.19875pt>
+File: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg Graphic file (type jpg)
+<use Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>
+Package pdftex.def Info: Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg  used on input line 63.
+(pdftex.def)             Requested size: 184.3758pt x 122.85878pt.
  [4
 
- <./Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>] [5
-
-] [6
+ <./Imagens/Ti-Munduruku-Foto_Marizilda_Cruppe_Amazônia_Real.jpg>] [5
 
 ]
-<Imagens/Precisão_e_revocação_cropped.png, id=193, 95.83002pt x 60.7068pt>
-File: Imagens/Precisão_e_revocação_cropped.png Graphic file (type png)
-<use Imagens/Precisão_e_revocação_cropped.png>
-Package pdftex.def Info: Imagens/Precisão_e_revocação_cropped.png  used on input line 126.
-(pdftex.def)             Requested size: 307.28987pt x 194.69826pt.
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 76.
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
+File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [6
+
+]
+<Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png, id=89, 592.46344pt x 334.24875pt>
+File: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png Graphic file (type png)
+<use Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>
+Package pdftex.def Info: Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png  used on input line 89.
+(pdftex.def)             Requested size: 276.559pt x 156.03098pt.
  [7
 
+ <./Imagens/instrutorgis_sensoriamento_remoto_ilustracao.png>] [8
+
+] [9
+
+]
+<Imagens/Precisão_e_revocação_cropped.png, id=125, 95.83002pt x 60.7068pt>
+File: Imagens/Precisão_e_revocação_cropped.png Graphic file (type png)
+<use Imagens/Precisão_e_revocação_cropped.png>
+Package pdftex.def Info: Imagens/Precisão_e_revocação_cropped.png  used on input line 132.
+(pdftex.def)             Requested size: 215.10196pt x 136.26572pt.
+ [10
+
  <./Imagens/Precisão_e_revocação_cropped.png>]
-<Imagens/matrix_confusão.png, id=222, 941.5175pt x 327.2225pt>
+<Imagens/matrix_confusão.png, id=133, 941.5175pt x 327.2225pt>
 File: Imagens/matrix_confusão.png Graphic file (type png)
 <use Imagens/matrix_confusão.png>
-Package pdftex.def Info: Imagens/matrix_confusão.png  used on input line 140.
+Package pdftex.def Info: Imagens/matrix_confusão.png  used on input line 145.
 (pdftex.def)             Requested size: 184.3758pt x 64.08025pt.
- [8
+
+Overfull \vbox (1.50804pt too high) detected at line 145
+ []
+
+[11
 
  <./Imagens/matrix_confusão.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 152.
+(Font)              <10> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 152.
+(Font)              <7> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 152.
+(Font)              <5> on input line 156.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 152.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 156.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 152.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 156.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 152.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 156.
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:metricas}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.152 \end{frame}
-                  [9
+l.156 \end{frame}
+                  [12
 
 ]
-<Imagens/sigmoid-activation-function.jpg, id=277, 274.77657pt x 218.31563pt>
+<Imagens/sigmoid-activation-function.jpg, id=147, 274.77657pt x 218.31563pt>
 File: Imagens/sigmoid-activation-function.jpg Graphic file (type jpg)
 <use Imagens/sigmoid-activation-function.jpg>
-Package pdftex.def Info: Imagens/sigmoid-activation-function.jpg  used on input line 168.
+Package pdftex.def Info: Imagens/sigmoid-activation-function.jpg  used on input line 171.
 (pdftex.def)             Requested size: 122.91406pt x 97.65814pt.
- [10
+ [13
 
  <./Imagens/sigmoid-activation-function.jpg>]
-<Imagens/stochastic_gradient_descent.PNG, id=304, 566.86781pt x 261.97874pt>
+<Imagens/stochastic_gradient_descent.PNG, id=155, 566.86781pt x 261.97874pt>
 File: Imagens/stochastic_gradient_descent.PNG Graphic file (type png)
 <use Imagens/stochastic_gradient_descent.PNG>
-Package pdftex.def Info: Imagens/stochastic_gradient_descent.PNG  used on input line 185.
+Package pdftex.def Info: Imagens/stochastic_gradient_descent.PNG  used on input line 187.
 (pdftex.def)             Requested size: 184.3758pt x 85.21004pt.
- [11
+ [14
 
- <./Imagens/stochastic_gradient_descent.png>] [12
+ <./Imagens/stochastic_gradient_descent.png>] [15
 
 ]
-<Imagens/RedeNeural.PNG, id=360, 1405.25pt x 776.9025pt>
+<Imagens/RedeNeural.PNG, id=170, 1405.25pt x 776.9025pt>
 File: Imagens/RedeNeural.PNG Graphic file (type png)
 <use Imagens/RedeNeural.PNG>
 Package pdftex.def Info: Imagens/RedeNeural.PNG  used on input line 219.
 (pdftex.def)             Requested size: 184.3758pt x 101.92552pt.
- [13
-
- <./Imagens/RedeNeural.PNG (PNG copy)>]
-<Imagens/CNN_mathworks.jpg, id=388, 1003.75pt x 341.275pt>
-File: Imagens/CNN_mathworks.jpg Graphic file (type jpg)
-<use Imagens/CNN_mathworks.jpg>
-Package pdftex.def Info: Imagens/CNN_mathworks.jpg  used on input line 241.
-(pdftex.def)             Requested size: 291.92444pt x 99.25362pt.
- [14
-
- <./Imagens/CNN_mathworks.jpg>]
-<Imagens/operacao_conv.png, id=415, 680.5425pt x 463.7325pt>
-File: Imagens/operacao_conv.png Graphic file (type png)
-<use Imagens/operacao_conv.png>
-Package pdftex.def Info: Imagens/operacao_conv.png  used on input line 264.
-(pdftex.def)             Requested size: 184.3758pt x 125.634pt.
- [15
-
- <./Imagens/operacao_conv.png (PNG copy)>]
-<Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg, id=442, 393.69083pt x 130.26668pt>
-File: Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg Graphic file (type jpg)
-<use Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg>
-Package pdftex.def Info: Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg  used on input line 277.
-(pdftex.def)             Requested size: 276.559pt x 91.50804pt.
  [16
 
+ <./Imagens/RedeNeural.PNG (PNG copy)>]
+<Imagens/CNN_mathworks.jpg, id=178, 1003.75pt x 341.275pt>
+File: Imagens/CNN_mathworks.jpg Graphic file (type jpg)
+<use Imagens/CNN_mathworks.jpg>
+Package pdftex.def Info: Imagens/CNN_mathworks.jpg  used on input line 240.
+(pdftex.def)             Requested size: 291.92444pt x 99.25362pt.
+ [17
+
+ <./Imagens/CNN_mathworks.jpg>]
+<Imagens/operacao_conv.png, id=185, 510.40688pt x 347.79938pt>
+File: Imagens/operacao_conv.png Graphic file (type png)
+<use Imagens/operacao_conv.png>
+Package pdftex.def Info: Imagens/operacao_conv.png  used on input line 266.
+(pdftex.def)             Requested size: 138.2795pt x 94.2255pt.
+<Imagens/mapextrackt.jpg, id=186, 803.0pt x 602.25pt>
+File: Imagens/mapextrackt.jpg Graphic file (type jpg)
+<use Imagens/mapextrackt.jpg>
+Package pdftex.def Info: Imagens/mapextrackt.jpg  used on input line 266.
+(pdftex.def)             Requested size: 138.2795pt x 103.70444pt.
+ [18
+
+ <./Imagens/operacao_conv.png> <./Imagens/mapextrackt.jpg>]
+<Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg, id=193, 393.69083pt x 130.26668pt>
+File: Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg Graphic file (type jpg)
+<use Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg>
+Package pdftex.def Info: Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg  used on input line 278.
+(pdftex.def)             Requested size: 276.559pt x 91.50804pt.
+ [19
+
  <./Imagens/An-illustration-of-the-deep-residual-network-ResNet-structure-More-shortcut.jpg>]
-<Imagens/vit.png, id=470, 543.53062pt x 410.2828pt>
+<Imagens/vit.png, id=201, 543.53062pt x 410.2828pt>
 File: Imagens/vit.png Graphic file (type png)
 <use Imagens/vit.png>
 Package pdftex.def Info: Imagens/vit.png  used on input line 295.
 (pdftex.def)             Requested size: 215.10196pt x 162.36981pt.
-<Imagens/encoder.png, id=471, 207.77625pt x 411.78844pt>
+<Imagens/encoder.png, id=202, 207.77625pt x 411.78844pt>
 File: Imagens/encoder.png Graphic file (type png)
 <use Imagens/encoder.png>
 Package pdftex.def Info: Imagens/encoder.png  used on input line 295.
 (pdftex.def)             Requested size: 61.45703pt x 121.79698pt.
- [17
-
- <./Imagens/vit.png (PNG copy)> <./Imagens/encoder.png (PNG copy)>]
-<Imagens/arquitetura swin.png, id=503, 2394.9475pt x 1316.92pt>
-File: Imagens/arquitetura swin.png Graphic file (type png)
-<use Imagens/arquitetura swin.png>
-Package pdftex.def Info: Imagens/arquitetura swin.png  used on input line 308.
-(pdftex.def)             Requested size: 307.28987pt x 168.95502pt.
- [18
-
- <./Imagens/arquitetura swin.png>] [19
-
-]
-<Imagens/chips.jpg, id=574, 2308.625pt x 788.9475pt>
-File: Imagens/chips.jpg Graphic file (type jpg)
-<use Imagens/chips.jpg>
-Package pdftex.def Info: Imagens/chips.jpg  used on input line 339.
-(pdftex.def)             Requested size: 276.559pt x 94.50107pt.
  [20
 
- <./Imagens/chips.jpg>] [21
+ <./Imagens/vit.png (PNG copy)> <./Imagens/encoder.png (PNG copy)>]
+<Imagens/arquitetura swin.png, id=214, 2394.9475pt x 1316.92pt>
+File: Imagens/arquitetura swin.png Graphic file (type png)
+<use Imagens/arquitetura swin.png>
+Package pdftex.def Info: Imagens/arquitetura swin.png  used on input line 307.
+(pdftex.def)             Requested size: 307.28987pt x 168.95502pt.
+ [21
 
-] [22
+ <./Imagens/arquitetura swin.png>] [22
 
 ] [23
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 412.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 412.
+<Imagens/chips.jpg, id=251, 2308.625pt x 788.9475pt>
+File: Imagens/chips.jpg Graphic file (type jpg)
+<use Imagens/chips.jpg>
+Package pdftex.def Info: Imagens/chips.jpg  used on input line 336.
+(pdftex.def)             Requested size: 276.559pt x 94.50107pt.
  [24
 
-]
-<Imagens/results/EDA/Class Sampling.jpg, id=709, 1150.5384pt x 1199.682pt>
-File: Imagens/results/EDA/Class Sampling.jpg Graphic file (type jpg)
-<use Imagens/results/EDA/Class Sampling.jpg>
-Package pdftex.def Info: Imagens/results/EDA/Class Sampling.jpg  used on input line 426.
-(pdftex.def)             Requested size: 307.28987pt x 320.40378pt.
+ <./Imagens/chips.jpg>] [25
 
-Overfull \vbox (109.13065pt too high) detected at line 426
- []
+] [26
 
-[25
-
- <./Imagens/results/EDA/Class Sampling.jpg>]
-<Imagens/results/EDA/matriz de coocorrencia.png, id=737, 466.1415pt x 386.6445pt>
-File: Imagens/results/EDA/matriz de coocorrencia.png Graphic file (type png)
-<use Imagens/results/EDA/matriz de coocorrencia.png>
-Package pdftex.def Info: Imagens/results/EDA/matriz de coocorrencia.png  used on input line 438.
-(pdftex.def)             Requested size: 245.83282pt x 203.91176pt.
- [26
-
- <./Imagens/results/EDA/matriz de coocorrencia.png>]
-<Imagens/results/EDA/TSNE.png, id=765, 586.19pt x 575.14874pt>
-File: Imagens/results/EDA/TSNE.png Graphic file (type png)
-<use Imagens/results/EDA/TSNE.png>
-Package pdftex.def Info: Imagens/results/EDA/TSNE.png  used on input line 450.
-(pdftex.def)             Requested size: 215.10196pt x 211.0465pt.
- [27
-
- <./Imagens/results/EDA/TSNE.png>] [28
+] [27
 
 ]
-Overfull \hbox (5.55632pt too wide) in paragraph at lines 475--475
-[][]  
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 405.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 405.
+ [28
+
+]
+<Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf, id=285, 867.24pt x 1228.59pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf  used on input line 419.
+(pdftex.def)             Requested size: 307.28987pt x 435.31827pt.
+
+Overfull \vbox (259.57243pt too high) detected at line 419
  []
 
 [29
 
-] [30
+ <./Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf>]
+<Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf, id=358, 462.52798pt x 346.89601pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf  used on input line 430.
+(pdftex.def)             Requested size: 245.83282pt x 184.37802pt.
 
-] [31
+Overfull \vbox (8.63219pt too high) detected at line 430
+ []
 
-] [32
+[30
 
-] [33
+ <./Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf>]
+<Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf, id=400, 794.97pt x 794.97pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf  used on input line 441.
+(pdftex.def)             Requested size: 215.10196pt x 215.10571pt.
+
+Overfull \vbox (39.35988pt too high) detected at line 441
+ []
+
+[31
+
+ <./Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf>] [32
+
+]
+Overfull \hbox (5.55632pt too wide) in paragraph at lines 465--465
+[][]  
+ []
+
+[33
+
+] [34
+
+]
+<Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf, id=426, 602.25pt x 376.52669pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf  used on input line 501.
+(pdftex.def)             Requested size: 169.01036pt x 105.66231pt.
+<Imagens/results/rsp-resnet-50_planet_pt/Pontuação em treino e validação por época.pdf, id=427, 451.6875pt x 376.52669pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Pontuação em treino e validação por época.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Pontuação em treino e validação por época.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Pontuação em treino e validação por época.pdf  used on input line 501.
+(pdftex.def)             Requested size: 122.91406pt x 102.46216pt.
+ [35
+
+ <./Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf> <./Imagens/results/rsp-resnet-50_planet_pt/Pontuação em treino e validação por época.pdf>]
+File: Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf  used on input line 516.
+(pdftex.def)             Requested size: 169.01036pt x 105.66231pt.
+<Imagens/results/rsp-swin-t_planet_pt/Pontuação em treino e validação por época.pdf, id=457, 451.6875pt x 376.52669pt>
+File: Imagens/results/rsp-swin-t_planet_pt/Pontuação em treino e validação por época.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-swin-t_planet_pt/Pontuação em treino e validação por época.pdf>
+Package pdftex.def Info: Imagens/results/rsp-swin-t_planet_pt/Pontuação em treino e validação por época.pdf  used on input line 516.
+(pdftex.def)             Requested size: 122.91406pt x 102.46216pt.
+ [36
+
+ <./Imagens/results/rsp-swin-t_planet_pt/Pontuação em treino e validação por época.pdf>]
+<Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf, id=475, 752.8125pt x 752.8125pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf  used on input line 527.
+(pdftex.def)             Requested size: 194.57793pt x 194.58498pt.
+
+Overfull \vbox (18.83914pt too high) detected at line 527
+ []
+
+[37
+
+ <./Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf>] [38
+
+] [39
+
+] [40
+
+]
+<Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf, id=524, 602.25pt x 376.52669pt>
+File: Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf>
+Package pdftex.def Info: Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf  used on input line 588.
+(pdftex.def)             Requested size: 307.28987pt x 192.12373pt.
+
+Overfull \vbox (16.3779pt too high) detected at line 588
+ []
+
+[41
+
+ <./Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf>] [42
+
+]
+<Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf, id=547, 602.25pt x 376.52669pt>
+File: Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf>
+Package pdftex.def Info: Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf  used on input line 619.
+(pdftex.def)             Requested size: 307.28987pt x 192.12373pt.
+
+Overfull \vbox (16.3779pt too high) detected at line 619
+ []
+
+[43
+
+ <./Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf>]
+File: Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf>
+Package pdftex.def Info: Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf  used on input line 630.
+(pdftex.def)             Requested size: 307.28987pt x 192.12373pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{fig:CurvaPRSwint}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.630 \end{frame}
+                 
+Overfull \vbox (16.3779pt too high) detected at line 630
+ []
+
+[44
+
+] [45
+
+]
+Overfull \hbox (76.16022pt too wide) in paragraph at lines 666--666
+[][]  
+ []
+
+[46
+
+]
+<Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf, id=580, 867.24pt x 1228.59pt>
+File: Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf Graphic file (type pdf)
+<use Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf>
+Package pdftex.def Info: Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf  used on input line 676.
+(pdftex.def)             Requested size: 170.26047pt x 241.19568pt.
+
+Overfull \vbox (39.44984pt too high) detected at line 676
+ []
+
+[47
+
+ <./Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf>] [48
+
+] [49
+
+] [50
+
+] [51
 
 ] (./beamer.bbl (./beamer.brf)
 \tf@brf=\write6
 \openout6 = `beamer.brf'.
 
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 29.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34
+ [52
 
  </usr/share/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]) [36]
+ [53]) [54]
 \tf@nav=\write7
 \openout7 = `beamer.nav'.
 
@@ -1176,23 +1375,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `beamer.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: CDD15A48085013058A0C639DF3F58E74;1016.
 Package rerunfilecheck Info: File `beamer.brf' has not changed.
-(rerunfilecheck)             Checksum: 2185AD7AA50FFDE364CD252B40D9BE2F;384.
+(rerunfilecheck)             Checksum: 8D5B1FB2DD41A6B27DA4D3E8A8D3E812;384.
  ) 
 Here is how much of TeX's memory you used:
- 30598 strings out of 478238
- 597756 string characters out of 5850456
- 889553 words of memory out of 5000000
- 47996 multiletter control sequences out of 15000+600000
- 548332 words of font info for 144 fonts, out of 8000000 for 9000
+ 31499 strings out of 478238
+ 627898 string characters out of 5850456
+ 905354 words of memory out of 5000000
+ 48758 multiletter control sequences out of 15000+600000
+ 567820 words of font info for 175 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,104p,1105b,869s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on beamer.pdf (36 pages, 5537153 bytes).
+ 99i,14n,104p,1850b,1201s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbo10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on beamer.pdf (54 pages, 7227447 bytes).
 PDF statistics:
- 1129 PDF objects out of 1200 (max. 8388607)
- 1014 compressed objects within 11 object streams
- 98 named destinations out of 1000 (max. 500000)
- 47232 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 826 PDF objects out of 1000 (max. 8388607)
+ 536 compressed objects within 6 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 61680 words of extra memory for PDF output out of 61914 (max. 10000000)
 

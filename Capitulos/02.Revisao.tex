@@ -64,7 +64,7 @@ Outras métricas também podem ser interessantes em casos onde amostras das clas
     \centering
     \begin{minipage}[c]{0.4\textwidth}
         \includegraphics[width=\columnwidth]{Imagens/Precisão_e_revocação.png}
-        \caption{Ilustração das métricas de precisão e revocação.}
+        \caption{Ilustração das métricas de precisão e revocação. Fonte: WikiCommons}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
         \includegraphics[width=\columnwidth]{Imagens/matrix_confusão.png}
@@ -126,7 +126,7 @@ Pode ser interpretada como probabilidade, portanto $\sigma(z(x))$ é a probabili
     \centering
     \begin{minipage}[c]{0.4\textwidth}
         \includegraphics[width=\columnwidth]{Imagens/sigmoid-activation-function.jpg}
-        \caption{Função de ativação \textit{Sigmoid}.}
+        \caption{Função de ativação \textit{Sigmoid}. Fonte: WikiCommons}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
         \begin{equation} Sigmoid(x) = \sigma(x) = \frac{1} {1+ exp(-x)}\end{equation}
@@ -158,11 +158,11 @@ Pode ser interpretada como probabilidade, portanto $\sigma(z(x))$ é a probabili
 \subsection{Redes Neurais Artificiais Profundas}\label{sec:Cap2_redes_neurais_profundas}
 O termo redes neurais profundas e o aprendizado profundo, ou comumente chamado de \textit{deep learning}, se refere a redes neurais artificiais com múltiplas camadas ocultas. Foram uma das tecnologias maior desenvolvidas nos últimos anos, e se tornaram cada vez mais popular. Devido a sua superior \textit{performance} em extração de características, teve sucesso por distintos domínios, como visão computacional, reconhecimento de fala, processamento natural de linguagem e em big data.
 
-Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Sobre-ajuste}. Se trata de quando o modelo é treinado e para gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de DNNs\footnote{\textit{Deep Neural Networks}}, podemos citar o \textit{Dropout, Dropconnect e pruning}, que consistem em respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.
+Um dos riscos envolvendo o treinamento de redes neurais profundas é o problema de \textit{overfiting}\footnote{Do inglês, traduzido como Sobre-ajuste.}. Se trata de quando o modelo é treinado e para gerar uma função próxima demais aos dados de treino, e perdem generalidade, falhando em predições em dados fora do conjunto de treino. Para mitigar o surgimento de \textit{overfiting} durante o treino, são utilizadas técnicas de regularização. Consistem em adicionar penalidade à complexidade do modelo, de forma que o treino otimize para se tornar uma função genérica. Dentre as técnicas de regularização possíveis de redes neurais profundas, podemos citar o \textit{Dropout, Drop-connect e pruning}, que consistem em respectivamente a remoção, adição de conexão entre neurônios e remoção de neurônios~\cite{hastie01statisticallearning}.
 
 
 \subsection{Redes Neurais Convolucionais}\label{sec:Cap2_redes_neurais_convolucionais}
-Uma arquitetura clássica é a rede neural convolucional (CNN\footnote{\textit{Convolutional Neural Network}}), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
+Uma arquitetura clássica é a rede neural convolucional (CNN\footnote{Do inglês \textit{Convolutional Neural Network}m}, ou Redes Neurais Convolucionais), que utiliza convoluções para extrair características de uma imagem entre cada camada de filtros. Também possui camadas de \textit{pooling}, não lineares e camadas completamente conectadas~\cite{8308186}. Uma dos pressupostos das \textit{CNNs} é os filtros serem indiferentes a translações das características na imagem, possibilitando assim uma eficiente extração de características para composição e identificação da imagem.
 
 
 Em 2012, o modelo de CNN AlexNet ultrapassou em desempenho os modelos do estado da arte em uma grande margem. Dois fatores promoveram tal degrau de evolução: a disponibilidade de grandes \textit{datasets}\footnote{Conjunto de dados} como o ImageNet e a comoditização de placas gráficas, que promoveram significativamente mais poder computacional para treino, já que são aceleradores de operações vetorizadas e sobre matrizes. Dessa forma, desde 2012 CNNs se tornaram o modelo padrão para tarefas de visão computacional \cite{alom2018history}.

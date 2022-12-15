@@ -140,17 +140,17 @@ Pela distribuição de classes em \ref{table:proporcao_classes}, podemos observa
     Florescimento           &          blooming &        332     &       0,820 \\
     Garimpo                 &    artisinal mine &        339     &       0,837 \\
     Desmatamento Seletivo   & selective logging &        340     &       0,840 \\
-    Área Descoberta         &       bare ground &        862     &       2.129 \\
-    Nublado                 &            cloudy &       2089     &       5.161 \\
-    Névoa                   &              haze &       2697     &       6.663 \\
-    Habitação               &        habitation &       3660     &       9.042 \\
-    Cultivação              &       cultivation &       4547     &      11.233 \\
-    Parcialmente Nublado    &     partly cloudy &       7261     &      17.938 \\
-    Águas                   &             water &       7411     &      18.308 \\
-    Estrada                 &              road &       8071     &      19.939 \\
-    Agricultura             &       agriculture &      12315     &      30.423 \\
-    Clima Limpo             &             clear &      28431     &      70.236 \\
-    Vegetação Primária      &           primary &      37513     &      92.673 \\
+    Área Descoberta         &       bare ground &        862     &       2,129 \\
+    Nublado                 &            cloudy &       2089     &       5,161 \\
+    Névoa                   &              haze &       2697     &       6,663 \\
+    Habitação               &        habitation &       3660     &       9,042 \\
+    Cultivação              &       cultivation &       4547     &      11,233 \\
+    Parcialmente Nublado    &     partly cloudy &       7261     &      17,938 \\
+    Águas                   &             water &       7411     &      18,308 \\
+    Estrada                 &              road &       8071     &      19,939 \\
+    Agricultura             &       agriculture &      12315     &      30,423 \\
+    Clima Limpo             &             clear &      28431     &      70,236 \\
+    Vegetação Primária      &           primary &      37513     &      92,673 \\
     \bottomrule
 \end{tabular}
 \label{table:proporcao_classes}
@@ -161,7 +161,7 @@ Pela distribuição de classes em \ref{table:proporcao_classes}, podemos observa
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/EDA/Class Sampling.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Amostras de cada classe.pdf}
     \caption{Amostragem de cada classe de rótulo.
     Fonte: Autor}
    \label{fig:classes}
@@ -176,7 +176,7 @@ Outra técnica de agrupamento e semelhança entre amostras é o t-SNE\footnote[5
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Imagens/results/EDA/matriz de coocorrencia.png}
+    \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matriz de Co-ocorrência.pdf}
     \caption{Matriz de co-ocorrência.
     Fonte: Autor}
    \label{fig:coocorrencia}
@@ -184,7 +184,7 @@ Outra técnica de agrupamento e semelhança entre amostras é o t-SNE\footnote[5
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.7\columnwidth]{Imagens/results/EDA/TSNE.png}
+    \includegraphics[width=0.7\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/TSNE Clustering.pdf}
     \caption{Agrupamento de amostras via técnica TSNE.
     Fonte: Autor}
    \label{fig:TSNE}
@@ -303,14 +303,14 @@ Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gr�
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/pontuação em treino e validação por época.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/pontuação em treino e validação por época.pdf}
     \caption{ Métrica F2 em treino e validação por época para a rede ResNet50. Fonte: Autor}
     \label{fig:TreinoResnetScore}
 \end{figure}  
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Training Loss Per Minibatch.pdf}
     \caption{ Métrica de perda em treino e validação por época para a rede ResNet50. Fonte: Autor}
     \label{fig:TreinoResnetPerda}
 \end{figure}
@@ -322,14 +322,14 @@ Foram registradas as métricas durante o treino no modelo dos modelos. Pelos gr�
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/pontuação em treino e validação por época.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/pontuação em treino e validação por época.pdf}
     \caption{ Métrica F2 em treino e validação por época para a rede Swin-T. Fonte: Autor}
     \label{fig:PontuacaoTrainSwin}
 \end{figure}  
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Training Loss Per Minibatch.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Training Loss Per Minibatch.pdf}
     \caption{ Métrica de perda em treino e validação por época para a rede Swin-T. Fonte: Autor}
     \label{fig:LossTrainSwin}
 \end{figure}

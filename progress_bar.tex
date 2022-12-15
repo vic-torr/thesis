@@ -1,0 +1,13 @@
+\setbeamercolor{progress bar progress}{use=progress bar,bg=progress bar.fg}
+\defbeamertemplate{footline}{progress bar}{
+  \dimen0=\paperwidth
+  \multiply\dimen0 by \insertframenumber
+  \divide\dimen0 by \inserttotalframenumber
+  \edef\progressbarwidth{\the\dimen0}
+
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.75ex,dp=1ex]{progress bar}
+    \begin{beamercolorbox}[wd=\progressbarwidth,ht=1.75ex,dp=1ex]{progress bar progress}
+    \end{beamercolorbox}%
+  \end{beamercolorbox}%
+}

@@ -8,9 +8,8 @@ O classificador base pôde ser mensurado pelas métricas $F_2$ e áreas das curv
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.jpg}
-    \caption{ Matriz Confusão Resnet-50
-    Fonte: Autor}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Matrizes confusão.pdf}
+    \caption{ Matriz Confusão para o modelo base Resnet-50. Fonte: Autor}
     \label{fig:Matriz Confusao Resnet50}
 \end{figure} 
 
@@ -69,7 +68,7 @@ O desempenho do modelo base para cada classe foi sumarizado a seguir, em ordem c
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Curva COR para classes raras.jpg}
+    \includegraphics[width=0.8\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Curva COR para classes raras.pdf}
     \caption{ Curva COR para o modelo base. Fonte: Autor}
    \label{fig:CurvaCORResnet50}
 \end{figure} 
@@ -105,9 +104,8 @@ Sintetizando os mesmos resultados anteriores para as classes escassas da tabela 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.jpg}
-    \caption{ Curva PR para o modelo base.
-    Fonte: Autor}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-resnet-50_planet_pt/Curva PR para classes raras.pdf}
+    \caption{ Curva PR para o modelo base. Fonte: Autor}
    \label{fig:CurvaPRResnet50}
 \end{figure}   
 
@@ -118,16 +116,10 @@ Sintetizando os mesmos resultados anteriores para as classes escassas da tabela 
 
 Reproduzindo os mesmos procedimentos anteriores para o modelo Swin-T os mesmos resultados anteriores para as classes escassas da tabela \ref{table:Classes raras}, temos a tabela \ref{table:ResultadosSwinT}. 
 
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.jpg}
-    \caption{ Arquitetura de modelo Swin-T proposto.
-    Fonte: Autor}
-    \label{fig:CurvaPRSwint}
-\end{figure}   
+
 
 \begin{table}[h!]
-        \caption{Resultados do Modelo Swin-T}
+        \caption{Resultados do Modelo proposto Swin-T}
         \centering
     \begin{tabular}{*{6}{c}}
         \toprule
@@ -145,7 +137,14 @@ Reproduzindo os mesmos procedimentos anteriores para o modelo Swin-T os mesmos r
     \end{tabular}
     \label{table:ResultadosSwinT}
 \end{table}
-    
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Curva PR para classes raras.pdf}
+    \caption{ Arquitetura de modelo Swin-T proposto.
+    Fonte: Autor}
+    \label{fig:CurvaPRSwint}
+\end{figure}       
     
 \section{\textit{Comparação de resultados}}\label{sec:Cap4_Comparação de resultados}    
 
@@ -201,7 +200,7 @@ Para uma validação final, podemos inspecionar visualmente as probabilidades ma
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.jpg}
+    \includegraphics[width=\columnwidth]{Imagens/results/rsp-swin-t_planet_pt/Inferência para cada classe.pdf}
     \caption{ Probabilidade de inferência para cada classe.
     Fonte: Autor}
     \label{fig:InferenciaClassesSwin}

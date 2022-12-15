@@ -394,17 +394,17 @@ Q(w) = \frac{1}{n}\sum_i Q_i(w)\;\;\;\;\implies\;\;\;\; \nabla Q(w) = \frac{1}{n
         Florescimento           &          blooming &        332     &       0,820 \\
         Garimpo                 &    artisinal mine &        339     &       0,837 \\
         Desmatamento Seletivo   & selective logging &        340     &       0,840 \\
-        Área Descoberta         &       bare ground &        862     &       2.129 \\
-        Nublado                 &            cloudy &       2089     &       5.161 \\
-        Névoa                   &              haze &       2697     &       6.663 \\
-        Habitação               &        habitation &       3660     &       9.042 \\
-        Cultivação              &       cultivation &       4547     &      11.233 \\
-        Parcialmente Nublado    &     partly cloudy &       7261     &      17.938 \\
-        Águas                   &             water &       7411     &      18.308 \\
-        Estrada                 &              road &       8071     &      19.939 \\
-        Agricultura             &       agriculture &      12315     &      30.423 \\
-        Clima Limpo             &             clear &      28431     &      70.236 \\
-        Vegetação Primária      &           primary &      37513     &      92.673 \\
+        Área Descoberta         &       bare ground &        862     &       2,129 \\
+        Nublado                 &            cloudy &       2089     &       5,161 \\
+        Névoa                   &              haze &       2697     &       6,663 \\
+        Habitação               &        habitation &       3660     &       9,042 \\
+        Cultivação              &       cultivation &       4547     &      11,233 \\
+        Parcialmente Nublado    &     partly cloudy &       7261     &      17,938 \\
+        Águas                   &             water &       7411     &      18,308 \\
+        Estrada                 &              road &       8071     &      19,939 \\
+        Agricultura             &       agriculture &      12315     &      30,423 \\
+        Clima Limpo             &             clear &      28431     &      70,236 \\
+        Vegetação Primária      &           primary &      37513     &      92,673 \\
         \hline
     \end{tabular}
     %\label{table:proporcao_classes}
